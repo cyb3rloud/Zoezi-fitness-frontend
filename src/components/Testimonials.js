@@ -30,7 +30,7 @@ function Testimonials() {
               <label> Your Email </label>
               <input type="text" name="email" placeholder="Email" />
               <label> Rating </label>
-              {/* <StarRating /> */}
+              <StarRating />
             </div>
           </div>
           <button type="submit">Submit</button>
