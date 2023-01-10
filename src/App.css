@@ -383,3 +383,17 @@ p{
   border-radius: 100% / 0 0 30% 30%;
   background: white;
 }
+
+/* star-rating */
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  color: #FFD700;
+}
+.off {
+  color: #ccc;
+}
