@@ -54,10 +54,14 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
+  width: 25px;
 }
 .on {
-  color: #FFD700;
+  color: #ffd700;
 }
 .off {
   color: #ccc;
+}
+.star {
+  font-size: 25px;
 }
