@@ -1,41 +1,75 @@
 import React from "react";
-import StarRating from "./Star-rating";
+import Footer from "./Footer";
+import Navbar from "./Navbar"
+import StarRating from "../components/StarRating";
+import "../assets/css/testimonials.css"
 
 function Testimonials() {
   return (
-    <div>
+    <div className="testimonials-page">
+      <Navbar />
       <h1>Testimonials</h1>
-      <div>
-        <div>
-          <img src="src/images/push-up.jpg" alt="avatar" />
-          <img src="src/images/star.svg" alt="rating" />
+      <div className="testimonials">
+        <div className="testimony">
+          <img src="" alt="" />
+          <StarRating />
           <p>
             “Excellent training exercises and trainers who are dedicated to
             ensuring that your dreams are achieved ”
           </p>
-          <h3> ~ Stewart Wanyoike ~ </h3>
+          <h5> ~ Stewart Wanyoike ~ </h5>
+        </div>
+        <div className="testimony">
+          <img src="" alt="" />
+          <StarRating />
+          <p>
+            “Excellent training exercises and trainers who are dedicated to
+            ensuring that your dreams are achieved ”
+          </p>
+          <h5> ~ Stewart Wanyoike ~ </h5>
+        </div>
+        <div className="testimony">
+          <img src="" alt="" />
+          <StarRating />
+          <p>
+            “Excellent training exercises and trainers who are dedicated to
+            ensuring that your dreams are achieved ”
+          </p>
+          <h5> ~ Stewart Wanyoike ~ </h5>
+        </div>
+        <div className="testimony">
+          <img src="" alt="" />
+          <StarRating />
+          <p>
+            “Excellent training exercises and trainers who are dedicated to
+            ensuring that your dreams are achieved ”
+          </p>
+          <h5> ~ Stewart Wanyoike ~ </h5>
         </div>
       </div>
-      <div>
+      <div className="testimony-form">
         <h1>Tell us your story</h1>
         <form>
-          <div>
+          <div className="form-table">
             <div>
-              <label> Your Name </label>
-              <input type="text" name="name" placeholder="Name" />
-              <label> Your Story </label>
-              <input type="text" name="story" placeholder="Story" />
+              <label for="name"> Your Name </label> <br />
+              <input type="text" name="name" />
+              <label for="story"> Your Story </label> <br />
+              <input type="text" name="story" />
             </div>
             <div>
-              <label> Your Email </label>
-              <input type="text" name="email" placeholder="Email" />
-              <label> Rating </label>
+              <label for="e,mail"> Your Email </label> <br />
+              <input type="text" name="email" /> <br />
+              <label for="rating"> Rating </label> <br />
               <StarRating />
             </div>
           </div>
-          <button type="submit">Submit</button>
+          <button className="form-button" type="submit">
+            Submit
+          </button>
         </form>
       </div>
+      <Footer />
     </div>
   );
 }
