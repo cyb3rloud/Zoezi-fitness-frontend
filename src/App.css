@@ -95,7 +95,7 @@ background-color: rgb(211, 211, 211);
   border-bottom: 1px solid gray;
   height: 40px;
 }
-.befit{
+.befited{
   font-family: 'Calligraphy', sans-serif;
   font-family: 'Calligraphy wet', sans-serif;
 
@@ -208,7 +208,10 @@ p{
     height: 250px;
     font-weight: bold;
     color: black;
+    border-radius: 20px;
+    border: 2px solid white;
     background-color: rgb(150, 222, 209);
+    padding: 4px;
 }
 
 .offer-button{
@@ -262,14 +265,14 @@ p{
 }
 
 .carousel .slide img {
-  width: 139px !important;
+  width: 69px !important;
   border-radius: 50%;
 }
 
 .myCarousel {
   background: #fafafa;
   margin-top: -6%;
-  width: 54%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-top: 6%;
