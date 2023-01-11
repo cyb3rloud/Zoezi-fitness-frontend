@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "../App.css";
 import logo from "../images/6.jpg";
 import pic from "../images/11.jpg";
@@ -25,11 +25,18 @@ function Home() {
             src={logo}
             width="700"
             height="250"
+            alt=""
           />
         </div>
 
         <div className="learn-more">
-          <img className="get-started-img" src={pic} width="700" height="250" />
+          <img
+            className="get-started-img"
+            src={pic}
+            width="700"
+            height="250"
+            alt=""
+          />
 
           <div className="get-started-child">
             <p className="p1">Simple fitness experience for everyone</p>
