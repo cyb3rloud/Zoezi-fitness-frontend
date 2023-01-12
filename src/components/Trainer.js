@@ -13,7 +13,7 @@ function Profile({ trainer ,handleClick}) {
       )
 }
 
-function AllTrainers() {
+function Trainers() {
       const [trainers, setTrainers] = useState([])
       const trainerss = [
             {
@@ -84,4 +84,4 @@ function AllTrainers() {
       )
 }
 
-export default AllTrainers
+export default Trainers

@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import { Link,useNavigate } from 'react-router-dom'
+//import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 function Login({ onLogin, error }){
@@ -19,7 +20,7 @@ function handleAction(){
 function submitHandler(e){
   e.preventDefault();
   setIsLoading(true);
-  fetch("url/login", {
+  fetch("frontend-url/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +44,7 @@ function submitHandler(e){
      <div className="join">
             <form onSubmit={submitHandler}>
                 <div className="form-inner">
-                    <h2>Login to Enroll</h2>
+                    <h2>Login to Enroll For Gym</h2>
                     {(error !== "") ? (<div className="error">{error}</div>) : ""}
                
                     <div className="form-group">
@@ -69,6 +70,7 @@ function submitHandler(e){
     }
     
 export default Login;
+
 
 
 /*
