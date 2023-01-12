@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
 import Products from './components/Products';
-import Trainers from './components/Trainer';
+import AllTrainers from './components/Trainer';
 import About from './components/About';
 import Login from './components/Login';
 
@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/Products" element={<Products />} />
         <Route exact path="/About" element={<About />} />
         <Route exact path="/Login" element={<Login />} />
-        <Route exact path="/Trainers" element={<Trainers />} />
+        <Route exact path="/Trainers" element={<AllTrainers />} />
 
 
 

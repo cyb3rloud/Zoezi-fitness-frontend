@@ -1,6 +1,7 @@
 import React    from "react";
 import './AboutUs.css'
 
+
 function Section({ heading, body }) {
     return (
           <div className="about-us-section">
@@ -31,7 +32,7 @@ function Stats() {
 function About() {
     return (
           <div>
-                <div>Nav will go here</div>
+                <div>Nav bar will go here</div>
                 <div className="about-us">
                       <Section heading="About Us" body="We are an online  fitness and health company dedicated to helping individuals achieve  their desired body size and fitness so that they can face all the other everyday challenges confidently." />
                       <Section heading="Our Mission" body="Assist our members attain the body they dream of in the comfort of their homes aor even at their fitness centers of choice " />
