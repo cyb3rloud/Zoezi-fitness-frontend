@@ -34,7 +34,7 @@ cursor: pointer;
 font-size: 10.5rem;
 display: flex;
 align-items: center;
-margin-left: 24px;
+// margin-left: 24px;
 font-weight: normal;
 text-decoration: none;
 `;
@@ -54,6 +54,7 @@ display: none;
 
 export const NavMenu = styled.div`
 display: flex;
+justify-content: space-between;
 align-items: center;
 list-style: none;
 text-align: center;
@@ -65,6 +66,7 @@ margin-right: -22px;
 
 export const NavItem = styled.li`
 height: 80px;
+// margin-left: 100px;
 `;
 
 export const NavLinks = styled.a`
