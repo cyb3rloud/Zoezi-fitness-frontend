@@ -5,7 +5,7 @@ import "../assets/css/testimonials.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 // import axios from "axios";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 function Testimonialss() {
   const [testimonies, setTestimonies] = useState([]);
@@ -48,7 +48,8 @@ function Testimonialss() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name || !email || !story || !rating) {
-      toast.error("please fill all input fields");
+      console.log("please fill all input fields");
+      // toast.error("please fill all input fields");
     } else {
       // post comment to our api endpoint
       // axios.post("http://localhost:4000/comments", formData);
@@ -63,7 +64,7 @@ function Testimonialss() {
         .then((data) => addTestimony(data));
 
       // // show success message after post to the db
-      toast.success("Added successfully");
+      // toast.success("Added successfully");
 
       // restore input fields to default
       setFormData({
