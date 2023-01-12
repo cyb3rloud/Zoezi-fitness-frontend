@@ -1,3 +1,167 @@
+import React, { useState, useEffect } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import { useNavigate, Link } from "react-router-dom";
+
+function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Fetch data from backend
+        async function fetchData() {
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    // Save user data to local storage
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    // Redirect to dashboard
+                    navigate.push("/dashboard");
+                } else {
+                    setError(data.message);
+                }
+            } catch (err) {
+                setError(err.message);
+            }
+        }
+
+        if (email && password) {
+            fetchData();
+        }
+    }, [email, password, navigate]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setEmail(e.target.email.value);
+        setPassword(e.target.password.value);
+    };
+
+
+
+    return (
+        <div>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" name="email" required />
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" name="password" required />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Login
+                </Button>
+            </Form>
+            {error && <div className="alert alert-danger">{error}</div>}
+            <p>Not registered? <Link to="/register">Register here</Link></p>
+
+        </div>
+    );
+}
+export default Login;
+
+
+
+
+
+
+
+
+/*
+import React, { useState, useEffect } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+
+function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [userData, setUserData] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('http://yourbackend.com/api/clients');
+      const data = await response.json();
+      setUserData(data);
+    }
+    fetchData();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch('http://yourbackend.com/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    });
+    const data = await response.json();
+    if (data.error) {
+      // handle error
+    } else {
+      // handle successful login
+      localStorage.setItem('token', data.token);
+      navigate.push('/dashboard');
+    }
+  };
+
+  const handleDelete = async (userId) => {
+    const response = await fetch(`http://yourbackend.com/api/users/${userId}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      // handle error
+    } else {
+      // handle successful deletion
+    }
+  };
+
+  return (
+    <div>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+        <Button type="submit">Login</Button>
+      </Form>
+      {userData &&
+        userData.map((user) => (
+          <div key={user.id}>
+            {user.username}
+            <button onClick={() => handleDelete(user.id)}>Delete</button>
+          </div>
+        ))}
+    </div>
+  );
+}
+
+export default Login;
+
+*/
+
+
+
+/*
 import React,{useState} from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 //import 'bootstrap/dist/css/bootstrap.min.css'
@@ -70,6 +234,8 @@ function submitHandler(e){
     }
     
 export default Login;
+
+*/
 
 
 
