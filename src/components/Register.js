@@ -5,11 +5,13 @@ function Register() {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
-    age: '',
-    contact: '',
-    gender: '',
     email: '',
     password: '',
+    contact: '',
+    age: '',
+    height: '',
+    current_weight: '',
+    client_goal: ''
   });
 
   const handleChange = (event) => {
@@ -40,13 +42,6 @@ function Register() {
     });
   }
 
-  /*
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // post the data to the backend here
-  }
-  */
-
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group>
@@ -58,18 +53,6 @@ function Register() {
         <Form.Control type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
       </Form.Group>
       <Form.Group>
-        <Form.Label>Age</Form.Label>
-        <Form.Control type="value" name="age" value={formData.age} onChange={handleChange} />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Contact</Form.Label>
-        <Form.Control type="value" name="contact" value={formData.contact} onChange={handleChange} />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Gender</Form.Label>
-        <Form.Control type="text" name="gender" value={formData.gender} onChange={handleChange} />
-      </Form.Group>
-      <Form.Group>
         <Form.Label>Email</Form.Label>
         <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} />
       </Form.Group>
@@ -77,6 +60,27 @@ function Register() {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} />
       </Form.Group>
+      <Form.Group>
+        <Form.Label>Contact</Form.Label>
+        <Form.Control type="value" name="contact" value={formData.contact} onChange={handleChange} />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Age</Form.Label>
+        <Form.Control type="value" name="age" value={formData.age} onChange={handleChange} />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Height</Form.Label>
+        <Form.Control type="value" name="height" value={formData.height} onChange={handleChange} />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Current Weight</Form.Label>
+        <Form.Control type="value" name="current_weight" value={formData.current_weight} onChange={handleChange} />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Client Goal</Form.Label>
+        <Form.Control type="text" name="client_goal" value={formData.client_goal} onChange={handleChange} />
+      </Form.Group>
+
       <Button variant="primary" type="submit">
         Register
       </Button>
