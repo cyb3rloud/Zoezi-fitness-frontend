@@ -42,8 +42,6 @@ function Login() {
         setPassword(e.target.password.value);
     };
 
-
-
     return (
         <div>
             <Form onSubmit={handleSubmit}>
