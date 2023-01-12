@@ -16,12 +16,6 @@ function Dashboard() {
   const navigate = useNavigate();
   // const { user } = useUser();
 
-  const avatars = [
-    "https://t3.ftcdn.net/jpg/04/91/73/76/360_F_491737640_tzzQnoHBICFQmY5ZdBOicUHzQEyW0CDo.jpg",
-    "https://img.favpng.com/4/6/8/corn-on-the-cob-maize-sweet-corn-cartoon-png-favpng-QaEd3CLgQhWnVzmV5LRKsn11b.jpg",
-    "https://www.citypng.com/public/uploads/preview/cartoon-potato-character-holding-a-fries-cup-11646751276cbft8zfryd.png",
-    "https://www.kindpng.com/picc/m/36-361215_object-redundancy-chicken-leg-clipart-png-download-animated.png",
-  ];
 
   return (
     <>

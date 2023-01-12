@@ -12,7 +12,7 @@ function Testimonialss() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:4000/comments")
+    fetch("http://localhost:4001/comments")
       .then((res) => res.json())
       .then((data) => {
         setTestimonies(data);
@@ -53,7 +53,7 @@ function Testimonialss() {
     } else {
       // post comment to our api endpoint
       // axios.post("http://localhost:4000/comments", formData);
-      fetch("http://localhost:4000/comments", {
+      fetch("http://localhost:4001/comments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
