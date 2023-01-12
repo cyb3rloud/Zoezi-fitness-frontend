@@ -65,7 +65,7 @@ export const NavMenu = styled.div`
   }
 `;
 
-export const NavLink = styled.li`
+export const NavItem = styled.li`
   height: 80px;
 `;
 
