@@ -98,9 +98,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "/..index.css";
 
-
 function Register(){
-
   const [formData,setData] = useState({});
   const[data,setUser]=useState('');
   const navigate = useNavigate()
