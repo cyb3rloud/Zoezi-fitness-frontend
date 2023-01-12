@@ -1,3 +1,95 @@
+import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
+
+function Register() {
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    age: '',
+    contact: '',
+    gender: '',
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    });
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fetch('backend-url/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('An error occurred while registering');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // handle successful registration
+    })
+    .catch((error) => {
+      // handle error
+    });
+  }
+
+  /*
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // post the data to the backend here
+  }
+  */
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Form.Group>
+        <Form.Label>First Name</Form.Label>
+        <Form.Control type="text" name="firstname" value={formData.firstname} onChange={handleChange} />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Last Name</Form.Label>
+        <Form.Control type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Age</Form.Label>
+        <Form.Control type="value" name="age" value={formData.age} onChange={handleChange} />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Contact</Form.Label>
+        <Form.Control type="value" name="contact" value={formData.contact} onChange={handleChange} />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Gender</Form.Label>
+        <Form.Control type="text" name="gender" value={formData.gender} onChange={handleChange} />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Email</Form.Label>
+        <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Register
+      </Button>
+    </Form>
+  );
+}
+
+export default Register;
+
+
+
+
+/*
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "/..index.css";
@@ -94,3 +186,5 @@ function Register(){
 export default Register;
 
 //
+
+*/
