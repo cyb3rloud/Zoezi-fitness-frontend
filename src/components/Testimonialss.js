@@ -2,23 +2,28 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import StarRating from "../components/StarRating";
 import "../assets/css/testimonials.css";
-import avatar from "../images/6.jpg";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import { toast } from "react-toastify";
 
-
-
 function Testimonialss() {
-
   const [testimonies, setTestimonies] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect (() => {
+  useEffect(() => {
     fetch("http://localhost:4000/comments")
       .then((res) => res.json())
-      .then((data) => setTestimonies(data));
-  }, [])
+      .then((data) => {
+        setTestimonies(data);
+        setIsLoaded(true);
+      });
+  }, []);
+
+  function addTestimony(newTestimony) {
+    const updatedTestimonies = [...testimonies, newTestimony];
+    setTestimonies(updatedTestimonies);
+  }
 
   const navigate = useNavigate();
 
@@ -45,12 +50,20 @@ function Testimonialss() {
     if (!name || !email || !story || !rating) {
       toast.error("please fill all input fields");
     } else {
-
       // post comment to our api endpoint
-      axios.post("http://localhost:4000/comments", formData);
+      // axios.post("http://localhost:4000/comments", formData);
+      fetch("http://localhost:4000/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((res) => res.json())
+        .then((data) => addTestimony(data));
 
       // // show success message after post to the db
-      // toast.success("Added successfully");
+      toast.success("Added successfully");
 
       // restore input fields to default
       setFormData({
@@ -59,7 +72,7 @@ function Testimonialss() {
         story: "",
         rating: "off",
       });
-
+      console.log("hello");
       // navigate back to testimonials page
       navigate("/Testimonialss");
 
@@ -68,56 +81,27 @@ function Testimonialss() {
     }
   };
 
+  if (!isLoaded) return <h3>Loading...</h3>;
+
   return (
     <>
       <Navbar></Navbar>
       <div className="testimonials-page">
         <h1>Testimonials</h1>
-        <div className="testimonials">
-          <div className="testimony">
-            <img src={avatar} alt="avatar" />
-            <StarRating />
-            <p>
-              “Excellent training exercises and trainers who are dedicated to
-              ensuring that your dreams are achieved ”
-            </p>
-            <h5> ~ Stewart Wanyoike ~ </h5>
-          </div>
-          <div className="testimony">
-            <img src={avatar} alt="avatar" />
-            <StarRating />
-            <p>
-              “Excellent training exercises and trainers who are dedicated to
-              ensuring that your dreams are achieved ”
-            </p>
-            <h5> ~ Stewart Wanyoike ~ </h5>
-          </div>
-          <div className="testimony">
-            <img src={avatar} alt="avatar" />
-            <StarRating />
-            <p>
-              “Excellent training exercises and trainers who are dedicated to
-              ensuring that your dreams are achieved ”
-            </p>
-            <h5> ~ Stewart Wanyoike ~ </h5>
-          </div>
-          <div className="testimony">
-            <img src={avatar} alt="avatar" />
-            <StarRating />
-            <p>
-              “Excellent training exercises and trainers who are dedicated to
-              ensuring that your dreams are achieved ”
-            </p>
-            <h5> ~ Stewart Wanyoike ~ </h5>
-          </div>
-          <div className="testimony">
-            <img src={testimonies.avatar} alt="avatar" />
-            <StarRating />
-            <p>
-              “Excellent training exercises and trainers who are dedicated to
-              ensuring that your dreams are achieved ”
-            </p>
-            <h5> ~ Stewart Wanyoike ~ </h5>
+        <div>
+          <div className="testimonials">
+            {testimonies.length ? (
+              testimonies.map((testimony) => (
+                <div className="testimony" key={testimony.id}>
+                  <img src={testimony.avatar} alt="avatar" />
+                  <StarRating />
+                  <p>{testimony.story}</p>
+                  <h5> ~ {testimony.name} ~ </h5>
+                </div>
+              ))
+            ) : (
+              <h2>There are no testimonies at the moment</h2>
+            )}
           </div>
         </div>
         <div className="testimony-form">
@@ -125,31 +109,33 @@ function Testimonialss() {
           <form onSubmit={handleSubmit}>
             <div className="form-table">
               <div>
-                <label for="name"> Your Name </label> <br />
+                <label> Your Name </label> <br />
                 <input
                   type="text"
                   name="name"
-                  value={name}
-                  onChange={handleChange}
-                />
-                <label for="story"> Your Story </label> <br />
-                <input
-                  type="text"
-                  name="story"
-                  value={story}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label for="e,mail"> Your Email </label> <br />
-                <input
-                  type="text"
-                  name="email"
-                  value={email}
+                  value={formData.name}
                   onChange={handleChange}
                 />{" "}
                 <br />
-                <label for="rating"> Rating </label> <br />
+                <label> Your Story </label> <br />
+                <input
+                  type="text"
+                  name="story"
+                  value={formData.story}
+                  onChange={handleChange}
+                />{" "}
+                <br />
+              </div>
+              <div>
+                <label> Your Email </label> <br />
+                <input
+                  type="text"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />{" "}
+                <br />
+                <label> Rating </label> <br />
                 <StarRating />
               </div>
             </div>
