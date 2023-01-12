@@ -43,7 +43,7 @@ function submitHandler(e){
      <div className="join">
             <form onSubmit={submitHandler}>
                 <div className="form-inner">
-                    <h2>Login to Enroll</h2>
+                    <h2>Login to Enroll For Gym</h2>
                     {(error !== "") ? (<div className="error">{error}</div>) : ""}
                
                     <div className="form-group">
