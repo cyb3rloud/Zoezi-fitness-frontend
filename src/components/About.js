@@ -1,9 +1,11 @@
 import React    from "react";
-function About(){
-    return(
-        <>
-        <div>edit here</div>
-        </>
+import './AboutUs.css'
+
+function Section({ heading, body }) {
+    return (
+          <div className="about-us-section">
+                <span>{heading}</span>
+                <p>{body}</p>
+          </div>
     )
 }
-export default About;
