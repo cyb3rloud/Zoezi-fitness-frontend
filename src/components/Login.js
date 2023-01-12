@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Link,useNavigate } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css'
+//import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 function Login({ onLogin, error }){
@@ -20,7 +20,7 @@ function handleAction(){
 function submitHandler(e){
   e.preventDefault();
   setIsLoading(true);
-  fetch("url/login", {
+  fetch("frontend-url/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
