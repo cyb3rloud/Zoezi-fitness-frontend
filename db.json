@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "id": "1",
+      "avatar": "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1673547441~exp=1673548041~hmac=a15e24e33c7d3063e42ae9562e76ddd0508f175bd2187bc7cc16e97c23e66af6",
+      "rating": "5",
+      "story": "Excellent training exercises and trainers who are dedicated to ensuring that your dreams are achieved ",
+      "name": "Stewart Wanyoike"
+    },
+    {
+      "id": "2",
+      "avatar": "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1673547441~exp=1673548041~hmac=a15e24e33c7d3063e42ae9562e76ddd0508f175bd2187bc7cc16e97c23e66af6",
+      "rating": "5",
+      "story": "Excellent training exercises and trainers who are dedicated to ensuring that your dreams are achieved ",
+      "name": "Stewart Wanyoike"
+    },
+    {
+      "id": "3",
+      "avatar": "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1673547441~exp=1673548041~hmac=a15e24e33c7d3063e42ae9562e76ddd0508f175bd2187bc7cc16e97c23e66af6",
+      "rating": "5",
+      "story": "Excellent training exercises and trainers who are dedicated to ensuring that your dreams are achieved ",
+      "name": "Stewart Wanyoike"
+    },
+    {
+      "id": "4",
+      "avatar": "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1673547441~exp=1673548041~hmac=a15e24e33c7d3063e42ae9562e76ddd0508f175bd2187bc7cc16e97c23e66af6",
+      "rating": "5",
+      "story": "Excellent training exercises and trainers who are dedicated to ensuring that your dreams are achieved ",
+      "name": "Stewart Wanyoike"
+    },
+    {
+      "name": "Shaniz",
+      "email": "shaniz@gmail.com",
+      "story": "hej",
+      "rating": "off",
+      "id": "dJ1hfua"
+    }
+  ]
+}
