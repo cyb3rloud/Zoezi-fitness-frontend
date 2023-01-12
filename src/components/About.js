@@ -28,7 +28,7 @@ function Stats() {
           </div>
     )
 }
-function AboutUs() {
+function About() {
     return (
           <div>
                 <div>Nav will go here</div>
@@ -43,5 +43,5 @@ function AboutUs() {
     )
 }
 
-export default AboutUs
+export default About
 
