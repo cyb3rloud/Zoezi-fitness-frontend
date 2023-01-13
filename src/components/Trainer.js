@@ -1,6 +1,9 @@
 import React from "react";  
 import './AllTrainers.css'
 import { useEffect, useState } from 'react'
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+
 function Profile({ trainer ,handleClick}) {
       return (
             <div className="all-trainers-profile" onClick={handleClick}>
@@ -67,21 +70,19 @@ function Trainers() {
 
 
       return (
-            <div className="all-trainers">
-                  <span>
-                        Trainers:
-                  </span>
-                  <div className="all-trainers-list">
-                        {trainers.map((trainer) => {
-                              return (
-                                    <Profile trainer={trainer} handleClick={handleClick}/>
-                              )
-                        }
-                        )}
-
-                  </div>
+        <>
+        <Navbar/>
+          <div className="all-trainers">
+            <span>Trainers:</span>
+            <div className="all-trainers-list">
+              {trainers.map((trainer) => {
+                return <Profile trainer={trainer} handleClick={handleClick} />;
+              })}
             </div>
-      )
+          </div>
+          <Footer/>
+        </>
+      );
 }
 
 export default Trainers
