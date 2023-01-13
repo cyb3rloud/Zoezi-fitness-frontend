@@ -1,7 +1,7 @@
 
 .testimonials-page {
   background-color: #f9f9fb;
-  padding: 0.5em;
+  padding: 2em 0.5em;
   width: 80%;
   margin: auto;
 }
@@ -59,7 +59,7 @@ margin-bottom: 10px;
 }
 
 /* star-rating */
-button {
+.star-rating button {
   background-color: transparent;
   border: none;
   outline: none;

@@ -49,7 +49,7 @@ function Dashboard() {
             </div>
           </div>
           <div className="grid-two">
-            <div className="sect">
+            <div className="sect2">
               <div className="">
                 {/* <NavLink className="profile__edit" to="/profile">
               Profile

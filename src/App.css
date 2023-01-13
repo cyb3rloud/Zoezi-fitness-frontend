@@ -43,13 +43,15 @@ html, body {
   /* background-image: url("./ims/3.jpg") */
 }
 .three {
+  display: grid;
+  grid-template-columns: ;
   background-color: yellow;
-  height: 100vh;
+  height: 80vh;
   background-image: url("./images/10.jpg")
   
 }
 .four{
-height: 100vh;
+height: 60vh;
 background-color: rgb(211, 211, 211);
 }
 #navbar {
@@ -240,8 +242,6 @@ p{
 }
 
  
-
-
 
 .membership2{
   background-color: white;

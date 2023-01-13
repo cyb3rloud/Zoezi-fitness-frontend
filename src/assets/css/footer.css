@@ -1,0 +1,120 @@
+/* Footer */
+.footer-footer {
+  width: 100%;  background-color:  #f0eeee;
+}
+
+/* .footer-footer1 {
+  width: 100%;  background-color:  #ffffff;
+} */
+
+.footer-wrapper {
+  width: 94%;
+  margin: auto;
+  padding-top: 30px;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2em;
+    border-bottom: 0.5px solid #000000;
+    padding-bottom: 3em;
+}
+
+.footer-container h1{
+        font-family: 'Calligraphy wet', sans-serif;
+        font-size: 80px;
+        padding: 0;
+        margin-top: -30px;
+        margin-bottom: -10px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 5px 0;
+}
+
+.footer-links a:hover {
+  color: #4bb49b;
+}
+
+.footer-center {
+  display: block;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-center h2 {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.footer-center p {
+  font-size: 17px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.footer-center form {
+  padding: 5px 0px 5px 0px;
+  border-radius: 24px;
+  margin-bottom: 2em;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 70%;
+  margin: auto;
+}
+
+.footer-center input {
+  border-radius: 24px;
+  padding: 0.5em 0.5em;
+  background-color: #ffffff;
+  border: none;
+}
+
+.footer-center button {
+  background-color: #4bb49b;
+  border: none;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 24px;
+  margin-left: 0px;
+}
+
+.footer-center button:hover {
+  background-color: #14dede;
+  border: none;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 24px;
+  margin-left: 0px;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.bottom__Footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    margin: 0.5em;
+    padding: 1em;
+}
+
+.bottom__Footer h5 {
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+}
+
+

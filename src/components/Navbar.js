@@ -63,13 +63,8 @@ const Navbar = ({ handleLoginClick }) => {
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/Trainers">
-                <button className="navbar-button">Testimonials</button>
-              </Link>
-            </NavItem>
-            <NavItem>
               <Link to="/Testimonialss">
-                <button className="navbar-button">Testimonialss</button>
+                <button className="navbar-button">Testimonials</button>
               </Link>
             </NavItem>
             <NavItem>
