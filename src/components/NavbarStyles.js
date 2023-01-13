@@ -1,20 +1,19 @@
 import styled from 'styled-components';
 export const Nav = styled.nav`
-background: transparent;
-height: 80px;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 1rem;
-/* Fix your navbar by using below two lines of code */
-position: sticky;
-top:0;
-/* Fix your navbar by using above two lines of code */
-z-index: 10;
-transition: 1.8s all ease
-@media screen and (max-width: 960px) {
-	transition: 1.8s all ease
-}
+  background: #5c5c5c;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  /* Fix your navbar by using below two lines of code */
+  position: sticky;
+  top: 0;
+  /* Fix your navbar by using above two lines of code */
+  z-index: 10;
+  transition: 1.8s all ease @media screen and (max-width: 960px) {
+    transition: 1.8s all ease;
+  }
 `;
 
 export const NavContainer = styled.div`

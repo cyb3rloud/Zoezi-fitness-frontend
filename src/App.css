@@ -43,8 +43,10 @@ html, body {
   /* background-image: url("./ims/3.jpg") */
 }
 .three {
+  display: grid;
+  grid-template-columns: ;
   background-color: yellow;
-  height: 100vh;
+  height: 80vh;
   background-image: url("./images/10.jpg")
   
 }
@@ -240,8 +242,6 @@ p{
 }
 
  
-
-
 
 .membership2{
   background-color: white;
