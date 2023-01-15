@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/footer.css";
+// import {
+//   faTwitter,
+//   faFacebook,
+//   faInstagram,
+//   faYoutube,
+// } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
   return (
@@ -38,6 +44,7 @@ const Footer = () => {
               <Link className="footer__Link" to="">
                 FAQ
               </Link>
+
               <Link className="footer__Link" to="">
                 Maps
               </Link>
@@ -49,7 +56,7 @@ const Footer = () => {
           <div>
             <div className="social__Media">
               <Link className="social__Media__Link" to="">
-                <i className="fab fa-facebook-f"></i>
+                <i className="fab fa-facebook"></i>
               </Link>
               <Link className="social__Media__Link" to="">
                 <i className="fab fa-instagram"></i>
