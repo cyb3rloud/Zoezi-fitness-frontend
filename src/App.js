@@ -11,7 +11,8 @@ import About from "./components/About";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Testimonialss from "./components/Testimonialss";
-import Dashboard  from "./components/Dashboard";
+import Dashboard from "./Dashboards/Dashboard";
+import UserDashboard from "./Dashboards/UserDashboard";
 
 function App() {
   return (
@@ -25,9 +26,9 @@ function App() {
           <Route exact path="/Login" element={<Login />} />
           <Route exact path="/Register" element={<Register />} />
           <Route exact path="/Trainers" element={<Trainers />} />
-          <Route exact path="/Testimonialss" element={<Testimonialss />} />  
+          <Route exact path="/Testimonialss" element={<Testimonialss />} />
           <Route exact path="/Dashboard" element={<Dashboard />} />
-
+          <Route exact path="/UserDashboard" element={<UserDashboard />} />
         </Routes>
 
         {/* <div style={{overflowY:"scroll", height:"800px"}}></div>  */}
