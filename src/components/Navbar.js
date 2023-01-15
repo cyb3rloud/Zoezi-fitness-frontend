@@ -68,7 +68,7 @@ const Navbar = ({ handleLoginClick }) => {
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/Dashboard">
+              <Link to="/UserDashboard">
                 <button className="navbar-button">Dashboard</button>
               </Link>
             </NavItem>
