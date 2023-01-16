@@ -70,8 +70,8 @@ const [trainersList, setTrainersList] = useState([]);
                 <h1> Profile </h1>
               </div>
               <div className="profile-details">
-                <img src={user.avatar} alt="profile_picture" />
-                <h5>{user.name}</h5>
+                {/* <img src={user.avatar} alt="profile_picture" />
+                <h5>{user.name}</h5> */}
               </div>
               <div className="profile-details">
                 <h3>Current</h3>

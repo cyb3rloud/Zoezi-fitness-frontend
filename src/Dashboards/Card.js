@@ -4,7 +4,6 @@ import "./Dashboard.css";
 import "react-circular-progressbar/dist/styles.css";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import { UilTimes } from "@iconscout/react-unicons";
-import Chart from "react-apexcharts";
 
 // parent Card
 
@@ -24,24 +23,22 @@ const Card = (props) => {
 // Compact Card
 function CompactCard({ param, setExpanded }) {
   const Png = param.png;
+  console.log(param)
   return (
     <motion.div
       className="CompactCard"
-      style={{
-        background: param.color.backGround,
-        boxShadow: param.color.boxShadow,
-      }}
+      style={param.style}
       layoutId="expandableCard"
       onClick={setExpanded}
     >
       <div className="radialBar">
-        <div>{param.value}</div>
-        <span>{param.title}</span>
+        <div>{param.title}</div>
+        <span>{param.count}</span>
       </div>
       <div className="detail">
         <span>{Png}</span>
-        <span>${param.value}</span>
-        <span>Last 24 hours</span>
+        <span>{param.count}</span>
+        <span>In the Last 24 hours</span>
       </div>
     </motion.div>
   );

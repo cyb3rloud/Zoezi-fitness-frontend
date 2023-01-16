@@ -3,12 +3,22 @@ import Cards from "./Cards";
 import Table from "./Table";
 import "./Dashboard.css";
 
-const MainDash = () => {
+const MainDash = ({ users, trainers, products, orders }) => {
   return (
     <div className="MainDash">
       <h1>Dashboard</h1>
-      <Cards />
-      <Table />
+      <Cards
+        users={users}
+        trainers={trainers}
+        products={products}
+        orders={orders}
+      />
+      <Table
+        users={users}
+        trainers={trainers}
+        products={products}
+        orders={orders}
+      />
     </div>
   );
 };

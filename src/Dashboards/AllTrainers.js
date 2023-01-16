@@ -52,7 +52,7 @@ const makeStyle = (status) => {
   }
 };
 
-export default function BasicTable() {
+export default function BasicTable({trainers}) {
   const navigate = useNavigate();
 
   return (
@@ -73,25 +73,29 @@ export default function BasicTable() {
                   <TableCell align="left">Expertise</TableCell>
                   <TableCell align="left">Clients</TableCell>
                   <TableCell align="left">Sessions</TableCell>
+                  <TableCell align="left">Workouts</TableCell>
+                  <TableCell align="left">Email</TableCell>
                   <TableCell align="left">Contact</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody style={{ color: "white" }}>
-                {users.map((user) => (
+                {trainers.map((trainer) => (
                   <TableRow
-                    key={user.name}
+                    key={trainer.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell component="th" scope="row">
-                      {user.name}
+                      {trainer.firstname} {trainer.lastname}
                     </TableCell>
-                    <TableCell align="left">{user.trackingId}</TableCell>
-                    <TableCell align="left">{user.date}</TableCell>
+                    <TableCell align="left">{trainer.expertise}</TableCell>
+                    <TableCell align="left">{trainer.clients}</TableCell>
+                    <TableCell align="left">{trainer.sessions}</TableCell>
+                    <TableCell align="left">{trainer.workouts}</TableCell>
                     <TableCell align="left">
-                      <span className="status">{user.status}</span>
+                      <span className="status">{trainer.email}</span>
                     </TableCell>
                     <TableCell align="left" className="Details">
-                      {user.client_goal}
+                      {trainer.contact}
                     </TableCell>
                   </TableRow>
                 ))}

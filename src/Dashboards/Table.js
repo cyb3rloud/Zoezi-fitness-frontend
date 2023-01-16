@@ -9,39 +9,18 @@ import Paper from "@mui/material/Paper";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
 import { UilArrowCircleRight } from "@iconscout/react-unicons";
-
+import { ControlCameraOutlined } from "@material-ui/icons";
 
 function createData(name, trackingId, date, status) {
   return { name, trackingId, date, status };
 }
 
-function createData1(name, trackingId, date, status, client_goal) {
-  return { name, trackingId, date, status, client_goal };
-}
-
-function createData2(name, trackingId, date, status, client_goal) {
-  return { name, trackingId, date, status, client_goal };
-}
 
 const rows = [
   createData("Lasania Chiken Fri", 18908424, "2 March 2022", "Approved"),
   createData("Big Baza Bang ", 18908424, "2 March 2022", "Pending"),
   createData("Mouth Freshner", 18908424, "2 March 2022", "Approved"),
 ];
-
-const users = [
-  createData1("DR. Stockmann", 38, "110kg", "+254712345678", "Lose Weight"),
-  createData1("DR. Stockmann", 38, "110kg", "+254712345678", "Lose Weight"),
-  createData1("DR. Stockmann", 38, "110kg", "+254712345678", "Lose Weight"),
-];
-
-const products = [
-  createData2("tracksuit", "jacket & trousers", 1000, "url" ,"Available"),
-  createData2("tracksuit", "jacket & trousers", 1000, "url" ,"Available"),
-  
-];
-
-
 
 
 const makeStyle = (status) => {
@@ -63,8 +42,10 @@ const makeStyle = (status) => {
   }
 };
 
-export default function BasicTable() {
+export default function BasicTable( {users, trainers, products, orders} ) {
   const navigate = useNavigate();
+  // const { user } = useUser();
+
 
   return (
     <>
@@ -92,6 +73,7 @@ export default function BasicTable() {
                   <TableCell>Name</TableCell>
                   <TableCell align="left">Age</TableCell>
                   <TableCell align="left">Weight</TableCell>
+                  <TableCell align="left">Email</TableCell>
                   <TableCell align="left">Contact</TableCell>
                   <TableCell align="left">client_goal</TableCell>
                 </TableRow>
@@ -99,18 +81,17 @@ export default function BasicTable() {
               <TableBody style={{ color: "white" }}>
                 {users.map((user) => (
                   <TableRow
-                    key={user.name}
+                    key={user.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell component="th" scope="row">
-                      {user.name}
+                      {user.firstname} {user.lastname}
                     </TableCell>
-                    <TableCell align="left">{user.trackingId}</TableCell>
-                    <TableCell align="left">{user.date}</TableCell>
+                    <TableCell align="left">{user.age}</TableCell>
+                    <TableCell align="left">{user.current_weight}</TableCell>
+                    <TableCell align="left">{user.email}</TableCell>
                     <TableCell align="left">
-                      <span className="status" >
-                        {user.status}
-                      </span>
+                      <span className="status">{user.contact}</span>
                     </TableCell>
                     <TableCell align="left" className="Details">
                       {user.client_goal}
@@ -156,27 +137,29 @@ export default function BasicTable() {
                   <TableCell align="left">Expertise</TableCell>
                   <TableCell align="left">Clients</TableCell>
                   <TableCell align="left">Sessions</TableCell>
+                  <TableCell align="left">Workouts</TableCell>
+                  <TableCell align="left">Email</TableCell>
                   <TableCell align="left">Contact</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody style={{ color: "white" }}>
-                {users.map((user) => (
+                {trainers.map((trainer) => (
                   <TableRow
-                    key={user.name}
+                    key={trainer.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell component="th" scope="row">
-                      {user.name}
+                      {trainer.firstname} {trainer.lastname}
                     </TableCell>
-                    <TableCell align="left">{user.trackingId}</TableCell>
-                    <TableCell align="left">{user.date}</TableCell>
+                    <TableCell align="left">{trainer.expertise}</TableCell>
+                    <TableCell align="left">{trainer.clients}</TableCell>
+                    <TableCell align="left">{trainer.sessions}</TableCell>
+                    <TableCell align="left">{trainer.workouts}</TableCell>
                     <TableCell align="left">
-                      <span className="status" >
-                        {user.status}
-                      </span>
+                      <span className="status">{trainer.email}</span>
                     </TableCell>
                     <TableCell align="left" className="Details">
-                      {user.client_goal}
+                      {trainer.contact}
                     </TableCell>
                   </TableRow>
                 ))}
