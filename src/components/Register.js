@@ -14,6 +14,7 @@ function Register() {
     current_weight: "",
     client_goal: "",
   });
+  
 
   const navigate = useNavigate();
 
@@ -122,22 +123,18 @@ function Register() {
       </Form.Group>
       <Form.Group>
         <Form.Label>Client Goal</Form.Label>
-        {/* <Form.Control
-          as="select"
-          onChange={(e: any) => setText(e.target.value)}
-        >
+        <Form.Control as="select" onChange={handleChange}>
           <option value="weight loss">Weight Loss</option>
           <option value="weight gain">Weight Gain</option>
           <option value="muscle gain">Muscle Gain</option>
           <option value="keep fit">Keep Fit</option>
-          value={type}
-        </Form.Control> */}
-        <Form.Control
+        </Form.Control>
+        {/* <Form.Control
           type="text"
           name="client_goal"
           value={formData.client_goal}
           onChange={handleChange}
-        />
+        /> */}
       </Form.Group>
 
       <Button variant="primary" type="submit">

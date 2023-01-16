@@ -7,6 +7,7 @@ import { Input } from "@mui/material";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "./Sidebar";
+import "../App.css"
 
 
 // initial data state
@@ -118,12 +119,17 @@ const AddUser = ({ AddUser }) => {
                     />
                     <br />
                     <label>User Goal:</label>
-                    <input
-                      type="text"
+                    <select
                       name="client_goal"
-                      value={formData.client_goal}
+                      className="drop-down"
                       onChange={handleChange}
-                    />
+                    >
+                      <option value=""></option>
+                      <option value="weight loss">Weight Loss</option>
+                      <option value="weight gain">Weight Gain</option>
+                      <option value="muscle gain">Muscle Gain</option>
+                      <option value="keep fit">Keep Fit</option>
+                    </select>
                     <br />
                   </div>
                   <div className="product-button">
