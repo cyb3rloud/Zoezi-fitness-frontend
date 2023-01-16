@@ -12,7 +12,7 @@ function Login() {
         // Fetch data from backend
         async function fetchData() {
             try {
-                const response = await fetch('/api/login', {
+                const response = await fetch('http://127.0.0.1:3000/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password }),
@@ -20,7 +20,7 @@ function Login() {
                 const data = await response.json();
                 if (response.ok) {
                     // Save user data to local storage
-                    localStorage.setItem('user', JSON.stringify(data.user));
+                    localStorage.setItem('clients', JSON.stringify(data.clients));
                     // Redirect to dashboard
                     navigate.push("/dashboard");
                 } else {
