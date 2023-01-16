@@ -1,84 +1,143 @@
-import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    contact: '',
-    age: '',
-    height: '',
-    current_weight: '',
-    client_goal: ''
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    contact: "",
+    age: "",
+    height: "",
+    current_weight: "",
+    client_goal: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('backend-url/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    fetch("backend-url/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('An error occurred while registering');
-      }
-      return response.json();
-    })
-    .then((data) => {
-      // handle successful registration
-    })
-    .catch((error) => {
-      // handle error
-    });
-  }
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("An error occurred while registering");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // handle successful registration
+      })
+      .catch((error) => {
+        // handle error
+      });
+    navigate("/Dashboard");
+  };
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Label>First Name</Form.Label>
-        <Form.Control type="text" name="firstname" value={formData.firstname} onChange={handleChange} />
+        <Form.Control
+          type="text"
+          name="firstname"
+          value={formData.firstname}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Last Name</Form.Label>
-        <Form.Control type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
+        <Form.Control
+          type="text"
+          name="lastname"
+          value={formData.lastname}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} />
+        <Form.Control
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} />
+        <Form.Control
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Contact</Form.Label>
-        <Form.Control type="value" name="contact" value={formData.contact} onChange={handleChange} />
+        <Form.Control
+          type="value"
+          name="contact"
+          value={formData.contact}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Age</Form.Label>
-        <Form.Control type="value" name="age" value={formData.age} onChange={handleChange} />
+        <Form.Control
+          type="value"
+          name="age"
+          value={formData.age}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Height</Form.Label>
-        <Form.Control type="value" name="height" value={formData.height} onChange={handleChange} />
+        <Form.Control
+          type="value"
+          name="height"
+          value={formData.height}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Current Weight</Form.Label>
-        <Form.Control type="value" name="current_weight" value={formData.current_weight} onChange={handleChange} />
+        <Form.Control
+          type="value"
+          name="current_weight"
+          value={formData.current_weight}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Client Goal</Form.Label>
-        <Form.Control type="text" name="client_goal" value={formData.client_goal} onChange={handleChange} />
+        {/* <Form.Control
+          as="select"
+          onChange={(e: any) => setText(e.target.value)}
+        >
+          <option value="weight loss">Weight Loss</option>
+          <option value="weight gain">Weight Gain</option>
+          <option value="muscle gain">Muscle Gain</option>
+          <option value="keep fit">Keep Fit</option>
+          value={type}
+        </Form.Control> */}
+        <Form.Control
+          type="text"
+          name="client_goal"
+          value={formData.client_goal}
+          onChange={handleChange}
+        />
       </Form.Group>
 
       <Button variant="primary" type="submit">
@@ -89,9 +148,6 @@ function Register() {
 }
 
 export default Register;
-
-
-
 
 /*
 import React, { useState, useEffect } from 'react';

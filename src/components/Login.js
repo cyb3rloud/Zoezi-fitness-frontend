@@ -1,77 +1,82 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import { Form, Button } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        // Fetch data from backend
-        async function fetchData() {
-            try {
-                const response = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password }),
-                });
-                const data = await response.json();
-                if (response.ok) {
-                    // Save user data to local storage
-                    localStorage.setItem('user', JSON.stringify(data.user));
-                    // Redirect to dashboard
-                    navigate.push("/dashboard");
-                } else {
-                    setError(data.message);
-                }
-            } catch (err) {
-                setError(err.message);
-            }
+  useEffect(() => {
+    // Fetch data from backend
+    async function fetchData() {
+      try {
+        const response = await fetch("/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+        const data = await response.json();
+        if (response.ok) {
+          // Save user data to local storage
+          localStorage.setItem("user", JSON.stringify(data.user));
+          // Redirect to dashboard
+          navigate.push("/dashboard");
+        } else {
+          setError(data.message);
         }
+      } catch (err) {
+        setError(err.message);
+      }
+    }
 
-        if (email && password) {
-            fetchData();
-        }
-    }, [email, password, navigate]);
+    if (email && password) {
+      fetchData();
+    }
+  }, [email, password, navigate]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setEmail(e.target.email.value);
-        setPassword(e.target.password.value);
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setEmail(e.target.email.value);
+    setPassword(e.target.password.value);
+    navigate("/Dashboard");
+  };
 
-    return (
-        <div>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" name="email" required />
-                </Form.Group>
+  return (
+    <div>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            name="email"
+            required
+          />
+        </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" name="password" required />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Login
-                </Button>
-            </Form>
-            {error && <div className="alert alert-danger">{error}</div>}
-            <p>Not registered? <Link to="/register">Register here</Link></p>
-
-        </div>
-    );
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Login
+        </Button>
+      </Form>
+      {error && <div className="alert alert-danger">{error}</div>}
+      <p>
+        Not registered? <Link to="/register">Register here</Link>
+      </p>
+    </div>
+  );
 }
 export default Login;
-
-
-
-
-
-
-
 
 /*
 import React, { useState, useEffect } from 'react';
@@ -157,8 +162,6 @@ export default Login;
 
 */
 
-
-
 /*
 import React,{useState} from 'react'
 import { Link,useNavigate } from 'react-router-dom'
@@ -234,8 +237,6 @@ function submitHandler(e){
 export default Login;
 
 */
-
-
 
 /*
 import React, { useState } from 'react';
@@ -368,4 +369,3 @@ function Login() {
   export default Login;
   
   */
-
