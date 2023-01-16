@@ -7,12 +7,19 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./Dashboard.css";
+import { useNavigate } from "react-router-dom";
+import { UilArrowCircleRight } from "@iconscout/react-unicons";
+
 
 function createData(name, trackingId, date, status) {
   return { name, trackingId, date, status };
 }
 
 function createData1(name, trackingId, date, status, client_goal) {
+  return { name, trackingId, date, status, client_goal };
+}
+
+function createData2(name, trackingId, date, status, client_goal) {
   return { name, trackingId, date, status, client_goal };
 }
 
@@ -26,7 +33,16 @@ const users = [
   createData1("DR. Stockmann", 38, "110kg", "+254712345678", "Lose Weight"),
   createData1("DR. Stockmann", 38, "110kg", "+254712345678", "Lose Weight"),
   createData1("DR. Stockmann", 38, "110kg", "+254712345678", "Lose Weight"),
-]
+];
+
+const products = [
+  createData2("tracksuit", "jacket & trousers", 1000, "url" ,"Available"),
+  createData2("tracksuit", "jacket & trousers", 1000, "url" ,"Available"),
+  
+];
+
+
+
 
 const makeStyle = (status) => {
   if (status === "Approved") {
@@ -48,6 +64,8 @@ const makeStyle = (status) => {
 };
 
 export default function BasicTable() {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="Tables">
@@ -57,6 +75,17 @@ export default function BasicTable() {
             component={Paper}
             style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
           >
+            <div className="t-button">
+              <button
+                className="m-button"
+                onClick={() => {
+                  console.log("clicked");
+                  navigate("/AllUsers");
+                }}
+              >
+                See more <UilArrowCircleRight />
+              </button>
+            </div>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -79,7 +108,7 @@ export default function BasicTable() {
                     <TableCell align="left">{user.trackingId}</TableCell>
                     <TableCell align="left">{user.date}</TableCell>
                     <TableCell align="left">
-                      <span className="status" style={makeStyle(user.status)}>
+                      <span className="status" >
                         {user.status}
                       </span>
                     </TableCell>
@@ -92,7 +121,15 @@ export default function BasicTable() {
             </Table>
           </TableContainer>
           <div className="t-button">
-            <button className="table-button">Add User</button>
+            <button
+              className="table-button"
+              onClick={() => {
+                console.log("clicked");
+                navigate("/AddUser");
+              }}
+            >
+              Add User
+            </button>
           </div>
         </div>
         <div className="table">
@@ -101,6 +138,17 @@ export default function BasicTable() {
             component={Paper}
             style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
           >
+            <div className="t-button">
+              <button
+                className="m-button"
+                onClick={() => {
+                  console.log("clicked");
+                  navigate("/AllTrainers");
+                }}
+              >
+                See more <UilArrowCircleRight />
+              </button>
+            </div>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -123,7 +171,7 @@ export default function BasicTable() {
                     <TableCell align="left">{user.trackingId}</TableCell>
                     <TableCell align="left">{user.date}</TableCell>
                     <TableCell align="left">
-                      <span className="status" style={makeStyle(user.status)}>
+                      <span className="status" >
                         {user.status}
                       </span>
                     </TableCell>
@@ -136,7 +184,76 @@ export default function BasicTable() {
             </Table>
           </TableContainer>
           <div className="t-button">
-            <button className="table-button">Add Trainers</button>
+            <button
+              className="table-button"
+              onClick={() => {
+                console.log("clicked");
+                navigate("/AddTrainer");
+              }}
+            >
+              Add Trainer
+            </button>
+          </div>
+        </div>
+        <div className="table">
+          <h3>Products</h3>
+          <TableContainer
+            component={Paper}
+            style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
+          >
+            <div className="t-button">
+              <button
+                className="m-button"
+                onClick={() => {
+                  console.log("clicked");
+                  navigate("/AllProducts");
+                }}
+              >
+                See more <UilArrowCircleRight />
+              </button>
+            </div>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Product Name</TableCell>
+                  <TableCell align="left">Description</TableCell>
+                  <TableCell align="left">Price</TableCell>
+                  <TableCell align="left">Quantity</TableCell>
+                  <TableCell align="left">Status</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody style={{ color: "white" }}>
+                {users.map((user) => (
+                  <TableRow
+                    key={user.name}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {user.name}
+                    </TableCell>
+                    <TableCell align="left">{user.trackingId}</TableCell>
+                    <TableCell align="left">{user.date}</TableCell>
+                    <TableCell align="left">
+                      <span className="status">{user.status}</span>
+                    </TableCell>
+                    <TableCell align="left" className="Details">
+                      {user.client_goal}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <div className="t-button">
+            <button
+              className="table-button"
+              onClick={() => {
+                console.log("clicked");
+                navigate("/AddProduct");
+              }}
+            >
+              Add Product
+            </button>
           </div>
         </div>
         <div className="table">
@@ -145,6 +262,17 @@ export default function BasicTable() {
             component={Paper}
             style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
           >
+            <div className="t-button">
+              <button
+                className="m-button"
+                onClick={() => {
+                  console.log("clicked");
+                  navigate("/AllOrders");
+                }}
+              >
+                See more <UilArrowCircleRight />
+              </button>
+            </div>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -180,7 +308,15 @@ export default function BasicTable() {
             </Table>
           </TableContainer>
           <div className="t-button">
-            <button className="table-button">Add Products</button>
+            <button
+              className="table-button"
+              onClick={() => {
+                console.log("clicked");
+                navigate("/AllOrders");
+              }}
+            >
+              Add Order
+            </button>
           </div>
         </div>
       </div>
