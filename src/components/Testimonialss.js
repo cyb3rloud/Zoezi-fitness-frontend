@@ -12,7 +12,7 @@ function Testimonialss() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:4001/comments")
+    fetch("/testimonials")
       .then((res) => res.json())
       .then((data) => {
         setTestimonies(data);
@@ -96,10 +96,11 @@ function Testimonialss() {
             {testimonies.length ? (
               testimonies.map((testimony) => (
                 <div className="testimony" key={testimony.id}>
-                  <img src={testimony.avatar} alt="avatar" />
+                  <img src={testimony.id} alt="avatar" />
                   <StarRating />
-                  <p>{testimony.story}</p>
-                  <h5> ~ {testimony.name} ~ </h5>
+                  <p>{testimony.testimony}</p>
+                  <h5> ~ {testimony.client_id} ~ </h5>
+                  <h6></h6>
                 </div>
               ))
             ) : (
