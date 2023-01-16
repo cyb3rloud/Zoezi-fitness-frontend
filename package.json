@@ -42,9 +42,8 @@
     "start": "PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "npx json-server --watch db.json --port 4001"
-  },
+    "eject": "react-scripts eject"
+    },
   "eslintConfig": {
     "extends": [
       "react-app",
