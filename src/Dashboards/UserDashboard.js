@@ -4,11 +4,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./user-dashboard.css"
 import Sidebar from "./Sidebar";
-// import { useUser } from "../context/auth";
+import { useUser } from "../Dashboards/auth"
 
 function UserDashboard() {
   const navigate = useNavigate();
-  // const { user } = useUser();
+  const { user } = useUser();
 const [trainersList, setTrainersList] = useState([]);
 
   // const fetchTrainers = useCallback(async () => {
@@ -39,7 +39,7 @@ const [trainersList, setTrainersList] = useState([]);
             <div>
               <div className="sect">
                 {/* <h1>Hello {user?.username}!</h1> */}
-                <h1>Hello Member!</h1>
+                <h1>Hello {user?.username}!</h1>
               </div>
               <div className="sect">
                 <h2>Today's workout</h2>
@@ -70,8 +70,8 @@ const [trainersList, setTrainersList] = useState([]);
                 <h1> Profile </h1>
               </div>
               <div className="profile-details">
-                <img src="" alt="" />
-                <h5>jesse maccartney</h5>
+                <img src={user.avatar} alt="profile_picture" />
+                <h5>{user.name}</h5>
               </div>
               <div className="profile-details">
                 <h3>Current</h3>

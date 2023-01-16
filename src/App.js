@@ -5,6 +5,7 @@ import ScrollButton from "./components/ScrollButton";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 //import Navbar from './components/Navbar';
 //import { useState } from 'react';
+import UserProvider from "./Dashboards/auth";
 import Products from "./components/Products";
 import Trainers from "./components/Trainer";
 import About from "./components/About";
@@ -26,6 +27,7 @@ import AllOrders from "./Dashboards/AllOrders";
 function App() {
   return (
     <>
+    <UserProvider>
       <BrowserRouter>
         <ScrollButton></ScrollButton>
         <Routes>
@@ -51,6 +53,7 @@ function App() {
 
         {/* <div style={{overflowY:"scroll", height:"800px"}}></div>  */}
       </BrowserRouter>
+      </UserProvider>
     </>
   );
 }

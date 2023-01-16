@@ -60,6 +60,10 @@ function Trainers() {
             setTrainers(trainerss)
       }, [])
 
+  const handleClick = (trainer) => {
+      console.log("clicked")
+}
+
 //   const history = useHistory();
 
 //   const handleClick = () => {
