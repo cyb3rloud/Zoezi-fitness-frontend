@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -9,6 +9,25 @@ import Sidebar from "./Sidebar";
 function UserDashboard() {
   const navigate = useNavigate();
   // const { user } = useUser();
+const [trainersList, setTrainersList] = useState([]);
+
+  // const fetchTrainers = useCallback(async () => {
+  //   const response = await fetch("http://localhost:5000/trainers");
+  //   const responseData = await response.json();
+  //   if (!response.ok) {
+  //     throw new Error(responseData.message);
+  //   }
+  //   setTrainersList(responseData.trainers);
+  // }, []);
+
+ useEffect(() => {
+    fetch("http://localhost:5000/trainers")
+      .then((res) => res.json())
+      .then((data) => {
+        setTrainersList(data);
+      });
+  }, []);
+
 
   return (
     <>

@@ -3,6 +3,7 @@ import './AllTrainers.css'
 import { useEffect, useState } from 'react'
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { useHistory } from "react-router-dom";
 
 function Profile({ trainer ,handleClick}) {
       return (
@@ -59,28 +60,32 @@ function Trainers() {
             setTrainers(trainerss)
       }, [])
 
-      function handleClick() {
-            return (
-                  <div>
-                  </div>
+//   const history = useHistory();
 
-            )
-
-      }
+//   const handleClick = () => {
+//     history.push({
+//       pathname: `/${trainer.id}`,
+//     });
+//   };
 
 
       return (
         <>
-        <Navbar/>
+          <Navbar />
           <div className="all-trainers">
             <span>Trainers:</span>
             <div className="all-trainers-list">
+              {/* {trainers.length ? (
+                trainers.map((trainer) => <TrainerCard key={trainer.id}  trainer={trainer}/>)
+              ) : (
+                <h1>Currently there are no trainers available</h1>
+              )} */}
               {trainers.map((trainer) => {
                 return <Profile trainer={trainer} handleClick={handleClick} />;
               })}
             </div>
           </div>
-          <Footer/>
+          <Footer />
         </>
       );
 }
