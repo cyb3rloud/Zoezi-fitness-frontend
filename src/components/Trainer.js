@@ -22,33 +22,39 @@ function Trainers() {
             {
                   image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
                   name: "Trainer's Name",
-                  workouts: ["Swimming", "Running", "Cycling", "Yoga", "Pilates", "Weight Lifting", "Boxing", "Dancing", "Martial Arts", "Climbing", "Hiking", "Skiing", "Soccer", "Basketball", "Football", "Baseball", "Tennis", "Volleyball", "Golf", "Badminton", "Rugby", "Cricket", "Hockey", "Table Tennis", "Archery", "Fencing", "Skating", "Surfing", "Kayaking", "Rowing", "Wrestling", "Gymnastics", "Diving", "Squash", "Racquetball", "Softball", "Handball", "Lacrosse", "Canoeing", "Curling", "Shooting", "Bobsleigh", "Biathlon", "Bobsleigh", "Skeleton", "Snowboarding", "Cross Country Skiing", "Freestyle Skiing", "Luge", "Nordic Combined", "Alpine Skiing", "Figure Skating", "Short Track Speed Skating", "Speed Skating", "Synchronized Swimming", "Trampoline", "Water Polo", "Weightlifting", "Wrestling", "Artistic Gymnastics", "Rhythmic Gymnastics", "Trampoline Gymnastics", "Beach Volleyball"],
+                  workouts: ["Bicep Curl", "Lat Pull", "Lateral Raise", "Bent-Over Rows"],
             },
             {
                   image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
                   name: "Trainer's Name",
-                  workouts: ["ityut", "utyityu"],
+                  workouts: ["Bench Press", "Squats", "Deadlift", "Shoulder Press", "Jump Rope"],
             },
             {
                   image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
                   name: "Trainer's Name",
-                  workouts: ["ityut", "utyityu"],
+                  workouts: ["Leg Raises", "Jump Rope", "Lateral Raise", "Bench Press"],
             },
             {
                   image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
                   name: "Trainer's Name",
-                  workouts: ["ityut", "utyityu"],
+                  workouts: ["Deadlift", "Lat Pull", "Bicep Curl", "Squats"],
             },
             {
                   image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
                   name: "Trainer's Name",
-                  workouts: ["ityut", "utyityu"],
+                  workouts: ["Leg Raises", "Shoulder Press", "Bent-Over Rows", "Deadlift", "Jump Rope"],
             },
             {
                   image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
                   name: "Trainer's Name",
-                  workouts: ["ityut", "utyityu"],
+                  workouts: ["Lat Pull", "Bent-Over Rows", "Bench Press", "Squats"],
             },
+            {
+                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
+                  name: "Trainer's Name",
+                  workouts: ["Lateral Raise", "Bicep Curl", "Shoulder Press", "Bench Press"],
+            },
+
       ]
       useEffect(() => {
             // fetch("/trainers")
