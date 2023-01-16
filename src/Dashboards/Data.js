@@ -72,7 +72,7 @@ export const cardsData = [
     ],
   },
   {
-    title: "Workouts",
+    title: "Products",
     color: {
       backGround: "linear-gradient(180deg, #4bb49b 0%, #6cf6d6 100%)",
       boxShadow: "0px 10px 20px 0px #6cf6d6",

@@ -32,9 +32,10 @@ function Testimonialss() {
     email: "",
     story: "",
     rating: "off",
+    avatar: "",
   });
 
-  const { name, email, story, rating } = formData;
+  const { name, email, story, rating, avatar } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -72,6 +73,7 @@ function Testimonialss() {
         email: "",
         story: "",
         rating: "off",
+        avatar: "",
       });
       console.log("hello");
       // navigate back to testimonials page
@@ -116,7 +118,7 @@ function Testimonialss() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                />{" "}
+                />
                 <br />
                 <label> Your Story </label> <br />
                 <input
@@ -138,6 +140,16 @@ function Testimonialss() {
                 <br />
                 <label> Rating </label> <br />
                 <StarRating />
+              </div>
+              <div>
+                <label>Your Avatar:</label> <br />
+                <input
+                  type="text"
+                  name="avatar"
+                  value={formData.avatar}
+                  placeholder="Paste image url/link"
+                  onChange={handleChange}
+                />
               </div>
             </div>
             <button

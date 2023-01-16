@@ -34,11 +34,11 @@
   display: grid;
   height: auto;
   width: 97%;
-  background: var(--glass);
+  /* background: var(--glass); */
   border-radius: 2rem;
   gap: 80px;
   grid-template-columns: 11rem auto 13rem;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 @media screen and (max-width: 1200px) {
@@ -251,10 +251,14 @@
 .table {
   width: 100%;
   height: 40%;
-  overflow-y: scroll;
+  overflow-y: hide;
   margin-top: 0rem;
 }
 
+.m-button{
+  border: none;
+  
+}
 .t-button {
   display: flex;
   justify-content: right;
