@@ -312,7 +312,7 @@ export default function BasicTable() {
               className="table-button"
               onClick={() => {
                 console.log("clicked");
-                navigate("/AllOrders");
+                navigate("/AddOrder");
               }}
             >
               Add Order

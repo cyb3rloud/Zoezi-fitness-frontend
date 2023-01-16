@@ -4,26 +4,24 @@ import Container from "@material-ui/core/Container";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Input } from "@mui/material";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Sidebar from "../Dashboards/Sidebar";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Sidebar from "./Sidebar";
 
 // initial data state
 const initialState = {
-  name: "",
-  expertise: "",
-  // bio: "",
-  clients: "",
-  sessions: "",
-  contact: "",
+  product: "",
+  tracking_id: "",
+  date: "",
+  status: "",
 };
 
-const AddTrainer = ({ AddTrainer }) => {
+const AddOrder = ({ AddOrder }) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState(initialState);
 
-  const { name, expertise, clients, sessions, contact } = formData;
+  const { product, tracking_id, date, status } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -36,7 +34,7 @@ const AddTrainer = ({ AddTrainer }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !expertise || !clients || !sessions || !contact) {
+    if (!product || !tracking_id || !date || !status) {
       console.log("please fill all input fields");
       // toast.error("please fill all input fields");
     } else {
@@ -50,19 +48,19 @@ const AddTrainer = ({ AddTrainer }) => {
         body: JSON.stringify(formData),
       })
         .then((res) => res.json())
-        .then((data) => AddTrainer(data));
+        .then((data) => AddOrder(data));
 
       // // show success message after post to the db
       // toast.success("Added successfully");
 
       // restore input fields to default
       setFormData({
-        name: "",
-        expertise: "",
-        clients: "",
-        sessions: "",
-        contact: "",
+        product: "",
+        tracking_id: "",
+        date: "",
+        status: "",
       });
+      console.log("hello");
       // navigate back to testimonials page
       navigate("/Dashboard");
 
@@ -79,52 +77,43 @@ const AddTrainer = ({ AddTrainer }) => {
         <div className="AddItem">
           <Container>
             <div className="AddContainer">
-              <h1>Add Trainer</h1>
+              <h1>Add Order</h1>
               <form onSubmit={handleSubmit}>
                 <div>
-                  <label> Full Name </label> <br />
+                  <label> Product </label> <br />
                   <input
                     type="text"
-                    name="name"
-                    value={formData.name}
+                    name="product"
+                    value={formData.product}
                     onChange={handleChange}
                   />
                   <br />
-                  <label>Expertise:</label> <br />
-                  <input
-                    type="text"
-                    name="expertise"
-                    value={formData.expertise}
-                    onChange={handleChange}
-                  />
-                  <br />
-                  <label>Number of clients:</label>
-                  <br />
-                  <input
+                  <label>Tracking ID:</label>
+                  <textarea
                     type="number"
-                    name="clients"
-                    value={formData.clients}
+                    name="tracking_id"
+                    value={formData.tracking_id}
                     onChange={handleChange}
                   />
                   <br />
-                  <label>Sessions:</label>
+                  <label>Date:</label>
+                  <br />
                   <input
-                    type="number"
-                    name="sessions"
-                    value={formData.sessions}
+                    type="date"
+                    name="date"
+                    value={formData.date}
                     onChange={handleChange}
                   />
                   <br />
-                  <label>Contact:</label>
-                  <input
-                    type="text"
-                    name="contact"
-                    value={formData.client_goal}
-                    onChange={handleChange}
-                  />
+                  <label>Status:</label>
+                  <select  className="drop-down" name="status">
+                    <option value="approved"></option>
+                    <option value="approved">Approved</option>
+                    <option value="pending">Pending</option>
+                  </select>
                   <br />
                 </div>
-                <div className="product-button">
+                <div className="add-button">
                   <button
                     className="p-button"
                     variant="contained"
@@ -143,4 +132,4 @@ const AddTrainer = ({ AddTrainer }) => {
   );
 };
 
-export default AddTrainer;
+export default AddOrder;

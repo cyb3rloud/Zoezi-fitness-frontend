@@ -6,11 +6,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import "../Dashboards/Dashboard.css";
+import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Sidebar from "../Dashboards/Sidebar";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Sidebar from "./Sidebar";
 // import { UilArrowCircleRight } from "@iconscout/react-unicons";
 
 function createData(name, trackingId, date, status, client_goal) {
@@ -96,7 +96,7 @@ export default function BasicTable() {
               className="table-button"
               onClick={() => {
                 console.log("clicked");
-                navigate("/AllOrders");
+                navigate("/AddOrder");
               }}
             >
               Add Order

@@ -4,24 +4,26 @@ import Container from "@material-ui/core/Container";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Input } from "@mui/material";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Sidebar from "../Dashboards/Sidebar";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Sidebar from "./Sidebar";
 
 // initial data state
 const initialState = {
-  product: "",
-  tracking_id: "",
-  date: "",
-  status: "",
+  name: "",
+  expertise: "",
+  // bio: "",
+  clients: "",
+  sessions: "",
+  contact: "",
 };
 
-const AddOrder = ({ AddOrder }) => {
+const AddTrainer = ({ AddTrainer }) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState(initialState);
 
-  const { product, tracking_id, date, status } = formData;
+  const { name, expertise, clients, sessions, contact } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -34,7 +36,7 @@ const AddOrder = ({ AddOrder }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!product || !tracking_id || !date || !status) {
+    if (!name || !expertise || !clients || !sessions || !contact) {
       console.log("please fill all input fields");
       // toast.error("please fill all input fields");
     } else {
@@ -48,19 +50,19 @@ const AddOrder = ({ AddOrder }) => {
         body: JSON.stringify(formData),
       })
         .then((res) => res.json())
-        .then((data) => AddOrder(data));
+        .then((data) => AddTrainer(data));
 
       // // show success message after post to the db
       // toast.success("Added successfully");
 
       // restore input fields to default
       setFormData({
-        product: "",
-        tracking_id: "",
-        date: "",
-        status: "",
+        name: "",
+        expertise: "",
+        clients: "",
+        sessions: "",
+        contact: "",
       });
-      console.log("hello");
       // navigate back to testimonials page
       navigate("/Dashboard");
 
@@ -77,43 +79,52 @@ const AddOrder = ({ AddOrder }) => {
         <div className="AddItem">
           <Container>
             <div className="AddContainer">
-              <h1>Add Order</h1>
+              <h1>Add Trainer</h1>
               <form onSubmit={handleSubmit}>
                 <div>
-                  <label> Product </label> <br />
+                  <label> Full Name </label> <br />
                   <input
                     type="text"
-                    name="product"
-                    value={formData.product}
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                   />
                   <br />
-                  <label>Tracking ID:</label>
-                  <textarea
-                    type="number"
-                    name="tracking_id"
-                    value={formData.tracking_id}
+                  <label>Expertise:</label> <br />
+                  <input
+                    type="text"
+                    name="expertise"
+                    value={formData.expertise}
                     onChange={handleChange}
                   />
                   <br />
-                  <label>Date:</label>
+                  <label>Number of clients:</label>
                   <br />
                   <input
-                    type="date"
-                    name="date"
-                    value={formData.date}
+                    type="number"
+                    name="clients"
+                    value={formData.clients}
                     onChange={handleChange}
                   />
                   <br />
-                  <label>Status:</label>
-                  <select  className="drop-down" name="status">
-                    <option value="approved"></option>
-                    <option value="approved">Approved</option>
-                    <option value="pending">Pending</option>
-                  </select>
+                  <label>Sessions:</label>
+                  <input
+                    type="number"
+                    name="sessions"
+                    value={formData.sessions}
+                    onChange={handleChange}
+                  />
+                  <br />
+                  <label>Contact:</label>
+                  <input
+                    type="text"
+                    name="contact"
+                    value={formData.client_goal}
+                    onChange={handleChange}
+                  />
                   <br />
                 </div>
-                <div className="add-button">
+                <div className="product-button">
                   <button
                     className="p-button"
                     variant="contained"
@@ -132,4 +143,4 @@ const AddOrder = ({ AddOrder }) => {
   );
 };
 
-export default AddOrder;
+export default AddTrainer;

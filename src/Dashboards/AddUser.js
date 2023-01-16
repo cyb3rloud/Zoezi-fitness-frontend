@@ -4,9 +4,9 @@ import Container from "@material-ui/core/Container";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Input } from "@mui/material";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Sidebar from "../Dashboards/Sidebar";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Sidebar from "./Sidebar";
 
 
 // initial data state

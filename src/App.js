@@ -13,14 +13,14 @@ import Register from "./components/Register";
 import Testimonialss from "./components/Testimonialss";
 import Dashboard from "./Dashboards/Dashboard";
 import UserDashboard from "./Dashboards/UserDashboard";
-import AddProduct from "./components/AddProduct";
-import AddUser from "./components/AddUser";
-import AddTrainer from "./components/AddTrainer";
-import AddOrder from "./components/AddOrder";
-import AllUsers from "./components/AllUsers";
-import AllTrainers from "./components/AllTrainers";
-import AllProducts from "./components/AllProducts";
-import AllOrders from "./components/AllOrders";
+import AddProduct from "./Dashboards/AddProduct";
+import AddUser from "./Dashboards/AddUser";
+import AddTrainer from "./Dashboards/AddTrainer";
+import AddOrder from "./Dashboards/AddOrder";
+import AllUsers from "./Dashboards/AllUsers";
+import AllTrainers from "./Dashboards/AllTrainers";
+import AllProducts from "./Dashboards/AllProducts";
+import AllOrders from "./Dashboards/AllOrders";
 
 
 function App() {
