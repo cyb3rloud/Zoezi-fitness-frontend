@@ -251,8 +251,8 @@
 .table {
   width: 100%;
   height: 300px;
-  overflow-y: scroll;
-  margin: 1rem 2rem;
+  /* overflow-y: scroll; */
+  margin: 5rem 2rem;
 }
 
 .m-button{
