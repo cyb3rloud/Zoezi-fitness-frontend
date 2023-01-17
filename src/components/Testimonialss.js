@@ -30,14 +30,14 @@ function Testimonialss() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    client_name: "",
+    username: "",
     email: "",
     testimony: "",
     rating: "off",
-    avatar: "",
+    image_url: "",
   });
 
-  const { client_name, email, testimony, rating, avatar } = formData;
+  const { username, email, testimony, rating, image_url } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -52,7 +52,7 @@ function Testimonialss() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!client_name || !email || !testimony || !rating ) {
+    if (!username || !email || !testimony || !rating || !image_url ) {
       console.log("please fill all input fields");
     } else {
       // axios.post("http://localhost:4000/comments", formData);
@@ -94,10 +94,10 @@ function Testimonialss() {
             {testimonies.length ? (
               testimonies.map((testimony) => (
                 <div className="testimony" key={testimony.id}>
-                  <img src={testimony.avatar} alt="avatar" />
+                  <img src={testimony.client.image_url} alt="avatar" />
                   <StarRating />
                   <p>{testimony.testimony}</p>
-                  <h5> ~ {testimony.testimony} ~ </h5>
+                  <h5> ~ {testimony.client.username} ~ </h5>
                   <h6></h6>
                 </div>
               ))
@@ -111,11 +111,11 @@ function Testimonialss() {
           <form onSubmit={handleSubmit}>
             <div className="form-table">
               <div>
-                <label> Your Name </label> <br />
+                <label> Your Username </label> <br />
                 <input
                   type="text"
-                  name="client_name"
-                  value={formData.client_name}
+                  name="username"
+                  value={formData.username}
                   onChange={handleChange}
                 />
                 <br />
@@ -127,6 +127,8 @@ function Testimonialss() {
                   onChange={handleChange}
                 />{" "}
                 <br />
+                <label> Rating </label> <br />
+                <StarRating />
               </div>
               <div>
                 <label> Your Email </label> <br />
@@ -137,18 +139,16 @@ function Testimonialss() {
                   onChange={handleChange}
                 />{" "}
                 <br />
-                <label> Rating </label> <br />
-                <StarRating />
-              </div>
-              <div>
-                <label>Your Avatar:</label> <br />
-                <input
-                  type="text"
-                  name="avatar"
-                  value={formData.avatar}
-                  placeholder="Paste image url/link"
-                  onChange={handleChange}
-                />
+                <div>
+                  <label>Your Avatar:</label> <br />
+                  <input
+                    type="text"
+                    name="avatar"
+                    value={formData.avatar}
+                    placeholder="Paste image url/link"
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
             <button

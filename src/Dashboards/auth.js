@@ -29,7 +29,7 @@ const useProvideUser = () => {
   };
 
   const handleRegLogout = () => {
-    fetch("https://recipe-be.onrender.com/logout", { method: "DELETE" }).then(
+    fetch("/logout", { method: "DELETE" }).then(
       (r) => {
         if (r.ok) {
           toast.success("Logout Successful");
