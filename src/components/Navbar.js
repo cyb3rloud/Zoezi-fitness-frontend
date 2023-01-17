@@ -1,73 +1,37 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {NavLogo} from "./NavbarStyles"
 import '../components/header.css'
+import { useCallback, useState } from 'react'
+import { useUser } from '../Dashboards/auth'
+import Register from './Register'
+import Login from './Login'
 
 const Navbar = () => {
+
+  // modal states
+  const [show, setShow] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const { logout, user } = useUser();
+
+  // register open & close modal
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // login open & close modal
+  const handleLoginClose = () => setShowLogin(false);
+  const handleLoginShow = () => setShowLogin(true);
+
+  const navigate = useNavigate();
+
+  const handleLogout = useCallback(() => {
+    navigate("/");
+    logout();
+  }, [logout, navigate]);
+  
   return (
-<<<<<<< HEAD
-    <Fragment>
-      <div className="topnav">
-        contact us
-        <FontAwesomeIcon icon="fa-solid fa-phone" />
-      </div>
-      <Nav className={colorChange ? "navbar colorChange" : "navbar"}>
-        <NavContainer>
-          <NavLogo href="#" className="befited">
-            Befit
-          </NavLogo>
-          <MobileIcon>
-            <FaBars />
-          </MobileIcon>
-          <NavMenu>
-            <NavItem>
-              <Link to="/">
-                <button className="navbar-button">Home</button>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/About">
-                <button className="navbar-button">About Us</button>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/Products">
-                <button className="navbar-button">Products</button>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/Trainers">
-                <button className="navbar-button">Trainers</button>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/Testimonialss">
-                <button className="navbar-button">Testimonials</button>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/UserDashboard">
-                <button className="navbar-button">Dashboard</button>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/Login">
-                <button className="navbar-button-register">
-                  {" "}
-                  LOGIN OR
-                  <br />
-                  REGISTER
-                </button>
-              </Link>{" "}
-            </NavItem>
-          </NavMenu>
-        </NavContainer>
-      </Nav>
-    </Fragment>
-  );
-};
-=======
+<>
   <header className="header">
   <Container>
     <div className='navigation'>
@@ -89,16 +53,46 @@ const Navbar = () => {
 </div>
 
 <div className='nav_right d-flex align-items-center gap-5'>
-<Link to="/Login"> <button className='btn d-flex gap-2 align-items-center'>Register
+{/* <Link to="/Login"> <button className='btn d-flex gap-2 align-items-center'>
+  
+  Register
+
   </button>  </Link>
   <Link to='/cart' class> <i class = "fas fa-shopping-cart"/>
-  </Link>
->>>>>>> 0f36333d70b9cbf4fd784ffce3044735f82d12ac
+  </Link> */}
+
+              {!user?.id ? (
+              <>
+                <button className='btn d-flex gap-2 align-items-center' onClick={handleShow}>
+                  Register
+                </button>
+              </>
+            ) : (
+              <>
+                <button className='btn d-flex gap-2 align-items-center' onClick={handleLogout}>
+                  Logout
+                </button>
+              </>
+            )}
 
 </div>
     </div>
   </Container>
   </header>
+        {/* signup Modal */}
+      <Register
+        handleClose={handleClose}
+        handleLoginShow={handleLoginShow}
+        show={show}
+      />
+
+      {/* login Modal */}
+      <Login
+        handleLoginClose={handleLoginClose}
+        handleShow={handleShow}
+        showLogin={showLogin}
+      />
+</>
   )
 }
 export default Navbar;
