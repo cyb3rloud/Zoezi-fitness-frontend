@@ -27,6 +27,8 @@ function App() {
   const [trainers, setTrainers] = useState([]);
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [user, setUser] = useState(null);
+
 
   useEffect(() => {
     fetch("/clients")
@@ -74,7 +76,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/Products" element={<Products />} />
             <Route exact path="/About" element={<About />} />
-            <Route exact path="/Login" element={<Login />} />
+            <Route exact path="/Login" element={<Login setUser={setUser} />} />
             <Route exact path="/Register" element={<Register />} />
             <Route exact path="/Trainers" element={<Trainers />} />
             <Route exact path="/Testimonialss" element={<Testimonialss />} />
@@ -92,7 +94,11 @@ function App() {
             />
             <Route exact path="/UserDashboard" element={<UserDashboard />} />
             <Route exact path="/AddProduct" element={<AddProduct />} />
-            <Route exact path="/AddUser" element={<AddUser addUser ={addUser} />} />
+            <Route
+              exact
+              path="/AddUser"
+              element={<AddUser addUser={addUser} />}
+            />
             <Route exact path="/AddTrainer" element={<AddTrainer />} />
             <Route exact path="/AddOrder" element={<AddOrder />} />
             <Route
