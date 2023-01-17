@@ -32,7 +32,6 @@ function App() {
     fetch("/clients")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUsers(data);
       });
   }, []);
@@ -41,7 +40,6 @@ function App() {
     fetch("/trainers")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setTrainers(data);
       });
   }, []);
@@ -50,7 +48,6 @@ function App() {
     fetch("/products")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setProducts(data);
       });
   }, []);
@@ -59,10 +56,14 @@ function App() {
     fetch("/orders")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setOrders(data);
       });
   }, []);
+
+    function addUser(newUser) {
+      const updatedUsers = [...users, newUser];
+      setUsers(updatedUsers);
+    }
 
   return (
     <>
@@ -77,16 +78,43 @@ function App() {
             <Route exact path="/Register" element={<Register />} />
             <Route exact path="/Trainers" element={<Trainers />} />
             <Route exact path="/Testimonialss" element={<Testimonialss />} />
-            <Route exact path="/Dashboard" element={<Dashboard  users={users} trainers={trainers} products={products} orders={orders} />} />
+            <Route
+              exact
+              path="/Dashboard"
+              element={
+                <Dashboard
+                  users={users}
+                  trainers={trainers}
+                  products={products}
+                  orders={orders}
+                />
+              }
+            />
             <Route exact path="/UserDashboard" element={<UserDashboard />} />
             <Route exact path="/AddProduct" element={<AddProduct />} />
-            <Route exact path="/AddUser" element={<AddUser />} />
+            <Route exact path="/AddUser" element={<AddUser addUser ={addUser} />} />
             <Route exact path="/AddTrainer" element={<AddTrainer />} />
             <Route exact path="/AddOrder" element={<AddOrder />} />
-            <Route exact path="/AllUsers" element={<AllUsers users={users} />} />
-            <Route exact path="/AllTrainers" element={<AllTrainers trainers={trainers} />} />
-            <Route exact path="/AllProducts" element={<AllProducts products={products} />} />
-            <Route exact path="/AllOrders" element={<AllOrders orders={orders} />} />
+            <Route
+              exact
+              path="/AllUsers"
+              element={<AllUsers users={users} />}
+            />
+            <Route
+              exact
+              path="/AllTrainers"
+              element={<AllTrainers trainers={trainers} />}
+            />
+            <Route
+              exact
+              path="/AllProducts"
+              element={<AllProducts products={products} />}
+            />
+            <Route
+              exact
+              path="/AllOrders"
+              element={<AllOrders orders={orders} />}
+            />
           </Routes>
 
           {/* <div style={{overflowY:"scroll", height:"800px"}}></div>  */}

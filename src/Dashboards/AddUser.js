@@ -12,19 +12,23 @@ import "../App.css"
 
 // initial data state
 const initialState = {
-  name: "",
-  age: "",
-  weight: "",
+  firstname: "",
+  lastname: "",
+  email: "",
+  password: "",
   contact: "",
-    client_goal: "",
+  age: "",
+  height: "",
+  current_weight: "",
+  client_goal: "",
 };
 
-const AddUser = ({ AddUser }) => {
+const AddUser = ({ addUser }) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState(initialState);
 
-  const { name, age, weight, contact, client_goal } = formData;
+  const { firstname, lastname, email, password, contact, age, height, current_weight, client_goal } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -35,43 +39,49 @@ const AddUser = ({ AddUser }) => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!name || !age || !weight || !contact || !client_goal) {
-      console.log("please fill all input fields");
-      // toast.error("please fill all input fields");
-    } else {
-      // post comment to our api endpoint
-      // axios.post("http://localhost:4000/comments", formData);
-      fetch("/clients", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((res) => res.json())
-        .then((data) => AddUser(data));
+    const handleSubmit = (e) => {
+      e.preventDefault();
+ if (
+   !firstname ||
+   !lastname ||
+   !email ||
+   !password ||
+   !contact ||
+   !age ||
+   !height ||
+   !current_weight ||
+   !client_goal
+ ) {
+   console.log("please fill all input fields");
+   // toast.error("please fill all input fields");
+ } else {
+   // axios.post("http://localhost:4000/comments", formData);
+   fetch("/clients", {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(formData),
+   })
+     .then((res) => res.json())
+     .then((data) => addUser(data));
 
-      // // show success message after post to the db
-      // toast.success("Added successfully");
-
-      // restore input fields to default
       setFormData({
-        name: "",
-        age: "",
-        weight: "",
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
         contact: "",
+        age: "",
+        height: "",
+        current_weight: "",
         client_goal: "",
       });
-      console.log("hello");
-      // navigate back to testimonials page
-      navigate("/Dashboard");
-
-      // call product render function
-      //   setTimeout(() => loadProduct(), 500);
-    }
-  };
+   console.log("hello");
+   // navigate back to testimonials page
+  //  navigate("/Dashboard");
+ }
+    };
 
   return (
     <>
@@ -85,36 +95,68 @@ const AddUser = ({ AddUser }) => {
                 <h1>Add User</h1>
                 <form onSubmit={handleSubmit}>
                   <div>
-                    <label> Full Name </label> <br />
+                    <label> First Name </label> <br />
                     <input
                       type="text"
-                      name="name"
-                      value={formData.name}
+                      name="firstname"
+                      value={formData.firstname}
+                      onChange={handleChange}
+                    />
+                    <br />
+                    <label> Last Name </label> <br />
+                    <input
+                      type="text"
+                      name="lastname"
+                      value={formData.lastname}
+                      onChange={handleChange}
+                    />
+                    <br />
+                    <label> Email</label> <br />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                    <br />
+                    <label> Password</label> <br />
+                    <input
+                      type="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                    />
+                    <br />
+                    <label>Phone number:</label>
+                    <input
+                      type="value"
+                      name="contact"
+                      value={formData.contact}
                       onChange={handleChange}
                     />
                     <br />
                     <label>Age:</label> <br />
                     <input
-                      type="number"
+                      type="value"
                       name="age"
                       value={formData.age}
+                      onChange={handleChange}
+                    />
+                    <br />
+                    <label>Height:</label> <br />
+                    <input
+                      type="value"
+                      name="height"
+                      value={formData.height}
                       onChange={handleChange}
                     />
                     <br />
                     <label>Weight:</label>
                     <br />
                     <input
-                      type="number"
-                      name="weight"
-                      value={formData.weight}
-                      onChange={handleChange}
-                    />
-                    <br />
-                    <label>Phone number:</label>
-                    <input
-                      type="number"
-                      name="contact"
-                      value={formData.contact}
+                      type="value"
+                      name="current_weight"
+                      value={formData.current_weight}
                       onChange={handleChange}
                     />
                     <br />

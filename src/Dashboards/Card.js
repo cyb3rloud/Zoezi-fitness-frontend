@@ -23,7 +23,7 @@ const Card = (props) => {
 // Compact Card
 function CompactCard({ param, setExpanded }) {
   const Png = param.png;
-  console.log(param)
+  // console.log(param)
   return (
     <motion.div
       className="CompactCard"

@@ -15,6 +15,8 @@ function Testimonialss() {
     fetch("/testimonials")
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
+
         setTestimonies(data);
         setIsLoaded(true);
       });
@@ -52,9 +54,7 @@ function Testimonialss() {
     e.preventDefault();
     if (!client_name || !email || !testimony || !rating ) {
       console.log("please fill all input fields");
-      // toast.error("please fill all input fields");
     } else {
-      // post comment to our api endpoint
       // axios.post("http://localhost:4000/comments", formData);
       fetch("/testimonials", {
         method: "POST",
@@ -64,12 +64,12 @@ function Testimonialss() {
         body: JSON.stringify(formData),
       })
         .then((res) => res.json())
-        .then((data) => addTestimony(data));
+        .then((data) => {
+        // console.log(data)
+        addTestimony(data)
+    }
+        );
 
-      // // show success message after post to the db
-      // toast.success("Added successfully");
-
-      // restore input fields to default
       setFormData({
         client_name: "",
         email: "",
@@ -77,12 +77,8 @@ function Testimonialss() {
         rating: "off",
         avatar: "",
       });
-      console.log("hello");
       // navigate back to testimonials page
       navigate("/Testimonialss");
-
-      // call testimonial render function
-      // setTimeout(() => loadRecipes(), 500);
     }
   };
 
@@ -101,7 +97,7 @@ function Testimonialss() {
                   <img src={testimony.avatar} alt="avatar" />
                   <StarRating />
                   <p>{testimony.testimony}</p>
-                  <h5> ~ {testimony.client_name} ~ </h5>
+                  <h5> ~ {testimony.testimony} ~ </h5>
                   <h6></h6>
                 </div>
               ))

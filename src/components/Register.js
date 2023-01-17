@@ -27,7 +27,7 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("backend-url/register", {
+    fetch("/clients", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -86,7 +86,7 @@ function Register() {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label>Contact</Form.Label>
+        <Form.Label>Phone Number</Form.Label>
         <Form.Control
           type="value"
           name="contact"
