@@ -12,7 +12,7 @@ function Profile({ trainer, handleClick }) {
       return (
         <div className="all-trainers-profile" onClick={handleClick}>
           <div className="all-trainers-profile-img">
-            {/* <img src={trainer.image} alt="trainer" /> */}
+            <img src={trainer.image_url} alt="trainer" />
           </div>
           <span>{trainer.firstname} {trainer.lastname}</span>
           <div>
