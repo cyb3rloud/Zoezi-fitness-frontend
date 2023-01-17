@@ -4,17 +4,26 @@ import { useEffect, useState } from 'react'
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-function Profile({ trainer ,handleClick}) {
+function Profile({ trainer, handleClick }) {
+      const [isLoggedIn, setIsLoggedIn] = useState(true);
+    
       return (
-            <div className="all-trainers-profile" onClick={handleClick}>
-                  <div className="all-trainers-profile-img">
-                        <img src={trainer.image} alt="trainer" />
-                  </div>
-                  <span>{trainer.name}</span>
-            </div>
-
-      )
-}
+        <div className="all-trainers-profile" onClick={handleClick}>
+          <div className="all-trainers-profile-img">
+            <img src={trainer.image} alt="trainer" />
+          </div>
+          <span>{trainer.name}</span>
+          <div>
+            <ul className="workouts">
+              {trainer.workouts.map((workout, index) => (
+                <li className="workouttype" key={index}>{workout}</li>
+              ))}
+            </ul>
+          </div>
+          {isLoggedIn && <div className="dash-btn" onClick={handleClick} data-id={trainer.id}>Add to Dashboard</div>}
+        </div>
+      );
+    }
 
 function Trainers() {
       const [trainers, setTrainers] = useState([])
