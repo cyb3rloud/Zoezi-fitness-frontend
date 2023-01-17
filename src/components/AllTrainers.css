@@ -49,3 +49,26 @@
       height: 100%;
       border-radius: 50%;
 }
+.workouts {
+      list-style: none;
+      display: flex;
+      flex-basis: 33.3%; 
+      gap:10px; 
+      padding: 0;
+}
+.workouttype {
+      padding: 2px;
+      background-color: #2084b5;
+      border-radius: 2px;
+      font-size: 8px;
+      color: white;
+  }
+  .dash-btn{
+      color: white;
+      padding: 12px;
+      background-color: #CAC6E1;
+      border-radius: 25px;
+      justify-content: center;
+      display: flex;
+  
+  }

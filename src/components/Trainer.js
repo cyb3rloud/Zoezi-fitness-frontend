@@ -3,6 +3,8 @@ import './AllTrainers.css'
 import { useEffect, useState } from 'react'
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { ControlCamera } from "@material-ui/icons";
+
 
 function Profile({ trainer, handleClick }) {
       const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -10,15 +12,15 @@ function Profile({ trainer, handleClick }) {
       return (
         <div className="all-trainers-profile" onClick={handleClick}>
           <div className="all-trainers-profile-img">
-            <img src={trainer.image} alt="trainer" />
+            {/* <img src={trainer.image} alt="trainer" /> */}
           </div>
-          <span>{trainer.name}</span>
+          <span>{trainer.firstname} {trainer.lastname}</span>
           <div>
-            <ul className="workouts">
+            {/* <ul className="workouts">
               {trainer.workouts.map((workout, index) => (
                 <li className="workouttype" key={index}>{workout}</li>
               ))}
-            </ul>
+            </ul> */}
           </div>
           {isLoggedIn && <div className="dash-btn" onClick={handleClick} data-id={trainer.id}>Add to Dashboard</div>}
         </div>
@@ -29,7 +31,7 @@ function Profile({ trainer, handleClick }) {
       const [trainers, setTrainers] = useState([]);
       const [error, setError] = useState(null);
       useEffect(() => {
-        fetch("api/trainers")
+        fetch("https://8b3e76f0-d564-4e08-a73c-2eca5d1665d2.mock.pstmn.io/trainers")
           .then(res => {
             if (!res.ok) {
               throw new Error("Error occured while fetching the data!");
@@ -38,7 +40,9 @@ function Profile({ trainer, handleClick }) {
           })
           .then(data => {
             setTrainers(data);
+            console.log(data)
           })
+
           .catch(error => {
             setError(error.message);
           });
