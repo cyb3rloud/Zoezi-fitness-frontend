@@ -28,14 +28,14 @@ function Testimonialss() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
+    client_name: "",
     email: "",
-    story: "",
+    testimony: "",
     rating: "off",
     avatar: "",
   });
 
-  const { name, email, story, rating, avatar } = formData;
+  const { client_name, email, testimony, rating, avatar } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -44,17 +44,19 @@ function Testimonialss() {
       ...formData,
       [name]: value,
     });
+
+    // console.log(formData)
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !email || !story || !rating) {
+    if (!client_name || !email || !testimony || !rating ) {
       console.log("please fill all input fields");
       // toast.error("please fill all input fields");
     } else {
       // post comment to our api endpoint
       // axios.post("http://localhost:4000/comments", formData);
-      fetch("http://localhost:4001/comments", {
+      fetch("/testimonials", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,9 +71,9 @@ function Testimonialss() {
 
       // restore input fields to default
       setFormData({
-        name: "",
+        client_name: "",
         email: "",
-        story: "",
+        testimony: "",
         rating: "off",
         avatar: "",
       });
@@ -96,10 +98,10 @@ function Testimonialss() {
             {testimonies.length ? (
               testimonies.map((testimony) => (
                 <div className="testimony" key={testimony.id}>
-                  <img src={testimony.id} alt="avatar" />
+                  <img src={testimony.avatar} alt="avatar" />
                   <StarRating />
                   <p>{testimony.testimony}</p>
-                  <h5> ~ {testimony.client_id} ~ </h5>
+                  <h5> ~ {testimony.client_name} ~ </h5>
                   <h6></h6>
                 </div>
               ))
@@ -116,16 +118,16 @@ function Testimonialss() {
                 <label> Your Name </label> <br />
                 <input
                   type="text"
-                  name="name"
-                  value={formData.name}
+                  name="client_name"
+                  value={formData.client_name}
                   onChange={handleChange}
                 />
                 <br />
                 <label> Your Story </label> <br />
                 <input
                   type="text"
-                  name="story"
-                  value={formData.story}
+                  name="testimony"
+                  value={formData.testimony}
                   onChange={handleChange}
                 />{" "}
                 <br />

@@ -43,7 +43,7 @@ const AddUser = ({ AddUser }) => {
     } else {
       // post comment to our api endpoint
       // axios.post("http://localhost:4000/comments", formData);
-      fetch("url", {
+      fetch("/clients", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
