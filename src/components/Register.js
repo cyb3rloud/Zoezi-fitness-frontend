@@ -1,156 +1,327 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+// import { Form, Button } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import { useFormik } from "formik";
+import { signupSchema } from "../schemas/register";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+const initialValues = {
+  firstname: "",
+  lastname: "",
+  email: "",
+  password: "",
+  contact: "",
+  age: "",
+  height: "",
+  current_weight: "",
+  client_goal: "",
+};
 
-function Register() {
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    contact: "",
-    age: "",
-    height: "",
-    current_weight: "",
-    client_goal: "",
-  });
-  
+
+function Register({ handleClose, show, handleLoginShow }) {
+  // const [formData, setFormData] = useState(initialValues);
 
   const navigate = useNavigate();
 
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
+  const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
+    useFormik({
+      initialValues,
+      validationSchema: signupSchema,
+      onSubmit: (values, actions) => {
+        actions.resetForm();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-<<<<<<< HEAD
-    fetch("/clients", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-=======
-    fetch("http://localhost:4001/clients", {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
->>>>>>> 0f36333d70b9cbf4fd784ffce3044735f82d12ac
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("An error occurred while registering");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // handle successful registration
-      })
-      .catch((error) => {
-        // handle error
-      });
-    navigate("/Dashboard");
-  };
+        fetch("/clients", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            firstname: values.firstname,
+            lastname: values.lastname,
+            email: values.email,
+            password: values.password,
+            contact: values.contact,
+            age: values.age,
+            height: values.height,
+            current_weight: values.current_weight,
+            client_goal: values.client_goal,
+            // username: values.username,
+            // password_confirmation: values.password_confirmation,
+          }),
+        });
+        // navigate("/dashboard");
+        // .then ((r) => {
+        //   if (r.ok) {
+        //     r.json().then((user) =>
+        //     // { onLogin(user) }
+        //     console.log(user)
+        //     );
+        //   } else {
+        //     r.json().then((err) => console.log(err));
+        //   }
+        // });
+
+        toast.success("Registration Successfully");
+        // alert("Registration Successfully");
+        handleClose();
+        navigate("/Dashboard")
+      },
+    });
+
+  // const handleChange = (event) => {
+  //   setFormData({
+  //     ...formData,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   fetch("/clients", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(formData),
+  //   })
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("An error occurred while registering");
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       // handle successful registration
+  //     })
+  //     .catch((error) => {
+  //       // handle error
+  //     });
+  //   navigate("/Dashboard");
+  // };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group>
-        <Form.Label>First Name</Form.Label>
-        <Form.Control
-          type="text"
-          name="firstname"
-          value={formData.firstname}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control
-          type="text"
-          name="lastname"
-          value={formData.lastname}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Email</Form.Label>
-        <Form.Control
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Phone Number</Form.Label>
-        <Form.Control
-          type="value"
-          name="contact"
-          value={formData.contact}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Age</Form.Label>
-        <Form.Control
-          type="value"
-          name="age"
-          value={formData.age}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Height</Form.Label>
-        <Form.Control
-          type="value"
-          name="height"
-          value={formData.height}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Current Weight</Form.Label>
-        <Form.Control
-          type="value"
-          name="current_weight"
-          value={formData.current_weight}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Client Goal</Form.Label>
-        <Form.Control as="select" onChange={handleChange}>
-          <option value="weight loss">Weight Loss</option>
-          <option value="weight gain">Weight Gain</option>
-          <option value="muscle gain">Muscle Gain</option>
-          <option value="keep fit">Keep Fit</option>
-        </Form.Control>
-        {/* <Form.Control
+    <>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Form onSubmit={handleSubmit} className="m-3">
+          <Modal.Header closeButton>
+            <Modal.Title className="abril">Sign Up</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form.Group>
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="firstname"
+                value={values.firstname}
+                onBlur={handleBlur}
+                onChange={handleChange}
+              />
+              {/* <div className="error_container">
+                {errors.firstname && touched.firstname && (
+                  <p className="form_error">{errors.firstname}</p>
+                )}
+              </div> */}
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="lastname"
+                value={values.lastname}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                value={values.email}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                name="password"
+                value={values.password}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control
+                type="value"
+                name="contact"
+                value={values.contact}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Age</Form.Label>
+              <Form.Control
+                type="value"
+                name="age"
+                value={values.age}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Height</Form.Label>
+              <Form.Control
+                type="value"
+                name="height"
+                value={values.height}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Current Weight</Form.Label>
+              <Form.Control
+                type="value"
+                name="current_weight"
+                value={values.current_weight}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Client Goal</Form.Label>
+              <Form.Control as="select" onChange={handleChange}>
+                <option value="weight loss">Weight Loss</option>
+                <option value="weight gain">Weight Gain</option>
+                <option value="muscle gain">Muscle Gain</option>
+                <option value="keep fit">Keep Fit</option>
+              </Form.Control>
+              {/* <Form.Control
           type="text"
           name="client_goal"
           value={formData.client_goal}
           onChange={handleChange}
         /> */}
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Register
-      </Button>
-    </Form>
+            </Form.Group>
+          </Modal.Body>
+          <Modal.Footer className="submit__btn">
+            <Button type="submit" onClick={handleSubmit}>
+              Register
+            </Button>
+            <div className="d-flex align-items-center justify-content-center m-auto mt-3">
+              <span className="me-3">Already have an account ?</span>
+              <span onClick={handleClose}>
+                <Link className="registerLogin" onClick={handleLoginShow}>
+                  Log In
+                </Link>
+              </span>
+            </div>
+          </Modal.Footer>
+        </Form>
+      </Modal>
+    </>
   );
 }
 
 export default Register;
+
+
+{/* <Form onSubmit={handleSubmit}>
+  <Form.Group>
+    <Form.Label>First Name</Form.Label>
+    <Form.Control
+      type="text"
+      name="firstname"
+      value={formData.firstname}
+      onChange={handleChange}
+    />
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Last Name</Form.Label>
+    <Form.Control
+      type="text"
+      name="lastname"
+      value={formData.lastname}
+      onChange={handleChange}
+    />
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Email</Form.Label>
+    <Form.Control
+      type="email"
+      name="email"
+      value={formData.email}
+      onChange={handleChange}
+    />
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Password</Form.Label>
+    <Form.Control
+      type="password"
+      name="password"
+      value={formData.password}
+      onChange={handleChange}
+    />
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Phone Number</Form.Label>
+    <Form.Control
+      type="value"
+      name="contact"
+      value={formData.contact}
+      onChange={handleChange}
+    />
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Age</Form.Label>
+    <Form.Control
+      type="value"
+      name="age"
+      value={formData.age}
+      onChange={handleChange}
+    />
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Height</Form.Label>
+    <Form.Control
+      type="value"
+      name="height"
+      value={formData.height}
+      onChange={handleChange}
+    />
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Current Weight</Form.Label>
+    <Form.Control
+      type="value"
+      name="current_weight"
+      value={formData.current_weight}
+      onChange={handleChange}
+    />
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Client Goal</Form.Label>
+    <Form.Control as="select" onChange={handleChange}>
+      <option value="weight loss">Weight Loss</option>
+      <option value="weight gain">Weight Gain</option>
+      <option value="muscle gain">Muscle Gain</option>
+      <option value="keep fit">Keep Fit</option>
+    </Form.Control>
+    {/* <Form.Control
+          type="text"
+          name="client_goal"
+          value={formData.client_goal}
+          onChange={handleChange}
+        /> */}
+//   </Form.Group>
+
+//   <Button variant="primary" type="submit">
+//     Register
+//   </Button>
+// </Form>; 
 
 /*
 import React, { useState, useEffect } from 'react';
