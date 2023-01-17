@@ -79,7 +79,7 @@ export default function BasicTable( {users, trainers, products, orders} ) {
                 </TableRow>
               </TableHead>
               <TableBody style={{ color: "white" }}>
-                {users.map((user) => (
+                {users.slice(-3).map((user) => (
                   <TableRow
                     key={user.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -143,7 +143,7 @@ export default function BasicTable( {users, trainers, products, orders} ) {
                 </TableRow>
               </TableHead>
               <TableBody style={{ color: "white" }}>
-                {trainers.map((trainer) => (
+                {trainers.slice(-3).map((trainer) => (
                   <TableRow
                     key={trainer.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -206,7 +206,7 @@ export default function BasicTable( {users, trainers, products, orders} ) {
                 </TableRow>
               </TableHead>
               <TableBody style={{ color: "white" }}>
-                {users.map((user) => (
+                {users.slice(-3).map((user) => (
                   <TableRow
                     key={user.name}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
