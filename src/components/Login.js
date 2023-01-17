@@ -1,109 +1,169 @@
-import React, { useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
-import { useNavigate, Link } from "react-router-dom";
+import React from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import { useFormik } from "formik";
+import { signupSchema } from "../schemas/login";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useUser } from "../Dashboards/auth";
 
-function Login() {
-<<<<<<< HEAD
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
-=======
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        // Fetch data from backend
-        async function fetchData() {
-            try {
-                const response = await fetch("http://localhost:4001/login", {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password }),
-                });
-                const data = await response.json();
-                if (response.ok) {
-                    // Save user data to local storage
-                    localStorage.setItem('clients', JSON.stringify(data.clients));
-                    // Redirect to dashboard
-                    navigate("/dashboard");
-                } else {
-                    setError(data.message);
-                }
-            } catch (err) {
-                setError(err.message);
-            }
-        }
->>>>>>> 0f36333d70b9cbf4fd784ffce3044735f82d12ac
-
-  useEffect(() => {
-    // Fetch data from backend
-    async function fetchData() {
-      try {
-        const response = await fetch("/api/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password }),
-        });
-        const data = await response.json();
-        if (response.ok) {
-          // Save user data to local storage
-          localStorage.setItem("user", JSON.stringify(data.user));
-          // Redirect to dashboard
-          navigate.push("/dashboard");
-        } else {
-          setError(data.message);
-        }
-      } catch (err) {
-        setError(err.message);
-      }
-    }
-
-    if (email && password) {
-      fetchData();
-    }
-  }, [email, password, navigate]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setEmail(e.target.email.value);
-    setPassword(e.target.password.value);
-    navigate("/Dashboard");
+  const initialValues = {
+    email: "",
+    password: "",
   };
 
-  return (
-    <div>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            name="email"
-            required
-          />
-        </Form.Group>
+function Login({
+  handleLoginClose,
+  showLogin,
+  handleShow,
+  setUser,
+  handleLogout,
+}) {
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            name="password"
-            required
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
-      </Form>
-      {error && <div className="alert alert-danger">{error}</div>}
-      <p>
-        Not registered? <Link to="/register">Register here</Link>
-      </p>
-    </div>
+  const navigate = useNavigate();
+  const { login } = useUser();
+
+  const handleCSubmit = (values) => {
+    console.log(values.email);
+    if (values.email === "admin@admin.com" && values.password === "admin") {
+      // toast.success("login Successful");
+      alert("login Successful");
+      navigate("/Dashboard");
+    } else {
+      alert("login Failed");
+    }
+  };
+
+  const { handleSubmit, values, handleBlur, handleChange, errors, touched } =
+    useFormik({
+      initialValues,
+      validationSchema: signupSchema,
+      onSubmit: (values, actions) => {
+        actions.resetForm();
+        handleCSubmit(values);
+
+        fetch("/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            email: values.email,
+            password: values.password,
+          }),
+        }).then((r) => {
+          if (r.ok) {
+            r.json().then((user) => login(user));
+          }
+        });
+
+        handleLoginClose();
+        toast.success("login Successful");
+        // handleLogout();
+        navigate("/UserDashboard");
+      },
+    });
+
+
+
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [error, setError] = useState("");
+
+  // useEffect(() => {
+  //   // Fetch data from backend
+  //   async function fetchData() {
+  //     try {
+  //       const response = await fetch("/api/login", {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({ email, password }),
+  //       });
+  //       const data = await response.json();
+  //       if (response.ok) {
+  //         // Save user data to local storage
+  //         localStorage.setItem("user", JSON.stringify(data.user));
+  //         // Redirect to dashboard
+  //         navigate.push("/dashboard");
+  //       } else {
+  //         setError(data.message);
+  //       }
+  //     } catch (err) {
+  //       setError(err.message);
+  //     }
+  //   }
+
+  //   if (email && password) {
+  //     fetchData();
+  //   }
+  // }, [email, password, navigate]);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setEmail(e.target.email.value);
+  //   setPassword(e.target.password.value);
+  //   navigate("/Dashboard");
+  // };
+
+  return (
+    <>
+      <Modal show={showLogin} onHide={handleLoginClose}>
+        <Form onSubmit={handleSubmit}>
+          <Modal.Header closeButton></Modal.Header>
+          <Modal.Body>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  name="email"
+                  value={values.email}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  value={values.password}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  required
+                />
+                <div className="error_container">
+                  {errors.password && touched.password && (
+                    <p className="form_error">{errors.password}</p>
+                  )}
+                </div>
+              </Form.Group>
+            {/* {error && <div className="alert alert-danger">{error}</div>}
+            <p>
+              Not registered? <Link to="/Register">Register here</Link>
+            </p> */}
+          </Modal.Body>
+            <Modal.Footer className="submit__btn">
+              <Button onClick={handleSubmit} type="submit">
+                Login
+              </Button>
+              <div className="d-flex align-items-center justify-content-center m-auto mt-3">
+                <span className="me-3">Not Registered?</span>
+                <span onClick={handleLoginClose}>
+                  <Link className="registerLogin" onClick={handleShow}>
+                    Register Here
+                  </Link>
+                </span>
+              </div>
+          </Modal.Footer>
+        </Form>
+      </Modal>
+    </>
   );
 }
 export default Login;
