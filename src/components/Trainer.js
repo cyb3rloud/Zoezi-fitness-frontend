@@ -25,46 +25,25 @@ function Profile({ trainer, handleClick }) {
       );
     }
 
-function Trainers() {
-      const [trainers, setTrainers] = useState([])
-      const trainerss = [
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Bicep Curl", "Lat Pull", "Lateral Raise", "Bent-Over Rows"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Bench Press", "Squats", "Deadlift", "Shoulder Press", "Jump Rope"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Leg Raises", "Jump Rope", "Lateral Raise", "Bench Press"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Deadlift", "Lat Pull", "Bicep Curl", "Squats"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Leg Raises", "Shoulder Press", "Bent-Over Rows", "Deadlift", "Jump Rope"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Lat Pull", "Bent-Over Rows", "Bench Press", "Squats"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Lateral Raise", "Bicep Curl", "Shoulder Press", "Bench Press"],
-            },
-
-      ]
+    function Trainers() {
+      const [trainers, setTrainers] = useState([]);
+      const [error, setError] = useState(null);
+      useEffect(() => {
+        fetch("api/trainers")
+          .then(res => {
+            if (!res.ok) {
+              throw new Error("Error occured while fetching the data!");
+            }
+            return res.json();
+          })
+          .then(data => {
+            setTrainers(data);
+          })
+          .catch(error => {
+            setError(error.message);
+          });
+      }, []);
+    
       useEffect(() => {
             // fetch("/trainers")
             //       .then((res) => res.json())
