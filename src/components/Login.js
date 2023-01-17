@@ -109,57 +109,61 @@ function Login({
 
   return (
     <>
-      <Modal show={showLogin} onHide={handleLoginClose}>
-        <Form onSubmit={handleSubmit}>
-          <Modal.Header closeButton></Modal.Header>
-          <Modal.Body>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  name="email"
-                  value={values.email}
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
+      <Modal show={showLogin} onHide={handleLoginClose} className="login" >
+        <Form onSubmit={handleSubmit} className="m-4">
+          <Modal.Header closeButton>
+            <Modal.Title classname="login_title" >
+              <h1>Login</h1>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="login_body" >
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                value={values.email}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  value={values.password}
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  required
-                />
-                <div className="error_container">
-                  {errors.password && touched.password && (
-                    <p className="form_error">{errors.password}</p>
-                  )}
-                </div>
-              </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={values.password}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                required
+              />
+              <div className="error_container">
+                {errors.password && touched.password && (
+                  <p className="form_error">{errors.password}</p>
+                )}
+              </div>
+            </Form.Group>
             {/* {error && <div className="alert alert-danger">{error}</div>}
             <p>
               Not registered? <Link to="/Register">Register here</Link>
             </p> */}
           </Modal.Body>
-            <Modal.Footer className="submit__btn">
-              <Button onClick={handleSubmit} type="submit">
-                Login
-              </Button>
-              <div className="d-flex align-items-center justify-content-center m-auto mt-3">
-                <span className="me-3">Not Registered?</span>
-                <span onClick={handleLoginClose}>
-                  <Link className="registerLogin" onClick={handleShow}>
-                    Register Here
-                  </Link>
-                </span>
-              </div>
+          <Modal.Footer className="submit__btn">
+            <Button onClick={handleSubmit} type="submit" >
+              Login
+            </Button>
+            <div className="d-flex align-items-left justify-content-left m-auto mt-3">
+              <span >Not Registered?</span>
+              <span onClick={handleLoginClose}>
+                <Link className="registerLogin" onClick={handleShow}>
+                  Register Here
+                </Link>
+              </span>
+            </div>
           </Modal.Footer>
         </Form>
       </Modal>
