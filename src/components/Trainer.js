@@ -44,24 +44,38 @@ function Profile({ trainer, handleClick }) {
           });
       }, []);
     
-      useEffect(() => {
-            // fetch("/trainers")
-            //       .then((res) => res.json())
-            //       .then((data) => {
-            //             setTrainers(data)
-            //       })
-            setTrainers(trainerss)
-      }, [])
-
-      function handleClick() {
+      function handleClick(id) {
+      
+            console.log(id)
+            
+            fetch('api/add', {
+               method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+            body: JSON.stringify({ id: id /*,userid: user_id */ })
+              })
+              .then(res => res.json())
+              .then(data => {
+               console.log(data)
+              })
+          }
+        
+          if (error) {
             return (
-                  <div>
-                  </div>
-
-            )
-
-      }
-
+              <div>
+                <p>An error occured: {error}</p>
+              </div>
+            );
+          }
+      
+        if (error) {
+          return (
+            <div>
+              <p>An error occured: {error}</p>
+            </div>
+          );
+        }
 
       return (
         <>
