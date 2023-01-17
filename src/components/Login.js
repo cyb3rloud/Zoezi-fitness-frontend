@@ -12,7 +12,7 @@ function Login() {
         // Fetch data from backend
         async function fetchData() {
             try {
-                const response = await fetch('/login', {
+                const response = await fetch("http://localhost:4001/login", {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password }),
