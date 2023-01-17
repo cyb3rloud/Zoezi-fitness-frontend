@@ -1,33 +1,12 @@
-import React, { useState, Fragment } from "react";
-import { FaBars } from "react-icons/fa";
-import {
-  Nav,
-  NavContainer,
-  NavLogo,
-  NavItem,
-  NavLinks,
-  NavMenu,
-  MobileIcon,
-} from "./NavbarStyles";
-import "../App.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import {NavLogo} from "./NavbarStyles"
+import '../components/header.css'
 
-
-const Navbar = ({ handleLoginClick }) => {
-  const handleClick = () => {
-    handleLoginClick();
-  };
-  const [colorChange, setColorchange] = useState(false);
-  const changeNavbarColor = () => {
-    if (window.scrollY >= 80) {
-      setColorchange(true);
-    } else {
-      setColorchange(false);
-    }
-  };
-  window.addEventListener("scroll", changeNavbarColor);
+const Navbar = () => {
   return (
+<<<<<<< HEAD
     <Fragment>
       <div className="topnav">
         contact us
@@ -88,5 +67,38 @@ const Navbar = ({ handleLoginClick }) => {
     </Fragment>
   );
 };
+=======
+  <header className="header">
+  <Container>
+    <div className='navigation'>
+<div className="logo">
 
+    <NavLogo href="#" className="befited d-flex gap-2 align-items-center">
+    Befit
+  </NavLogo>
+</div>
+<div className='nav_menu'>
+    <ul className="nav_list">
+    <Link to="/"><li>Home</li> </Link>
+    <Link to="/About"> <li>About Us</li></Link>
+    <Link to="/Products"> <li>Products</li> </Link>
+    <Link to="/Trainers"><li>Trainers</li></Link>
+    <Link to="/Testimonialss"> <li>Testimonials</li> </Link>
+    <Link to="/Dashboard"> <li>Dashboard</li> </Link>
+    </ul>
+</div>
+
+<div className='nav_right d-flex align-items-center gap-5'>
+<Link to="/Login"> <button className='btn d-flex gap-2 align-items-center'>Register
+  </button>  </Link>
+  <Link to='/cart' class> <i class = "fas fa-shopping-cart"/>
+  </Link>
+>>>>>>> 0f36333d70b9cbf4fd784ffce3044735f82d12ac
+
+</div>
+    </div>
+  </Container>
+  </header>
+  )
+}
 export default Navbar;

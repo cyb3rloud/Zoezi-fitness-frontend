@@ -3,10 +3,40 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
+<<<<<<< HEAD
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+=======
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Fetch data from backend
+        async function fetchData() {
+            try {
+                const response = await fetch("http://localhost:4001/login", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    // Save user data to local storage
+                    localStorage.setItem('clients', JSON.stringify(data.clients));
+                    // Redirect to dashboard
+                    navigate("/dashboard");
+                } else {
+                    setError(data.message);
+                }
+            } catch (err) {
+                setError(err.message);
+            }
+        }
+>>>>>>> 0f36333d70b9cbf4fd784ffce3044735f82d12ac
 
   useEffect(() => {
     // Fetch data from backend

@@ -27,9 +27,15 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+<<<<<<< HEAD
     fetch("/clients", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+=======
+    fetch("http://localhost:4001/clients", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+>>>>>>> 0f36333d70b9cbf4fd784ffce3044735f82d12ac
       body: JSON.stringify(formData),
     })
       .then((response) => {
