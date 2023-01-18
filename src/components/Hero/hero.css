@@ -1,0 +1,49 @@
+
+
+.hero_content h2{
+    line-height: 55px;
+    font-size: 2.5rem;
+}
+
+.hero_content h2 span{
+    background-size: 100% 100%;
+    background-clip: text;
+    -webkit-text-stroke: 3px transparent;
+    -webkit-text-fill-color:#14141f;
+    margin-left: 7px !important;
+}
+
+.hero_btns{
+    margin-top: 40px;
+  
+}
+
+.explore_btn, .create_btn{
+    border: none;
+    outline: none;
+    padding: 7px 25px;
+    border-radius: 50px !important;
+    border: 1px solid #4BB49B !important; 
+    font-size: .9rem;
+    background:transparent;
+}
+
+.explore_btn a, .create_btn a{
+    text-decoration:none ;
+    color: #4BB49B;
+}
+
+.hero_btns button a:hover{
+    color: #fff;
+}
+
+.hero_img{
+    width: 500px;
+    margin-left: auto;
+}
+
+.hero_img img{
+    border-radius: 7px;
+    width: 510px;
+    height: 300px;
+}

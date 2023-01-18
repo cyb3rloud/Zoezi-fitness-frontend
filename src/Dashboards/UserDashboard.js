@@ -38,7 +38,6 @@ const [trainersList, setTrainersList] = useState([]);
           <div className="grid-one">
             <div>
               <div className="sect">
-                {/* <h1>Hello {user?.username}!</h1> */}
                 <h1>Hello {user?.username}!</h1>
               </div>
               <div className="sect">
