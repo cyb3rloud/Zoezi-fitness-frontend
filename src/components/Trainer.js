@@ -3,77 +3,88 @@ import './AllTrainers.css'
 import { useEffect, useState } from 'react'
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { Link } from "react-router-dom"
+import { ControlCamera } from "@material-ui/icons";
 
-function Profile({ trainer ,handleClick}) {
+
+function Profile({ trainer, handleClick }) {
+      const [isLoggedIn, setIsLoggedIn] = useState(true);
+    
       return (
-            <div className="all-trainers-profile" onClick={handleClick}>
-                  <div className="all-trainers-profile-img">
-                        <img src={trainer.image} alt="trainer" />
-                  </div>
-                  <span>{trainer.name}</span>
-            </div>
+        <div className="all-trainers-profile" onClick={handleClick}>
+          <div className="all-trainers-profile-img">
+            <img src="https://racheltrotta.com/wp-content/uploads/2019/10/extraLR6A0475-1024x683.jpg" alt="trainer" />
+          </div>
+          <span>{trainer.firstname} {trainer.lastname}</span>
+          <div>
+            {/* <ul className="workouts">
+              {trainer.workouts.map((workout, index) => (
+                <li className="workouttype" key={index}>{workout}</li>
+              ))}
+            </ul> */}
+          </div>
+      
+    <div className="btn-trainer">
+    <Link className="dash-btn" to={`/trainer/${trainer.id}`}>View Profile</Link>
+          {isLoggedIn && <div className="dash-btn" onClick={handleClick} data-id={trainer.id}>Add to Dashboard</div>}
+        </div>
+        </div>
+      );
+    }
 
-      )
-}
-
-function Trainers() {
-      const [trainers, setTrainers] = useState([])
-      const trainerss = [
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Bicep Curl", "Lat Pull", "Lateral Raise", "Bent-Over Rows"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Bench Press", "Squats", "Deadlift", "Shoulder Press", "Jump Rope"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Leg Raises", "Jump Rope", "Lateral Raise", "Bench Press"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Deadlift", "Lat Pull", "Bicep Curl", "Squats"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Leg Raises", "Shoulder Press", "Bent-Over Rows", "Deadlift", "Jump Rope"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Lat Pull", "Bent-Over Rows", "Bench Press", "Squats"],
-            },
-            {
-                  image: "https://unsplash.com/photos/mEZ3PoFGs_k/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHx8fDE2NzM0NDMzNTM&force=true",
-                  name: "Trainer's Name",
-                  workouts: ["Lateral Raise", "Bicep Curl", "Shoulder Press", "Bench Press"],
-            },
-
-      ]
+    function Trainers() {
+      const [trainers, setTrainers] = useState([]);
+      const [error, setError] = useState(null);
       useEffect(() => {
-            // fetch("/trainers")
-            //       .then((res) => res.json())
-            //       .then((data) => {
-            //             setTrainers(data)
-            //       })
-            setTrainers(trainerss)
-      }, [])
+        fetch("https://8b3e76f0-d564-4e08-a73c-2eca5d1665d2.mock.pstmn.io/trainers")
+          .then(res => {
+            if (!res.ok) {
+              throw new Error("Error occured while fetching the data!");
+            }
+            return res.json();
+          })
+          .then(data => {
+            setTrainers(data);
+            console.log(data)
+          })
 
-      function handleClick() {
+          .catch(error => {
+            setError(error.message);
+          });
+      }, []);
+    
+      function handleClick(id) {
+      
+            console.log(id)
+            
+            fetch('api/add', {
+               method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+            body: JSON.stringify({ id: id /*,userid: user_id */ })
+              })
+              .then(res => res.json())
+              .then(data => {
+               console.log(data)
+              })
+          }
+        
+          if (error) {
             return (
-                  <div>
-                  </div>
-
-            )
-
-      }
-
+              <div>
+                <p>An error occured: {error}</p>
+              </div>
+            );
+          }
+      
+        if (error) {
+          return (
+            <div>
+              <p>An error occured: {error}</p>
+            </div>
+          );
+        }
 
       return (
         <>

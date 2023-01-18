@@ -23,7 +23,7 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('http://127.0.0.1:3000/clients', {
+    fetch("http://localhost:4001/clients", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),

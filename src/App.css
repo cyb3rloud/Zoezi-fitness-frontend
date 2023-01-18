@@ -1,28 +1,27 @@
 
 @import url('https://fonts.cdnfonts.com/css/calligraphy-2');  
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-@import url('https://fonts.cdnfonts.com/css/luminari');  
-html, body {
-  height: 100vh;
-  width: 100vw;
-}   
-.wrapper {
-  font-family: Helvetica, sans-serif;
-  line-height: 1.5;
-  word-spacing: 2px;
-  letter-spacing: 0.5px;
+@import url('https://fonts.cdnfonts.com/css/luminari'); 
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.fixed {
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 100%;
-  width: 100%;
-  color: #eeeeee;
-  text-align: center;
-  display: table;
+
+
+p{
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+  opacity: 85%;
+  line-height: 35px;
 }
+body{
+  background:#fff!important;
+  font-family:'Roboto', sans-serif;
+}
+
 .fixed h2 {
   display: table-cell;
   vertical-align: middle;
@@ -44,7 +43,6 @@ html, body {
 }
 .three {
   display: grid;
-  grid-template-columns: ;
   background-color: yellow;
   height: 80vh;
   background-image: url("./images/10.jpg")
@@ -56,7 +54,7 @@ background-color: rgb(211, 211, 211);
 }
 #navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #fff;
 }
 
 /* Navbar links */
@@ -100,7 +98,13 @@ background-color: rgb(211, 211, 211);
 .befited{
   font-family: 'Calligraphy', sans-serif;
   font-family: 'Calligraphy wet', sans-serif;
-
+  color:#222;
+  background-size: 100% 100%;
+  background-clip: text;
+  -webkit-text-stroke:3px transparent;
+  -webkit-text-stroke:3px transparent;
+  font-weight: 500;
+  font-size: 2rem;
 }
   .navbar-button{
     background: transparent;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'reactstrap'
+import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {NavLogo} from "./NavbarStyles"
 import '../components/header.css'
@@ -11,9 +11,9 @@ const Navbar = () => {
     <div className='navigation'>
 <div className="logo">
 
-    <NavLogo href="#" className="befited d-flex gap-2 align-items-center">
+    <h1 className=" d-flex gap-2 align-items-center">
     Befit
-  </NavLogo>
+  </h1>
 </div>
 <div className='nav_menu'>
     <ul className="nav_list">
