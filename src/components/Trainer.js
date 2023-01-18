@@ -3,6 +3,7 @@ import './AllTrainers.css'
 import { useEffect, useState } from 'react'
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { Link } from "react-router-dom"
 import { ControlCamera } from "@material-ui/icons";
 
 
@@ -22,7 +23,11 @@ function Profile({ trainer, handleClick }) {
               ))}
             </ul> */}
           </div>
+      
+    <div className="btn-trainer">
+    <Link className="dash-btn" to={`/trainer/${trainer.id}`}>View Profile</Link>
           {isLoggedIn && <div className="dash-btn" onClick={handleClick} data-id={trainer.id}>Add to Dashboard</div>}
+        </div>
         </div>
       );
     }
