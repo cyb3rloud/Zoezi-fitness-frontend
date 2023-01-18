@@ -1,9 +1,9 @@
-import Footer from "./Footer";
-import Navbar from "./Navbar";
-import StarRating from "../components/StarRating";
-import "../assets/css/testimonials.css";
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import Footer from './Footer';
+import Navbar from './Navbar';
+import StarRating from '../components/StarRating';
+import '../assets/css/testimonials.css';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import axios from "axios";
 // import { toast } from "react-toastify";
 
@@ -12,7 +12,7 @@ function Testimonialss() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch("/testimonials")
+    fetch('/testimonials')
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -30,11 +30,11 @@ function Testimonialss() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    testimony: "",
-    rating: "off",
-    image_url: "",
+    username: '',
+    email: '',
+    testimony: '',
+    rating: 'off',
+    image_url: '',
   });
 
   const { username, email, testimony, rating, image_url } = formData;
@@ -42,43 +42,37 @@ function Testimonialss() {
   const handleChange = (e) => {
     let { name, value } = e.target;
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-
-    // console.log(formData)
+    setFormData((state) => ({ ...state, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!username || !email || !testimony || !rating || !image_url ) {
-      console.log("please fill all input fields");
+    if (!username || !email || !testimony || !rating || !image_url) {
+      console.log('please fill all input fields');
     } else {
       // axios.post("http://localhost:4000/comments", formData);
-      fetch("/testimonials", {
-        method: "POST",
+      fetch('/testimonials', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       })
         .then((res) => res.json())
         .then((data) => {
-        // console.log(data)
-        addTestimony(data)
-    }
-        );
+          // console.log(data)
+          addTestimony(data);
+        });
 
       setFormData({
-        client_name: "",
-        email: "",
-        testimony: "",
-        rating: "off",
-        avatar: "",
+        client_name: '',
+        email: '',
+        testimony: '',
+        rating: 'off',
+        avatar: '',
       });
       // navigate back to testimonials page
-      navigate("/Testimonialss");
+      navigate('/Testimonialss');
     }
   };
 
@@ -112,33 +106,16 @@ function Testimonialss() {
             <div className="form-table">
               <div>
                 <label> Your Username </label> <br />
-                <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                />
+                <input type="text" name="username" value={formData.username} onChange={handleChange} />
                 <br />
                 <label> Your Story </label> <br />
-                <input
-                  type="text"
-                  name="testimony"
-                  value={formData.testimony}
-                  onChange={handleChange}
-                />{" "}
-                <br />
+                <input type="text" name="testimony" value={formData.testimony} onChange={handleChange} /> <br />
                 <label> Rating </label> <br />
                 <StarRating />
               </div>
               <div>
                 <label> Your Email </label> <br />
-                <input
-                  type="text"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />{" "}
-                <br />
+                <input type="text" name="email" value={formData.email} onChange={handleChange} /> <br />
                 <div>
                   <label>Your Avatar:</label> <br />
                   <input
@@ -151,11 +128,7 @@ function Testimonialss() {
                 </div>
               </div>
             </div>
-            <button
-              className="form-button"
-              type="submit"
-              onClick={handleSubmit}
-            >
+            <button className="form-button" type="submit" onClick={handleSubmit}>
               Submit
             </button>
           </form>

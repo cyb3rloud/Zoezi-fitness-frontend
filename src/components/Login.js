@@ -1,72 +1,61 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
-import { useFormik } from "formik";
-import { signupSchema } from "../schemas/login";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { useUser } from "../Dashboards/auth";
+import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import { useFormik } from 'formik';
+import { signupSchema } from '../schemas/login';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useUser } from '../Dashboards/auth';
 
-  const initialValues = {
-    email: "",
-    password: "",
-  };
+const initialValues = {
+  email: '',
+  password: '',
+};
 
-function Login({
-  handleLoginClose,
-  showLogin,
-  handleShow,
-  setUser,
-  handleLogout,
-}) {
-
+function Login({ handleLoginClose, showLogin, handleShow }) {
   const navigate = useNavigate();
   const { login } = useUser();
 
   const handleCSubmit = (values) => {
-    console.log(values.email);
-    if (values.email === "admin@admin.com" && values.password === "admin") {
+    if (values.email === 'admin@admin.com' && values.password === 'admin') {
       // toast.success("login Successful");
-      alert("login Successful");
-      navigate("/Dashboard");
+      alert('login Successful');
+      navigate('/Dashboard');
     } else {
-      alert("login Failed");
+      alert('login Failed');
     }
   };
 
-  const { handleSubmit, values, handleBlur, handleChange, errors, touched } =
-    useFormik({
-      initialValues,
-      validationSchema: signupSchema,
-      onSubmit: (values, actions) => {
-        actions.resetForm();
-        handleCSubmit(values);
+  const { handleSubmit, values, handleBlur, handleChange, errors, touched } = useFormik({
+    initialValues,
+    validationSchema: signupSchema,
+    onSubmit: (values, actions) => {
+      actions.resetForm();
+      handleCSubmit(values);
 
-        fetch("/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            email: values.email,
-            password: values.password,
-          }),
-        }).then((r) => {
-          if (r.ok) {
-            r.json().then((user) => login(user));
-          }
-        });
+      fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          email: values.email,
+          password: values.password,
+        }),
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((user) => login(user));
+        }
+      });
 
-        handleLoginClose();
-        toast.success("login Successful");
-        // handleLogout();
-        navigate("/UserDashboard");
-      },
-    });
-
-
+      handleLoginClose();
+      toast.success('login Successful');
+      // handleLogout();
+      navigate('/UserDashboard');
+    },
+  });
 
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -109,14 +98,14 @@ function Login({
 
   return (
     <>
-      <Modal show={showLogin} onHide={handleLoginClose} className="login" >
+      <Modal show={showLogin} onHide={handleLoginClose} className="login">
         <Form onSubmit={handleSubmit} className="m-4">
           <Modal.Header closeButton>
-            <Modal.Title classname="login_title" >
+            <Modal.Title classname="login_title">
               <h1>Login</h1>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body className="login_body" >
+          <Modal.Body className="login_body">
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -142,9 +131,7 @@ function Login({
                 required
               />
               <div className="error_container">
-                {errors.password && touched.password && (
-                  <p className="form_error">{errors.password}</p>
-                )}
+                {errors.password && touched.password && <p className="form_error">{errors.password}</p>}
               </div>
             </Form.Group>
             {/* {error && <div className="alert alert-danger">{error}</div>}
@@ -153,11 +140,11 @@ function Login({
             </p> */}
           </Modal.Body>
           <Modal.Footer className="submit__btn">
-            <Button onClick={handleSubmit} type="submit" >
+            <Button onClick={handleSubmit} type="submit">
               Login
             </Button>
             <div className="d-flex align-items-left justify-content-left m-auto mt-3">
-              <span >Not Registered?</span>
+              <span>Not Registered?</span>
               <span onClick={handleLoginClose}>
                 <Link className="registerLogin" onClick={handleShow}>
                   Register Here

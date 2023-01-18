@@ -1,75 +1,73 @@
-import React, { useState } from "react";
+import React from 'react';
 // import { Form, Button } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
-import { useFormik } from "formik";
-import { signupSchema } from "../schemas/register";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import { useFormik } from 'formik';
+import { signupSchema } from '../schemas/register';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const initialValues = {
-  firstname: "",
-  lastname: "",
-  email: "",
-  password: "",
-  contact: "",
-  age: "",
-  height: "",
-  current_weight: "",
-  client_goal: "",
+  firstname: '',
+  lastname: '',
+  email: '',
+  password: '',
+  contact: '',
+  age: '',
+  height: '',
+  current_weight: '',
+  client_goal: '',
 };
-
 
 function Register({ handleClose, show, handleLoginShow }) {
   // const [formData, setFormData] = useState(initialValues);
 
   const navigate = useNavigate();
 
-  const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
-    useFormik({
-      initialValues,
-      validationSchema: signupSchema,
-      onSubmit: (values, actions) => {
-        actions.resetForm();
+  const { values, handleBlur, handleChange, handleSubmit } = useFormik({
+    initialValues,
+    validationSchema: signupSchema,
+    onSubmit: (values, actions) => {
+      actions.resetForm();
 
-        fetch("/clients", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            firstname: values.firstname,
-            lastname: values.lastname,
-            email: values.email,
-            password: values.password,
-            contact: values.contact,
-            age: values.age,
-            height: values.height,
-            current_weight: values.current_weight,
-            client_goal: values.client_goal,
-            // username: values.username,
-            // password_confirmation: values.password_confirmation,
-          }),
-        });
-        // navigate("/dashboard");
-        // .then ((r) => {
-        //   if (r.ok) {
-        //     r.json().then((user) =>
-        //     // { onLogin(user) }
-        //     console.log(user)
-        //     );
-        //   } else {
-        //     r.json().then((err) => console.log(err));
-        //   }
-        // });
+      fetch('/clients', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          firstname: values.firstname,
+          lastname: values.lastname,
+          email: values.email,
+          password: values.password,
+          contact: values.contact,
+          age: values.age,
+          height: values.height,
+          current_weight: values.current_weight,
+          client_goal: values.client_goal,
+          // username: values.username,
+          // password_confirmation: values.password_confirmation,
+        }),
+      });
+      // navigate("/dashboard");
+      // .then ((r) => {
+      //   if (r.ok) {
+      //     r.json().then((user) =>
+      //     // { onLogin(user) }
+      //     console.log(user)
+      //     );
+      //   } else {
+      //     r.json().then((err) => console.log(err));
+      //   }
+      // });
 
-        toast.success("Registration Successfully");
-        // alert("Registration Successfully");
-        handleClose();
-        navigate("/Dashboard")
-      },
-    });
+      toast.success('Registration Successfully');
+      // alert("Registration Successfully");
+      handleClose();
+      navigate('/Dashboard');
+    },
+  });
 
   // const handleChange = (event) => {
   //   setFormData({
@@ -102,20 +100,14 @@ function Register({ handleClose, show, handleLoginShow }) {
 
   return (
     <>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-        className="login"
-      >
+      <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} className="login">
         <Form onSubmit={handleSubmit} className="m-3">
           <Modal.Header closeButton>
             <Modal.Title className="abril">
               <h1>Register</h1>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body >
+          <Modal.Body>
             <Form.Group>
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -174,13 +166,7 @@ function Register({ handleClose, show, handleLoginShow }) {
             </Form.Group>
             <Form.Group>
               <Form.Label>Age</Form.Label>
-              <Form.Control
-                type="value"
-                name="age"
-                value={values.age}
-                onChange={handleChange}
-                placeholder="Age"
-              />
+              <Form.Control type="value" name="age" value={values.age} onChange={handleChange} placeholder="Age" />
             </Form.Group>
             <Form.Group>
               <Form.Label>Height</Form.Label>
@@ -239,8 +225,8 @@ function Register({ handleClose, show, handleLoginShow }) {
 
 export default Register;
 
-
-{/* <Form onSubmit={handleSubmit}>
+{
+  /* <Form onSubmit={handleSubmit}>
   <Form.Group>
     <Form.Label>First Name</Form.Label>
     <Form.Control
@@ -326,13 +312,14 @@ export default Register;
           name="client_goal"
           value={formData.client_goal}
           onChange={handleChange}
-        /> */}
+        /> */
+}
 //   </Form.Group>
 
 //   <Button variant="primary" type="submit">
 //     Register
 //   </Button>
-// </Form>; 
+// </Form>;
 
 /*
 import React, { useState, useEffect } from 'react';

@@ -1,19 +1,17 @@
-import React from "react";
-import "./AllTrainers.css";
-import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import { useHistory } from "react-router-dom";
-import { ControlCamera } from "@material-ui/icons";
+import React from 'react';
+import './AllTrainers.css';
+import { useEffect, useState } from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import { useHistory } from 'react-router-dom';
+import { ControlCamera } from '@material-ui/icons';
 
 function Profile({ trainer, handleClick }) {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <div className="all-trainers-profile" onClick={handleClick}>
-      <div className="all-trainers-profile-img">
-        {/* <img src={trainer.image} alt="trainer" /> */}
-      </div>
+      <div className="all-trainers-profile-img">{/* <img src={trainer.image} alt="trainer" /> */}</div>
       <span>
         {trainer.firstname} {trainer.lastname}
       </span>
@@ -37,10 +35,10 @@ function Trainers() {
   const [trainers, setTrainers] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {
-    fetch("https://8b3e76f0-d564-4e08-a73c-2eca5d1665d2.mock.pstmn.io/trainers")
+    fetch('https://8b3e76f0-d564-4e08-a73c-2eca5d1665d2.mock.pstmn.io/trainers')
       .then((res) => {
         if (!res.ok) {
-          throw new Error("Error occured while fetching the data!");
+          throw new Error('Error occured while fetching the data!');
         }
         return res.json();
       })
@@ -68,10 +66,10 @@ function Trainers() {
   function handleClick(id) {
     console.log(id);
 
-    fetch("/trainers", {
-      method: "POST",
+    fetch('/trainers', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ id: id /*,userid: user_id */ }),
     })
@@ -109,7 +107,7 @@ function Trainers() {
                 <h1>Currently there are no trainers available</h1>
               )} */}
           {trainers.map((trainer) => {
-            return <Profile trainer={trainer} handleClick={handleClick} />;
+            return <Profile key={trainer.id} trainer={trainer} handleClick={handleClick} />;
           })}
         </div>
       </div>

@@ -1,16 +1,16 @@
-import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import "./Dashboard.css";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Sidebar from "./Sidebar";
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import './Dashboard.css';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Sidebar from './Sidebar';
 // import { UilArrowCircleRight } from "@iconscout/react-unicons";
 
 function createData1(name, trackingId, date, status, client_goal) {
@@ -18,9 +18,9 @@ function createData1(name, trackingId, date, status, client_goal) {
 }
 
 const users = [
-  createData1("DR. Stockmann", 38, "110kg", "+254712345678", "Lose Weight"),
-  createData1("DR. Stockmann", 38, "110kg", "+254712345678", "Lose Weight"),
-  createData1("DR. Stockmann", 38, "110kg", "+254712345678", "Lose Weight"),
+  createData1('DR. Stockmann', 38, '110kg', '+254712345678', 'Lose Weight'),
+  createData1('DR. Stockmann', 38, '110kg', '+254712345678', 'Lose Weight'),
+  createData1('DR. Stockmann', 38, '110kg', '+254712345678', 'Lose Weight'),
 ];
 
 export default function BasicTable() {
@@ -33,10 +33,7 @@ export default function BasicTable() {
         <Sidebar />
         <div className="full-table">
           <h3>Products</h3>
-          <TableContainer
-            component={Paper}
-            style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
-          >
+          <TableContainer component={Paper} style={{ boxShadow: '0px 13px 20px 0px #80808029' }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -47,12 +44,9 @@ export default function BasicTable() {
                   <TableCell align="left">Status</TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody style={{ color: "white" }}>
+              <TableBody style={{ color: 'white' }}>
                 {users.map((user) => (
-                  <TableRow
-                    key={user.name}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
+                  <TableRow key={user.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                     <TableCell component="th" scope="row">
                       {user.name}
                     </TableCell>
@@ -73,8 +67,8 @@ export default function BasicTable() {
             <button
               className="table-button"
               onClick={() => {
-                console.log("clicked");
-                navigate("/AddProduct");
+                console.log('clicked');
+                navigate('/AddProduct');
               }}
             >
               Add Product

@@ -1,21 +1,18 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Container from "@material-ui/core/Container";
-import { toast } from "react-toastify";
-import axios from "axios";
-import { Input } from "@mui/material";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Sidebar from "./Sidebar";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Container from '@material-ui/core/Container';
+import { toast } from 'react-toastify';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Sidebar from './Sidebar';
 
 // initial data state
 const initialState = {
-  name: "",
-  expertise: "",
-  // bio: "",
-  clients: "",
-  sessions: "",
-  contact: "",
+  name: '',
+  expertise: '',
+  clients: '',
+  sessions: '',
+  contact: '',
 };
 
 const AddTrainer = ({ AddTrainer }) => {
@@ -37,37 +34,30 @@ const AddTrainer = ({ AddTrainer }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name || !expertise || !clients || !sessions || !contact) {
-      console.log("please fill all input fields");
-      // toast.error("please fill all input fields");
+      toast.error('please fill all input fields');
     } else {
-      // post comment to our api endpoint
-      // axios.post("http://localhost:4000/comments", formData);
-      fetch("url", {
-        method: "POST",
+      fetch('/trainers', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       })
         .then((res) => res.json())
         .then((data) => AddTrainer(data));
-
       // // show success message after post to the db
-      // toast.success("Added successfully");
+      toast.success('Added successfully');
 
       // restore input fields to default
       setFormData({
-        name: "",
-        expertise: "",
-        clients: "",
-        sessions: "",
-        contact: "",
+        name: '',
+        expertise: '',
+        clients: '',
+        sessions: '',
+        contact: '',
       });
       // navigate back to testimonials page
-      navigate("/Dashboard");
-
-      // call product render function
-      //   setTimeout(() => loadProduct(), 500);
+      navigate('/Dashboard');
     }
   };
 
@@ -83,53 +73,24 @@ const AddTrainer = ({ AddTrainer }) => {
               <form onSubmit={handleSubmit}>
                 <div>
                   <label> Full Name </label> <br />
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} />
                   <br />
                   <label>Expertise:</label> <br />
-                  <input
-                    type="text"
-                    name="expertise"
-                    value={formData.expertise}
-                    onChange={handleChange}
-                  />
+                  <input type="text" name="expertise" value={formData.expertise} onChange={handleChange} />
                   <br />
                   <label>Number of clients:</label>
                   <br />
-                  <input
-                    type="number"
-                    name="clients"
-                    value={formData.clients}
-                    onChange={handleChange}
-                  />
+                  <input type="number" name="clients" value={formData.clients} onChange={handleChange} />
                   <br />
                   <label>Sessions:</label>
-                  <input
-                    type="number"
-                    name="sessions"
-                    value={formData.sessions}
-                    onChange={handleChange}
-                  />
+                  <input type="number" name="sessions" value={formData.sessions} onChange={handleChange} />
                   <br />
                   <label>Contact:</label>
-                  <input
-                    type="text"
-                    name="contact"
-                    value={formData.client_goal}
-                    onChange={handleChange}
-                  />
+                  <input type="text" name="contact" value={formData.client_goal} onChange={handleChange} />
                   <br />
                 </div>
                 <div className="product-button">
-                  <button
-                    className="p-button"
-                    variant="contained"
-                    type="submit"
-                  >
+                  <button className="p-button" type="submit">
                     Add
                   </button>
                 </div>

@@ -1,33 +1,23 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import "./user-dashboard.css"
-import Sidebar from "./Sidebar";
-import { useUser } from "../Dashboards/auth"
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import './user-dashboard.css';
+import Sidebar from './Sidebar';
+import { useUser } from '../Dashboards/auth';
 
 function UserDashboard() {
   const navigate = useNavigate();
   const { user } = useUser();
-const [trainersList, setTrainersList] = useState([]);
+  const [trainersList, setTrainersList] = useState([]);
 
-  // const fetchTrainers = useCallback(async () => {
-  //   const response = await fetch("http://localhost:5000/trainers");
-  //   const responseData = await response.json();
-  //   if (!response.ok) {
-  //     throw new Error(responseData.message);
-  //   }
-  //   setTrainersList(responseData.trainers);
-  // }, []);
-
- useEffect(() => {
-    fetch("http://localhost:5000/trainers")
+  useEffect(() => {
+    fetch('/trainers')
       .then((res) => res.json())
       .then((data) => {
         setTrainersList(data);
       });
   }, []);
-
 
   return (
     <>
@@ -38,11 +28,10 @@ const [trainersList, setTrainersList] = useState([]);
           <div className="grid-one">
             <div>
               <div className="sect">
-                {/* <h1>Hello {user?.username}!</h1> */}
                 <h1>Hello {user?.username}!</h1>
               </div>
               <div className="sect">
-                <h2>Today's workout</h2>
+                <h2>Today&apos;s workout</h2>
                 <div>
                   <p>morning run </p>
                   <p>morning run </p>

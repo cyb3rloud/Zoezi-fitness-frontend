@@ -1,6 +1,6 @@
-@import url("https://fonts.cdnfonts.com/css/calligraphy-2");
+@import url('https://fonts.cdnfonts.com/css/calligraphy-2');
 
-@import url("https://fonts.cdnfonts.com/css/luminari");
+@import url('https://fonts.cdnfonts.com/css/luminari');
 html,
 body {
   height: 100vh;
@@ -34,7 +34,7 @@ body {
 }
 .one {
   height: 88vh;
-  background-image: url("./images/7.jpg");
+  background-image: url('./images/7.jpg');
 }
 .two {
   height: 84vh;
@@ -44,10 +44,10 @@ body {
 }
 .three {
   display: grid;
-  grid-template-columns: ;
+
   background-color: yellow;
   height: 80vh;
-  background-image: url("./images/10.jpg");
+  background-image: url('./images/10.jpg');
 }
 .four {
   height: 60vh;
@@ -97,8 +97,8 @@ body {
   height: 40px;
 }
 .befited {
-  font-family: "Calligraphy", sans-serif;
-  font-family: "Calligraphy wet", sans-serif;
+  font-family: 'Calligraphy', sans-serif;
+  font-family: 'Calligraphy wet', sans-serif;
 }
 .navbar-button {
   background: transparent;
@@ -130,13 +130,8 @@ body {
   padding: calc(0.5em + var(--s)) calc(0.9em + var(--s));
   color: var(--color);
   --_p: var(--s);
-  background: conic-gradient(
-      from 90deg at var(--b) var(--b),
-      #0000 90deg,
-      var(--color) 0
-    )
-    var(--_p) var(--_p) / calc(100% - var(--b) - 2 * var(--_p))
-    calc(100% - var(--b) - 2 * var(--_p));
+  background: conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p) /
+    calc(100% - var(--b) - 2 * var(--_p)) calc(100% - var(--b) - 2 * var(--_p));
   transition: 0.3s linear, color 0s, background-color 0s;
   outline: var(--b) solid #0000;
   outline-offset: 0.6em;
@@ -170,7 +165,7 @@ body {
 p {
   color: black;
   font-weight: bold;
-  font-family: "lumi";
+  font-family: 'lumi';
 }
 .get-started-img {
   object-fit: cover;
@@ -187,7 +182,7 @@ p {
   font-size: xx-large;
   margin-left: 30px;
   margin-right: 80px;
-  font-family: "Luminari", sans-serif;
+  font-family: 'Luminari', sans-serif;
 }
 .learn-more {
   display: flex;
@@ -310,7 +305,7 @@ p {
 }
 
 .myCarousel p:before {
-  content: "“";
+  content: '“';
   color: #aaa;
   font-size: 26px;
   font-family: monospace;
@@ -318,7 +313,7 @@ p {
 }
 
 .myCarousel p:after {
-  content: "”";
+  content: '”';
   color: #aaa;
   font-size: 26px;
   font-family: monospace;
@@ -387,7 +382,7 @@ p {
   position: relative;
   padding: 3em 0;
   font-size: 20px;
-  font-style: "Lato";
+  font-style: 'Lato';
   margin-top: -1em;
 }
 
@@ -402,7 +397,7 @@ p {
 .AddItem form {
   /* background-color: grey; */
   padding: 60px;
-  font-style: "Lato";
+  font-style: 'Lato';
 }
 
 .AddItem form label {
@@ -499,19 +494,13 @@ label {
 .forms {
   display: grid;
   grid-template-columns: 11rem auto 12rem;
-  
 }
 
 .tables {
   display: grid;
   grid-template-columns: 11rem auto 12rem;
   gap: 2em;
-  background: linear-gradient(
-    106.37deg,
-    #ffffff 29.63%,
-    lightgrey 51.55%,
-    grey 90.85%
-  );
+  background: linear-gradient(106.37deg, #ffffff 29.63%, lightgrey 51.55%, grey 90.85%);
 }
 
 .full-table {
@@ -526,36 +515,35 @@ label {
   padding: 0.2em 0.5em;
 }
 
-.login{
+.login {
   width: 50%;
   margin: 5em auto;
   padding: 1em;
 }
 
-.login_body{
- margin-bottom: 3em;
+.login_body {
+  margin-bottom: 3em;
 }
 
 .login_title {
   text-align: center;
   font-size: 50px;
-  font-family: "Lato", sans-serif !important;
+  font-family: 'Lato', sans-serif !important;
   font-weight: 600;
 }
 
-.login input, .login select{
-    width: 90%;
+.login input,
+.login select {
+  width: 90%;
   border: none;
   background-color: #e2f5f1;
   padding: 10px;
   border-radius: 24px;
   font-size: 18px;
-  font-family: "Lato", sans-serif !important;
-
+  font-family: 'Lato', sans-serif !important;
 }
 
-
-.submit__btn button{
+.submit__btn button {
   width: 30%;
   border: none;
   background-color: #4bb49b;
@@ -563,7 +551,7 @@ label {
   border-radius: 24px;
   font-size: 18px;
   font-weight: 500;
-  font-family: "Lato", sans-serif !important;
+  font-family: 'Lato', sans-serif !important;
   color: #ffffff;
   margin-top: 4em;
   cursor: pointer;
@@ -573,11 +561,14 @@ label {
   background-color: #59d6b9;
 }
 
-
 .registerLogin {
   color: #4bb49b;
 }
 
 .registerLogin:hover {
-  color: #59d6b9
+  color: #59d6b9;
+}
+
+:root {
+  --toastify-z-index: 1001;
 }

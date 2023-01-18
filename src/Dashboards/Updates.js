@@ -1,16 +1,16 @@
-import React from "react";
-import "./Dashboards.css";
-import { UpdatesData } from "./Data";
+import React from 'react';
+import './Dashboards.css';
+import { UpdatesData } from './Data';
 
 const Updates = () => {
   return (
     <div className="Updates">
-      {UpdatesData.map((update) => {
+      {UpdatesData.map((update, i) => {
         return (
-          <div className="update">
+          <div key={update.name + i} className="update">
             <img src={update.img} alt="profile" />
             <div className="noti">
-              <div style={{ marginBottom: "0.5rem" }}>
+              <div style={{ marginBottom: '0.5rem' }}>
                 <span>{update.name}</span>
                 <span> {update.noti}</span>
               </div>

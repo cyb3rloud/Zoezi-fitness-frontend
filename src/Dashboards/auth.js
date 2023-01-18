@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect } from "react";
-import { toast } from "react-toastify";
-import axios from "axios";
+import React, { useCallback, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const UserContext = React.createContext({});
 
@@ -11,7 +11,7 @@ const useProvideUser = () => {
 
   const reload = useCallback(() => {
     axios
-      .get("/me")
+      .get('/me')
       .then((response) => {
         setUser(response.data);
       })
@@ -29,13 +29,11 @@ const useProvideUser = () => {
   };
 
   const handleRegLogout = () => {
-    fetch("/logout", { method: "DELETE" }).then(
-      (r) => {
-        if (r.ok) {
-          toast.success("Logout Successful");
-        }
+    fetch('/logout', { method: 'DELETE' }).then((r) => {
+      if (r.ok) {
+        toast.success('Logout Successful');
       }
-    );
+    });
   };
 
   const logout = () => {

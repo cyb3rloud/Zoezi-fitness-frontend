@@ -1,22 +1,17 @@
-import React from "react";
-import "./Dashboard.css";
+import React from 'react';
+import './Dashboard.css';
 // import { cardsData } from "./Data";
-import {
-  UilUsersAlt,
-  UilUserMd,
-  UilPackage,
-} from "@iconscout/react-unicons";
+import { UilUsersAlt, UilUserMd, UilPackage } from '@iconscout/react-unicons';
 
-import Card from "./Card";
+import Card from './Card';
 
 const color = {
-  background: "linear-gradient(180deg, #4bb49b 0%, #6cf6d6 100%)",
-  boxShadow: "0px 10px 20px 0px #6cf6d6",
+  background: 'linear-gradient(180deg, #4bb49b 0%, #6cf6d6 100%)',
+  boxShadow: '0px 10px 20px 0px #6cf6d6',
 };
 
-
-const Cards = ({users, trainers, products, orders}) => {
-    const cardItems = [users, trainers, products, orders]
+const Cards = ({ users, trainers }) => {
+  const cardItems = [users, trainers];
 
   return (
     <div className="Cards">

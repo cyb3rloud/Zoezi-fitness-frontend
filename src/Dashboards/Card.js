@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "./Dashboard.css";
+import React, { useState } from 'react';
+import './Dashboard.css';
 // import { CircularProgressbar } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
-import { motion, AnimateSharedLayout } from "framer-motion";
-import { UilTimes } from "@iconscout/react-unicons";
+import 'react-circular-progressbar/dist/styles.css';
+import { motion, AnimateSharedLayout } from 'framer-motion';
+import { UilTimes } from '@iconscout/react-unicons';
 
 // parent Card
 
@@ -23,14 +23,9 @@ const Card = (props) => {
 // Compact Card
 function CompactCard({ param, setExpanded }) {
   const Png = param.png;
-  // console.log(param)
+
   return (
-    <motion.div
-      className="CompactCard"
-      style={param.style}
-      layoutId="expandableCard"
-      onClick={setExpanded}
-    >
+    <motion.div className="CompactCard" style={param.style} layoutId="expandableCard" onClick={setExpanded}>
       <div className="radialBar">
         <div>{param.title}</div>
         <span>{param.count}</span>
@@ -56,11 +51,11 @@ function ExpandedCard({ param, setExpanded }) {
       }}
       layoutId="expandableCard"
     >
-      <div style={{ alignSelf: "flex-end", cursor: "pointer", color: "white" }}>
+      <div style={{ alignSelf: 'flex-end', cursor: 'pointer', color: 'white' }}>
         <UilTimes onClick={setExpanded} />
       </div>
       <span>{param.title}</span>
-      <span >{param.value}</span>
+      <span>{param.value}</span>
       <span>{Png}</span>
       <span>Last 24 hours</span>
     </motion.div>
