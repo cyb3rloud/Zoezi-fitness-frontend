@@ -107,12 +107,15 @@ function Register({ handleClose, show, handleLoginShow }) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        className="login"
       >
         <Form onSubmit={handleSubmit} className="m-3">
           <Modal.Header closeButton>
-            <Modal.Title className="abril">Sign Up</Modal.Title>
+            <Modal.Title className="abril">
+              <h1>Register</h1>
+            </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body >
             <Form.Group>
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -121,6 +124,7 @@ function Register({ handleClose, show, handleLoginShow }) {
                 value={values.firstname}
                 onBlur={handleBlur}
                 onChange={handleChange}
+                placeholder="First Name"
               />
               {/* <div className="error_container">
                 {errors.firstname && touched.firstname && (
@@ -135,6 +139,7 @@ function Register({ handleClose, show, handleLoginShow }) {
                 name="lastname"
                 value={values.lastname}
                 onChange={handleChange}
+                placeholder="Last Name"
               />
             </Form.Group>
             <Form.Group>
@@ -144,6 +149,7 @@ function Register({ handleClose, show, handleLoginShow }) {
                 name="email"
                 value={values.email}
                 onChange={handleChange}
+                placeholder="Email"
               />
             </Form.Group>
             <Form.Group>
@@ -153,6 +159,7 @@ function Register({ handleClose, show, handleLoginShow }) {
                 name="password"
                 value={values.password}
                 onChange={handleChange}
+                placeholder="Password"
               />
             </Form.Group>
             <Form.Group>
@@ -162,6 +169,7 @@ function Register({ handleClose, show, handleLoginShow }) {
                 name="contact"
                 value={values.contact}
                 onChange={handleChange}
+                placeholder="Phone Number"
               />
             </Form.Group>
             <Form.Group>
@@ -171,6 +179,7 @@ function Register({ handleClose, show, handleLoginShow }) {
                 name="age"
                 value={values.age}
                 onChange={handleChange}
+                placeholder="Age"
               />
             </Form.Group>
             <Form.Group>
@@ -180,6 +189,7 @@ function Register({ handleClose, show, handleLoginShow }) {
                 name="height"
                 value={values.height}
                 onChange={handleChange}
+                placeholder="Height"
               />
             </Form.Group>
             <Form.Group>
@@ -189,6 +199,7 @@ function Register({ handleClose, show, handleLoginShow }) {
                 name="current_weight"
                 value={values.current_weight}
                 onChange={handleChange}
+                placeholder="Current Weight"
               />
             </Form.Group>
             <Form.Group>
@@ -211,7 +222,7 @@ function Register({ handleClose, show, handleLoginShow }) {
             <Button type="submit" onClick={handleSubmit}>
               Register
             </Button>
-            <div className="d-flex align-items-center justify-content-center m-auto mt-3">
+            <div className="d-flex align-items-left justify-content-left m-auto mt-3">
               <span className="me-3">Already have an account ?</span>
               <span onClick={handleClose}>
                 <Link className="registerLogin" onClick={handleLoginShow}>

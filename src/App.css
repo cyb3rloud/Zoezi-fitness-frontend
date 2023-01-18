@@ -543,10 +543,10 @@ label {
   font-weight: 600;
 }
 
-.login input{
+.login input, .login select{
     width: 90%;
   border: none;
-  background-color: #c6ede4;
+  background-color: #e2f5f1;
   padding: 10px;
   border-radius: 24px;
   font-size: 18px;
@@ -554,9 +554,6 @@ label {
 
 }
 
-.me-3 {
-text-align: left;
-}
 
 .submit__btn button{
   width: 30%;
@@ -579,4 +576,8 @@ text-align: left;
 
 .registerLogin {
   color: #4bb49b;
+}
+
+.registerLogin:hover {
+  color: #59d6b9
 }
