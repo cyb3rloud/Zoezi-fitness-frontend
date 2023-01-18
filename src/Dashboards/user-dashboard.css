@@ -10,6 +10,7 @@
   display: grid;
   gap: 70px;
   grid-template-columns: 11rem auto 25rem 12rem;
+  margin-top: 5em !important;
   /* padding: 0.5em; */
 }
 

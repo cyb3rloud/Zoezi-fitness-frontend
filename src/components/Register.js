@@ -32,6 +32,9 @@ function Register({ handleClose, show, handleLoginShow }) {
       onSubmit: (values, actions) => {
         actions.resetForm();
 
+
+        console.log("hello")
+
         fetch("/clients", {
           method: "POST",
           headers: {
@@ -52,22 +55,11 @@ function Register({ handleClose, show, handleLoginShow }) {
             // password_confirmation: values.password_confirmation,
           }),
         });
-        // navigate("/dashboard");
-        // .then ((r) => {
-        //   if (r.ok) {
-        //     r.json().then((user) =>
-        //     // { onLogin(user) }
-        //     console.log(user)
-        //     );
-        //   } else {
-        //     r.json().then((err) => console.log(err));
-        //   }
-        // });
-
+        
         toast.success("Registration Successfully");
         // alert("Registration Successfully");
         handleClose();
-        navigate("/Dashboard")
+        navigate("/UserDashboard")
       },
     });
 
@@ -109,13 +101,13 @@ function Register({ handleClose, show, handleLoginShow }) {
         keyboard={false}
         className="login"
       >
-        <Form onSubmit={handleSubmit} className="m-3">
+        <Form className="m-3">
           <Modal.Header closeButton>
             <Modal.Title className="abril">
               <h1>Register</h1>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body >
+          <Modal.Body>
             <Form.Group>
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -205,10 +197,18 @@ function Register({ handleClose, show, handleLoginShow }) {
             <Form.Group>
               <Form.Label>Client Goal</Form.Label>
               <Form.Control as="select" onChange={handleChange}>
-                <option value="weight loss">Weight Loss</option>
-                <option value="weight gain">Weight Gain</option>
-                <option value="muscle gain">Muscle Gain</option>
-                <option value="keep fit">Keep Fit</option>
+                <option name="weight loss" value="weight loss">
+                  Weight Loss
+                </option>
+                <option name="weight gain" value="weight gain">
+                  Weight Gain
+                </option>
+                <option name="muscle gain" value="muscle gain">
+                  Muscle Gain
+                </option>
+                <option name="keep fit" value="keep fit">
+                  Keep Fit
+                </option>
               </Form.Control>
               {/* <Form.Control
           type="text"
@@ -219,7 +219,7 @@ function Register({ handleClose, show, handleLoginShow }) {
             </Form.Group>
           </Modal.Body>
           <Modal.Footer className="submit__btn">
-            <Button type="submit" onClick={handleSubmit}>
+            <Button type="submit" onSubmit={handleSubmit}>
               Register
             </Button>
             <div className="d-flex align-items-left justify-content-left m-auto mt-3">

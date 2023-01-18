@@ -27,7 +27,7 @@ const SidebarData = [
   {
     icon: UilUserMd,
     heading: "Admin Dashboard",
-    route: "/Dashboard",
+    route: "/AdminDashboard",
   },
 ];
 

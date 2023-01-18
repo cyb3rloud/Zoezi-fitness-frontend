@@ -28,10 +28,10 @@ function Login({
     console.log(values.email);
     if (values.email === "admin@admin.com" && values.password === "admin") {
       // toast.success("login Successful");
-      alert("login Successful");
-      navigate("/Dashboard");
+      alert("Welcome Admin");
+      navigate("/AdminDashboard");
     } else {
-      alert("login Failed");
+      alert("You are not an Admin");
     }
   };
 

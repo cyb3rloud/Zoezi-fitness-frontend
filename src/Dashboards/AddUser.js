@@ -66,20 +66,20 @@ const AddUser = ({ addUser }) => {
      .then((res) => res.json())
      .then((data) => addUser(data));
 
-      setFormData({
-        firstname: "",
-        lastname: "",
-        email: "",
-        password: "",
-        contact: "",
-        age: "",
-        height: "",
-        current_weight: "",
-        client_goal: "",
-      });
+   setFormData({
+     firstname: "",
+     lastname: "",
+     email: "",
+     password: "",
+     contact: "",
+     age: "",
+     height: "",
+     current_weight: "",
+     client_goal: "",
+   });
    console.log("hello");
    // navigate back to testimonials page
-  //  navigate("/Dashboard");
+   //  navigate("/AdminDashboard");
  }
     };
 

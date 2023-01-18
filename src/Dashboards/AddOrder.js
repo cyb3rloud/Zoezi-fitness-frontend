@@ -62,7 +62,7 @@ const AddOrder = ({ AddOrder }) => {
       });
       console.log("hello");
       // navigate back to testimonials page
-      navigate("/Dashboard");
+      navigate("/AdminDashboard");
 
       // call product render function
       //   setTimeout(() => loadProduct(), 500);

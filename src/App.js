@@ -11,7 +11,7 @@ import About from "./components/About";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Testimonialss from "./components/Testimonialss";
-import Dashboard from "./Dashboards/Dashboard";
+import AdminDashboard from "./Dashboards/AdminDashboard";
 import UserDashboard from "./Dashboards/UserDashboard";
 import AddProduct from "./Dashboards/AddProduct";
 import AddUser from "./Dashboards/AddUser";
@@ -82,9 +82,9 @@ function App() {
             <Route exact path="/Testimonialss" element={<Testimonialss />} />
             <Route
               exact
-              path="/Dashboard"
+              path="/AdminDashboard"
               element={
-                <Dashboard
+                <AdminDashboard
                   users={users}
                   trainers={trainers}
                   products={products}
