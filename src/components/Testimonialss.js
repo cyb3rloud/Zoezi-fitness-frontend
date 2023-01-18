@@ -4,8 +4,7 @@ import StarRating from '../components/StarRating';
 import '../assets/css/testimonials.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import axios from "axios";
-// import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 
 function Testimonialss() {
   const [testimonies, setTestimonies] = useState([]);
@@ -15,8 +14,6 @@ function Testimonialss() {
     fetch('/testimonials')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-
         setTestimonies(data);
         setIsLoaded(true);
       });
@@ -48,7 +45,7 @@ function Testimonialss() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!username || !email || !testimony || !rating || !image_url) {
-      console.log('please fill all input fields');
+      toast.error('please fill all input fields');
     } else {
       // axios.post("http://localhost:4000/comments", formData);
       fetch('/testimonials', {
@@ -60,7 +57,7 @@ function Testimonialss() {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data)
+          toast.success('Testimony added successfully');
           addTestimony(data);
         });
 
@@ -69,7 +66,7 @@ function Testimonialss() {
         email: '',
         testimony: '',
         rating: 'off',
-        avatar: '',
+        image_url: '',
       });
       // navigate back to testimonials page
       navigate('/Testimonialss');
@@ -88,7 +85,7 @@ function Testimonialss() {
             {testimonies.length ? (
               testimonies.map((testimony) => (
                 <div className="testimony" key={testimony.id}>
-                  <img src={testimony.client.image_url} alt="avatar" />
+                  <img src={testimony.client.image_url} alt="image_url" />
                   <StarRating />
                   <p>{testimony.testimony}</p>
                   <h5> ~ {testimony.client.username} ~ </h5>
@@ -117,11 +114,11 @@ function Testimonialss() {
                 <label> Your Email </label> <br />
                 <input type="text" name="email" value={formData.email} onChange={handleChange} /> <br />
                 <div>
-                  <label>Your Avatar:</label> <br />
+                  <label>Your image_url:</label> <br />
                   <input
                     type="text"
-                    name="avatar"
-                    value={formData.avatar}
+                    name="image_url"
+                    value={formData.image_url}
                     placeholder="Paste image url/link"
                     onChange={handleChange}
                   />
