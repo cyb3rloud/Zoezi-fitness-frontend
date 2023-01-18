@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import './Trainerinfo.css'
-import Navbar from "./Navbar";
-import Footer from "./Footer"
+// import Navbar from "./Navbar";
+// import Footer from "./Footer"
 
 
 function User({ trainer, workouts, exercises }) {
@@ -13,7 +13,7 @@ function User({ trainer, workouts, exercises }) {
       <div className="e-container">
         <div className="top-header">
           <div>
-            <img className="image" src={trainer.image_url} alt="trainer" />
+            <img className="image" src="https://racheltrotta.com/wp-content/uploads/2019/10/extraLR6A0475-1024x683.jpg"/>
           </div>
           <div className="name">{trainer.firstname} {trainer.lastname}</div>
           <div className="sub-name">Pro Trainer</div>
@@ -55,7 +55,7 @@ function Trainerinfo() {
 
   useEffect(() => {
     // Fetch trainer data
-    fetch(`https://96bc6907-158d-4bc3-b7b5-d11c8857a5e0.mock.pstmn.io/trainer?id=${id}`)
+    fetch("https://8b3e76f0-d564-4e08-a73c-2eca5d1665d2.mock.pstmn.io/trainers")
       .then(res => {
         if (!res.ok) {
           throw new Error("Error occured while fetching the trainer data!");
@@ -65,7 +65,7 @@ function Trainerinfo() {
       .then(data => {
         setTrainers(data[0]);
         // Fetch workout data
-        return fetch(`https://8bea2a28-579d-41b1-a33d-0a000c01b030.mock.pstmn.io/workouts/${data[0].id}`)
+        return fetch(`https://fe1d58d4-b2fe-46b6-a2e7-941a9003218c.mock.pstmn.io/workouts`)
       })
       .then(res => {
         if (!res.ok) {
@@ -76,7 +76,7 @@ function Trainerinfo() {
       .then(workoutData => {
         setWorkouts(workoutData);
         // Fetch exercise data
-        return fetch(`https://017f5c62-6e69-40fe-81a9-769d4203e796.mock.pstmn.io/exercise`)
+        return fetch('https://7aa1a781-6a90-42da-b382-7e585c7da80a.mock.pstmn.io/exercises')
       })
       .then(res => {
         if (!res.ok) {
@@ -102,9 +102,9 @@ function Trainerinfo() {
     
     return (
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <User trainer={trainers} workouts={workouts} exercises={exercises} />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
     }

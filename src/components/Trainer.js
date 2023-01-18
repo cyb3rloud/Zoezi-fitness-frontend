@@ -13,7 +13,7 @@ function Profile({ trainer, handleClick }) {
       return (
         <div className="all-trainers-profile" onClick={handleClick}>
           <div className="all-trainers-profile-img">
-            <img src={trainer.image_url} alt="trainer" />
+            <img src="https://racheltrotta.com/wp-content/uploads/2019/10/extraLR6A0475-1024x683.jpg" alt="trainer" />
           </div>
           <span>{trainer.firstname} {trainer.lastname}</span>
           <div>
