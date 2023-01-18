@@ -13,7 +13,7 @@ function User({ trainer, workouts, exercises }) {
       <div className="e-container">
         <div className="top-header">
           <div>
-            <img className="image" src="https://racheltrotta.com/wp-content/uploads/2019/10/extraLR6A0475-1024x683.jpg"/>
+            <img className="image" src={trainer.image_url} alt="trainer" />
           </div>
           <div className="name">{trainer.firstname} {trainer.lastname}</div>
           <div className="sub-name">Pro Trainer</div>
