@@ -37,9 +37,9 @@ const Navbar = () => {
     <div className='navigation'>
 <div className="logo">
 
-    <NavLogo href="#" className="befited d-flex gap-2 align-items-center">
+    <h1 className=" d-flex gap-2 align-items-center">
     Befit
-  </NavLogo>
+  </h1>
 </div>
 <div className='nav_menu'>
     <ul className="nav_list">

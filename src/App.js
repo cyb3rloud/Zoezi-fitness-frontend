@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import UserProvider from "./Dashboards/auth";
 import Products from "./components/Products";
+import Trainerinfo from "./components/Trainerinfo";
 import Trainers from "./components/Trainer";
 import About from "./components/About";
 import Login from "./components/Login";
@@ -79,6 +80,7 @@ function App() {
             <Route exact path="/Login" element={<Login setUser={setUser} />} />
             <Route exact path="/Register" element={<Register />} />
             <Route exact path="/Trainers" element={<Trainers />} />
+          <Route exact path="/Trainer/:id" element={<Trainerinfo />} />
             <Route exact path="/Testimonialss" element={<Testimonialss />} />
             <Route
               exact
