@@ -46,22 +46,6 @@ function App() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   fetch("/products")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setProducts(data);
-  //     });
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch("/orders")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setOrders(data);
-  //     });
-  // }, []);
-
   function addUser(newUser) {
     const updatedUsers = [...users, newUser];
     setUsers(updatedUsers);

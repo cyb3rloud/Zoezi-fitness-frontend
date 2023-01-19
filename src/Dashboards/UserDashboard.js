@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './user-dashboard.css';
 import Sidebar from './Sidebar';
 import { useUser } from '../Dashboards/auth';
+import { toast } from 'react-toastify';
 
 function UserDashboard() {
   const navigate = useNavigate();
   const { user } = useUser();
-  const [trainersList, setTrainersList] = useState([]);
+  const [setTrainersList] = useState([]);
+
+  useLayoutEffect(() => {
+    if (user) return;
+    toast.error('You must be logged in to visit dashboard');
+    navigate(-1);
+  }, [user, navigate]);
 
   useEffect(() => {
     fetch('/trainers')
@@ -70,11 +77,11 @@ function UserDashboard() {
                     <p>Weight</p>
                   </div>
                   <div>
-                    <h5>{user.height}cm</h5>
+                    <h5>{user?.height}cm</h5>
                     <p>Height</p>
                   </div>
                   <div>
-                    <h5>{user.age}</h5>
+                    <h5>{user?.age}</h5>
                     <p>Age</p>
                   </div>
                 </div>
