@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { toast } from 'react-toastify';
-import axios from 'axios';
-import { Input } from '@mui/material';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Sidebar from './Sidebar';
@@ -37,8 +35,7 @@ const AddProduct = ({ AddProduct }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!pname || !description || !price || !imageUrl || !quantity || !status) {
-      console.log('please fill all input fields');
-      // toast.error("please fill all input fields");
+      toast.error('please fill all input fields');
     } else {
       // post comment to our api endpoint
       // axios.post("http://localhost:4000/comments", formData);
@@ -53,7 +50,7 @@ const AddProduct = ({ AddProduct }) => {
         .then((data) => AddProduct(data));
 
       // // show success message after post to the db
-      // toast.success("Added successfully");
+      toast.success('Added successfully');
 
       // restore input fields to default
       setFormData({
@@ -64,12 +61,8 @@ const AddProduct = ({ AddProduct }) => {
         quantity: '',
         status: '',
       });
-      console.log('hello');
       // navigate back to testimonials page
       navigate('/AdminDashboard');
-
-      // call product render function
-      //   setTimeout(() => loadProduct(), 500);
     }
   };
 

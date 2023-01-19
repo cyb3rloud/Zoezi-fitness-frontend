@@ -26,9 +26,9 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   const [users, setUsers] = useState([]);
   const [trainers, setTrainers] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [orders, setOrders] = useState([]);
-  const [user, setUser] = useState(null);
+  const [products] = useState([]);
+  const [orders] = useState([]);
+  const [, setUser] = useState(null);
 
   useEffect(() => {
     fetch('/users')

@@ -74,9 +74,8 @@ const AddUser = ({ addUser }) => {
         current_weight: '',
         client_goal: '',
       });
-      console.log('hello');
       // navigate back to testimonials page
-      //  navigate("/AdminDashboard");
+      navigate('/AdminDashboard');
     }
   };
 

@@ -4,11 +4,9 @@ import { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
-import { ControlCamera } from '@material-ui/icons';
 
 function Profile({ trainer, handleClick }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn] = useState(true);
 
   return (
     <div className="all-trainers-profile" onClick={handleClick}>
@@ -53,7 +51,6 @@ function Trainers() {
       })
       .then((data) => {
         setTrainers(data);
-        console.log(data);
       })
       .catch((error) => {
         setError(error.message);
@@ -73,8 +70,6 @@ function Trainers() {
   //   };
 
   function handleClick(id) {
-    console.log(id);
-
     fetch('/trainers', {
       method: 'POST',
       headers: {
@@ -83,9 +78,7 @@ function Trainers() {
       body: JSON.stringify({ id: id /*,userid: user_id */ }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+      .then(() => {});
   }
 
   if (error) {

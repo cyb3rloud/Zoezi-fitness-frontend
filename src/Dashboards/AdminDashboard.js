@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-function AdminDashboard({ users, trainers, products, orders }) {
+function AdminDashboard({ users, trainers }) {
   return (
     <>
       <Navbar />

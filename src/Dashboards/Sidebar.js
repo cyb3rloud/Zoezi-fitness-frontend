@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
-import { UilUsersAlt, UilClipboardAlt, UilUserMd, UilPackage, UilChart, UilSignOutAlt } from '@iconscout/react-unicons';
+import { UilUsersAlt, UilUserMd, UilSignOutAlt } from '@iconscout/react-unicons';
 import { Link } from 'react-router-dom';
 // import { UilSignOutAlt } from "@iconscout/react-unicons";
 // import { SidebarData } from "./Data";

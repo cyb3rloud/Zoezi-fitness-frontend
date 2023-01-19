@@ -8,7 +8,9 @@ import Sidebar from './Sidebar';
 
 // initial data state
 const initialState = {
-  name: '',
+  firstname: '',
+  lastname: '',
+  email: '',
   expertise: '',
   clients: '',
   sessions: '',
@@ -20,7 +22,7 @@ const AddTrainer = ({ AddTrainer }) => {
 
   const [formData, setFormData] = useState(initialState);
 
-  const { name, expertise, clients, sessions, contact } = formData;
+  const { firstname, email, lastname, expertise, clients, sessions, contact } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -33,7 +35,7 @@ const AddTrainer = ({ AddTrainer }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !expertise || !clients || !sessions || !contact) {
+    if (!firstname || !email || !lastname || !expertise || !clients || !sessions || !contact) {
       toast.error('please fill all input fields');
     } else {
       fetch('/trainers', {
@@ -50,17 +52,16 @@ const AddTrainer = ({ AddTrainer }) => {
 
       // restore input fields to default
       setFormData({
-        name: '',
+        firstname: '',
+        lastname: '',
+        email: '',
         expertise: '',
         clients: '',
         sessions: '',
         contact: '',
       });
-      // navigate back to testimonials page
-      navigate('/AdminDashboard');
 
-      // call product render function
-      //   setTimeout(() => loadProduct(), 500);
+      navigate('/AdminDashboard');
     }
   };
 
@@ -75,8 +76,14 @@ const AddTrainer = ({ AddTrainer }) => {
               <h1>Add Trainer</h1>
               <form onSubmit={handleSubmit}>
                 <div>
-                  <label> Full Name </label> <br />
-                  <input type="text" name="name" value={formData.name} onChange={handleChange} />
+                  <label> First Name </label> <br />
+                  <input type="text" name="firstname" value={formData.firstname} onChange={handleChange} />
+                  <br />
+                  <label> Last Name </label> <br />
+                  <input type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
+                  <br />
+                  <label> Email </label> <br />
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} />
                   <br />
                   <label>Expertise:</label> <br />
                   <input type="text" name="expertise" value={formData.expertise} onChange={handleChange} />
@@ -86,9 +93,11 @@ const AddTrainer = ({ AddTrainer }) => {
                   <input type="number" name="clients" value={formData.clients} onChange={handleChange} />
                   <br />
                   <label>Sessions:</label>
+                  <br />
                   <input type="number" name="sessions" value={formData.sessions} onChange={handleChange} />
                   <br />
                   <label>Contact:</label>
+                  <br />
                   <input type="text" name="contact" value={formData.client_goal} onChange={handleChange} />
                   <br />
                 </div>

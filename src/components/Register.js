@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-// import { Form, Button } from "react-bootstrap";
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -20,18 +19,13 @@ const initialValues = {
 };
 
 function Register({ handleClose, show, handleLoginShow }) {
-  // const [formData, setFormData] = useState(initialValues);
-
   const navigate = useNavigate();
 
-  const { errors, values, handleBlur, handleChange, handleSubmit } = useFormik({
+  const { values, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues,
 
     validationSchema: signupSchema,
     onSubmit: (values, actions) => {
-      console.log('fsfdgsdf');
-      // actions.resetForm();
-
       fetch('/users', {
         method: 'POST',
         headers: {
@@ -48,52 +42,15 @@ function Register({ handleClose, show, handleLoginShow }) {
           height: values.height,
           current_weight: values.current_weight,
           client_goal: values.client_goal,
-          // username: values.username,
-          // password_confirmation: values.password_confirmation,
         }),
       });
+      actions.resetForm();
 
       toast.success('Registration Successfully');
-      // alert("Registration Successfully");
       handleClose();
-      // navigate('/UserDashboard');
+      navigate('/UserDashboard');
     },
   });
-
-  // useEffect(() => {
-  //   if (!errors) return;
-  //   console.log(JSON.stringify(errors));
-  //   toast.error('please fill all fields');
-  // }, [errors]);
-
-  // const handleChange = (event) => {
-  //   setFormData({
-  //     ...formData,
-  //     [event.target.name]: event.target.value,
-  //   });
-  // };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   fetch("/clients", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(formData),
-  //   })
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("An error occurred while registering");
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       // handle successful registration
-  //     })
-  //     .catch((error) => {
-  //       // handle error
-  //     });
-  //   navigate("/Dashboard");
-  // };
 
   return (
     <>
@@ -201,16 +158,9 @@ function Register({ handleClose, show, handleLoginShow }) {
                   Keep Fit
                 </option>
               </Form.Control>
-              {/* <Form.Control
-          type="text"
-          name="client_goal"
-          value={formData.client_goal}
-          onChange={handleChange}
-        /> */}
             </Form.Group>
           </Modal.Body>
           <Modal.Footer className="submit__btn">
-            {console.log(errors)}
             <Button onClick={handleSubmit}>Register</Button>
             <div className="d-flex align-items-left justify-content-left m-auto mt-3">
               <span className="me-3">Already have an account ?</span>

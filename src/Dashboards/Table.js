@@ -41,9 +41,6 @@ const makeStyle = (status) => {
 
 export default function BasicTable({ users, trainers }) {
   const navigate = useNavigate();
-  // const { user } = useUser();
-  console.log(users);
-  console.log(trainers);
 
   return (
     <>
@@ -55,7 +52,6 @@ export default function BasicTable({ users, trainers }) {
               <button
                 className="m-button"
                 onClick={() => {
-                  console.log('clicked');
                   navigate('/AllUsers');
                 }}
               >
@@ -97,7 +93,6 @@ export default function BasicTable({ users, trainers }) {
             <button
               className="table-button"
               onClick={() => {
-                console.log('clicked');
                 navigate('/AddUser');
               }}
             >
@@ -112,7 +107,6 @@ export default function BasicTable({ users, trainers }) {
               <button
                 className="m-button"
                 onClick={() => {
-                  console.log('clicked');
                   navigate('/AllTrainers');
                 }}
               >
@@ -138,7 +132,7 @@ export default function BasicTable({ users, trainers }) {
                       {trainer.firstname} {trainer.lastname}
                     </TableCell>
 
-                    <TableCell align="left">{trainer.clients.length}</TableCell>
+                    <TableCell align="left">{trainer.clients?.length}</TableCell>
 
                     <TableCell align="left">{trainer.exercises.length}</TableCell>
                     <TableCell align="left">
@@ -156,7 +150,6 @@ export default function BasicTable({ users, trainers }) {
             <button
               className="table-button"
               onClick={() => {
-                console.log('clicked');
                 navigate('/AddTrainer');
               }}
             >
@@ -171,7 +164,6 @@ export default function BasicTable({ users, trainers }) {
               <button
                 className="m-button"
                 onClick={() => {
-                  console.log('clicked');
                   navigate('/AllProducts');
                 }}
               >
@@ -211,7 +203,6 @@ export default function BasicTable({ users, trainers }) {
             <button
               className="table-button"
               onClick={() => {
-                console.log('clicked');
                 navigate('/AddProduct');
               }}
             >
@@ -226,7 +217,6 @@ export default function BasicTable({ users, trainers }) {
               <button
                 className="m-button"
                 onClick={() => {
-                  console.log('clicked');
                   navigate('/AllOrders');
                 }}
               >
@@ -268,7 +258,6 @@ export default function BasicTable({ users, trainers }) {
             <button
               className="table-button"
               onClick={() => {
-                console.log('clicked');
                 navigate('/AddOrder');
               }}
             >

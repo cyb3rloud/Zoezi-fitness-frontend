@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { toast } from 'react-toastify';
-import axios from 'axios';
-import { Input } from '@mui/material';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Sidebar from './Sidebar';
@@ -35,11 +33,8 @@ const AddOrder = ({ AddOrder }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!product || !tracking_id || !date || !status) {
-      console.log('please fill all input fields');
-      // toast.error("please fill all input fields");
+      toast.error('please fill all input fields');
     } else {
-      // post comment to our api endpoint
-      // axios.post("http://localhost:4000/comments", formData);
       fetch('url', {
         method: 'POST',
         headers: {
@@ -50,8 +45,7 @@ const AddOrder = ({ AddOrder }) => {
         .then((res) => res.json())
         .then((data) => AddOrder(data));
 
-      // // show success message after post to the db
-      // toast.success("Added successfully");
+      toast.success('Added successfully');
 
       // restore input fields to default
       setFormData({
@@ -60,12 +54,8 @@ const AddOrder = ({ AddOrder }) => {
         date: '',
         status: '',
       });
-      console.log('hello');
       // navigate back to testimonials page
       navigate('/AdminDashboard');
-
-      // call product render function
-      //   setTimeout(() => loadProduct(), 500);
     }
   };
 
