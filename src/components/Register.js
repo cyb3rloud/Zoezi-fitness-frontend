@@ -11,11 +11,12 @@ const initialValues = {
   lastname: '',
   email: '',
   password: '',
+  // role: '',
   contact: '',
   age: '',
   height: '',
   current_weight: '',
-  client_goal: '',
+  goal: '',
 };
 
 function Register({ handleClose, show, handleLoginShow }) {
@@ -37,11 +38,12 @@ function Register({ handleClose, show, handleLoginShow }) {
           lastname: values.lastname,
           email: values.email,
           password: values.password,
+          // role: values.role,
           contact: values.contact,
           age: values.age,
           height: values.height,
           current_weight: values.current_weight,
-          client_goal: values.client_goal,
+          goal: values.goal,
         }),
       });
       actions.resetForm();
@@ -108,6 +110,16 @@ function Register({ handleClose, show, handleLoginShow }) {
                 placeholder="Password"
               />
             </Form.Group>
+            {/* <Form.Group>
+              <Form.Label>Role</Form.Label>
+              <Form.Control
+                type="text"
+                name="role"
+                value={values.role}
+                onChange={handleChange}
+                placeholder="role"
+              />
+            </Form.Group> */}
             <Form.Group>
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
@@ -143,7 +155,7 @@ function Register({ handleClose, show, handleLoginShow }) {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Client Goal</Form.Label>
+              <Form.Label>Goal</Form.Label>
               <Form.Control as="select" onChange={handleChange}>
                 <option name="weight loss" value="weight loss">
                   Weight Loss
