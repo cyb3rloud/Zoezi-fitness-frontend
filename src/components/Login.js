@@ -19,11 +19,8 @@ function Login({ handleLoginClose, showLogin, handleShow }) {
 
   const handleCSubmit = (values) => {
     if (values.email === 'admin@admin.com' && values.password === 'admin') {
-      // toast.success("login Successful");
-      alert('Welcome Admin');
+      toast.success('login Successful');
       navigate('/AdminDashboard');
-    } else {
-      alert('You are not an Admin');
     }
   };
 
@@ -52,49 +49,9 @@ function Login({ handleLoginClose, showLogin, handleShow }) {
 
       handleLoginClose();
       toast.success('login Successful');
-      // handleLogout();
       navigate('/UserDashboard');
     },
   });
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [error, setError] = useState("");
-
-  // useEffect(() => {
-  //   // Fetch data from backend
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch("/api/login", {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify({ email, password }),
-  //       });
-  //       const data = await response.json();
-  //       if (response.ok) {
-  //         // Save user data to local storage
-  //         localStorage.setItem("user", JSON.stringify(data.user));
-  //         // Redirect to dashboard
-  //         navigate.push("/dashboard");
-  //       } else {
-  //         setError(data.message);
-  //       }
-  //     } catch (err) {
-  //       setError(err.message);
-  //     }
-  //   }
-
-  //   if (email && password) {
-  //     fetchData();
-  //   }
-  // }, [email, password, navigate]);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setEmail(e.target.email.value);
-  //   setPassword(e.target.password.value);
-  //   navigate("/Dashboard");
-  // };
 
   return (
     <>

@@ -82,7 +82,7 @@ export default function BasicTable({ users, trainers }) {
                       <span className="status">{user.contact}</span>
                     </TableCell>
                     <TableCell align="left" className="Details">
-                      {user.client_goal}
+                      {user.goal}
                     </TableCell>
                   </TableRow>
                 ))}

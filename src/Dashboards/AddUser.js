@@ -17,7 +17,7 @@ const initialState = {
   age: 0,
   height: 0,
   current_weight: 0,
-  client_goal: '',
+  goal: '',
 };
 
 const AddUser = ({ addUser }) => {
@@ -25,7 +25,7 @@ const AddUser = ({ addUser }) => {
 
   const [formData, setFormData] = useState(initialState);
 
-  const { firstname, lastname, email, password, contact, age, height, current_weight, client_goal } = formData;
+  const { firstname, lastname, email, password, contact, age, height, current_weight, goal } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -38,17 +38,7 @@ const AddUser = ({ addUser }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      !firstname ||
-      !lastname ||
-      !email ||
-      !password ||
-      !contact ||
-      !age ||
-      !height ||
-      !current_weight ||
-      !client_goal
-    ) {
+    if (!firstname || !lastname || !email || !password || !contact || !age || !height || !current_weight || !goal) {
       toast.error('please fill all input fields');
     } else {
       fetch('/users', {
@@ -72,7 +62,7 @@ const AddUser = ({ addUser }) => {
         age: '',
         height: '',
         current_weight: '',
-        client_goal: '',
+        goal: '',
       });
       // navigate back to testimonials page
       navigate('/AdminDashboard');
@@ -117,7 +107,7 @@ const AddUser = ({ addUser }) => {
                     <input type="value" name="current_weight" value={formData.current_weight} onChange={handleChange} />
                     <br />
                     <label>User Goal:</label>
-                    <select name="client_goal" className="drop-down" onChange={handleChange}>
+                    <select name="goal" className="drop-down" onChange={handleChange}>
                       <option value=""></option>
                       <option value="weight loss">Weight Loss</option>
                       <option value="weight gain">Weight Gain</option>

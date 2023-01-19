@@ -28,7 +28,7 @@ function UserDashboard() {
           <div className="grid-one">
             <div>
               <div className="sect">
-                <h1>Hello {user?.username}!</h1>
+                <h1>Hello {user?.firstname}!</h1>
               </div>
               <div className="sect">
                 <h2>Today&apos;s workout</h2>
@@ -66,15 +66,15 @@ function UserDashboard() {
                 <h3>Current</h3>
                 <div className="details">
                   <div>
-                    <h5>52 kg</h5>
+                    <h5>{user?.current_weight} kg</h5>
                     <p>Weight</p>
                   </div>
                   <div>
-                    <h5>183cm</h5>
+                    <h5>{user.height}cm</h5>
                     <p>Height</p>
                   </div>
                   <div>
-                    <h5>26</h5>
+                    <h5>{user.age}</h5>
                     <p>Age</p>
                   </div>
                 </div>
