@@ -35,6 +35,10 @@ function Testimonialss() {
 
   const { client_username, testimony, rating, client_image_url } = formData;
 
+  const handleRating = (index) => {
+    setFormData((state) => ({ ...state, rating: index }));
+  };
+
   const handleChange = (e) => {
     let { name, value } = e.target;
 
@@ -118,7 +122,7 @@ function Testimonialss() {
                   />
                 </div>
                 <label> Rating </label> <br />
-                <StarRating />
+                <StarRating callback={handleRating} />
               </div>
             </div>
             <button
