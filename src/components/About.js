@@ -31,31 +31,6 @@ function Stats() {
   );
 }
 function About() {
-<<<<<<< HEAD
-    return (
-      <>
-      <Navbar/>
-        <div className>
-          <div className="about-us">
-            <Section
-              heading="About Us"
-              body="We are an online  fitness and health company dedicated to helping individuals achieve  their desired body size and fitness so that they can face all the other everyday challenges confidently."
-            />
-            <Section
-              heading="Our Mission"
-              body="Assist our members attain the body they dream of in the comfort of their homes aor even at their fitness centers of choice "
-            />
-            <Section
-              heading="Why Choose Us"
-              body="Our training exercises and trainers are the best in the industry and so far we have had excellent results from all individuals who have decided to choose us as their partner in their fitness journey."
-            />
-            <Stats />
-          </div>
-        </div>
-        <Footer/>
-      </>
-    );
-=======
   return (
     <>
       <Navbar />
@@ -77,7 +52,6 @@ function About() {
       <Footer />
     </>
   );
->>>>>>> f6abee5c69fc7c2a1161ed5801995ea0e862b505
 }
 
 export default About;

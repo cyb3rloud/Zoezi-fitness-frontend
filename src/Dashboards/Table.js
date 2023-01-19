@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import "./Dashboard.css";
-import { useNavigate } from "react-router-dom";
-import { UilArrowCircleRight } from "@iconscout/react-unicons";
-// import { ControlCameraOutlined } from "@material-ui/icons";
-=======
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -23,7 +9,6 @@ import Paper from '@mui/material/Paper';
 import './Dashboard.css';
 import { useNavigate } from 'react-router-dom';
 import { UilArrowCircleRight } from '@iconscout/react-unicons';
->>>>>>> f6abee5c69fc7c2a1161ed5801995ea0e862b505
 
 function createData(name, trackingId, date, status) {
   return { name, trackingId, date, status };

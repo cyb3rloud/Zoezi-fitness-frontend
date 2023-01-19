@@ -11,22 +11,8 @@ function UserDashboard() {
   const { user } = useUser();
   const [trainersList, setTrainersList] = useState([]);
 
-<<<<<<< HEAD
-  // const fetchTrainers = useCallback(async () => {
-  //   const response = await fetch("http://localhost:5000/trainers");
-  //   const responseData = await response.json();
-  //   if (!response.ok) {
-  //     throw new Error(responseData.message);
-  //   }
-  //   setTrainersList(responseData.trainers);
-  // }, []);
-
- useEffect(() => {
-    fetch("/trainers")
-=======
   useEffect(() => {
     fetch('/trainers')
->>>>>>> f6abee5c69fc7c2a1161ed5801995ea0e862b505
       .then((res) => res.json())
       .then((data) => {
         setTrainersList(data);
