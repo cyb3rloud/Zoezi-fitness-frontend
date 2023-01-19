@@ -33,7 +33,7 @@ function Testimonialss() {
     client_image_url: '',
   });
 
-  const { client_username, testimony, client_image_url } = formData;
+  const { client_username, testimony, rating, client_image_url } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -43,7 +43,7 @@ function Testimonialss() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!client_username || !testimony || !client_image_url) {
+    if (!client_username || !testimony || !client_image_url || !rating) {
       toast.error('please fill all input fields');
     } else {
       // axios.post("http://localhost:4000/comments", formData);

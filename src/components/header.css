@@ -2,10 +2,10 @@
   width: 100%;
   height: 80px;
   line-height: 70px;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
-  z-index: 1111111;
+  z-index: 1000;
   background: #d9d9d9;
 }
 .navigation {

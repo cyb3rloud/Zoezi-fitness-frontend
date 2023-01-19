@@ -59,7 +59,7 @@ const Navbar = () => {
                   {' '}
                   <li>Testimonials</li>{' '}
                 </Link>
-                <Link to="/Dashboard">
+                <Link to="/UserDashboard">
                   {' '}
                   <li>Dashboard</li>{' '}
                 </Link>

@@ -9,7 +9,7 @@ const Services = () => {
       <section className="py-4 container" style={{ background: '#fff' }}>
         <div className="row justify-content-center">
           {data.servicedata.map((service, index) => {
-            return <ServiceCard title={service.title} desc={service.desc} />;
+            return <ServiceCard key={index} title={service.title} desc={service.desc} />;
           })}
         </div>
       </section>

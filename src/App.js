@@ -31,7 +31,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch('/clients')
+    fetch('/users')
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);

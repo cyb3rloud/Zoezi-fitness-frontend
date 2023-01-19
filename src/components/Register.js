@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import { Form, Button } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -24,13 +24,15 @@ function Register({ handleClose, show, handleLoginShow }) {
 
   const navigate = useNavigate();
 
-  const { values, handleBlur, handleChange, handleSubmit } = useFormik({
+  const { errors, values, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues,
+
     validationSchema: signupSchema,
     onSubmit: (values, actions) => {
-      actions.resetForm();
+      console.log('fsfdgsdf');
+      // actions.resetForm();
 
-      fetch('/clients', {
+      fetch('/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,9 +56,15 @@ function Register({ handleClose, show, handleLoginShow }) {
       toast.success('Registration Successfully');
       // alert("Registration Successfully");
       handleClose();
-      navigate('/UserDashboard');
+      // navigate('/UserDashboard');
     },
   });
+
+  // useEffect(() => {
+  //   if (!errors) return;
+  //   console.log(JSON.stringify(errors));
+  //   toast.error('please fill all fields');
+  // }, [errors]);
 
   // const handleChange = (event) => {
   //   setFormData({
@@ -202,9 +210,8 @@ function Register({ handleClose, show, handleLoginShow }) {
             </Form.Group>
           </Modal.Body>
           <Modal.Footer className="submit__btn">
-            <Button type="submit" onSubmit={handleSubmit}>
-              Register
-            </Button>
+            {console.log(errors)}
+            <Button onClick={handleSubmit}>Register</Button>
             <div className="d-flex align-items-left justify-content-left m-auto mt-3">
               <span className="me-3">Already have an account ?</span>
               <span onClick={handleClose}>

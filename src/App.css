@@ -376,3 +376,7 @@ p {
   border-radius: 100% / 0 0 30% 30%;
   background: white;
 }
+
+:root {
+  --toastify-z-index: 1001;
+}

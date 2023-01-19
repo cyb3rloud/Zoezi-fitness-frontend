@@ -51,7 +51,7 @@ const AddUser = ({ addUser }) => {
     ) {
       toast.error('please fill all input fields');
     } else {
-      fetch('/clients', {
+      fetch('/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
