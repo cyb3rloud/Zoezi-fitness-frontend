@@ -439,12 +439,6 @@ th {
   cursor: pointer;
 }
 
-.menu .menuItem:last-child {
-  /* position: absolute; */
-  /* bottom: 2.3rem; */
-  /* width: 100%; */
-}
-
 .active {
   /* background: var(--activeItem); */
   margin-left: 0;
