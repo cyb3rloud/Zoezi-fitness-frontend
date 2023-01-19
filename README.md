@@ -78,4 +78,4 @@ The foreman gem can be used to run both at the same time.
 
 ## License
 
-MIT License Copyright (c) 2023 Poverty Line
+MIT License Copyright (c) 2023 BeFit
