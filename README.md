@@ -1,11 +1,23 @@
 
-## BEFIT APP
-
-BY:TITUS MUTETI, GEORGE NDUNGU, ANDREW ONYANCHA, JACKLINE KARIUKI, RUTH WEKESA, MERCY CHEBET, ABRAHAM ANYANG
-
 ## Project Description
 
 This is a gym management/application system designed for an client to be able to view and modify the available excirses, trainers and workouts and can also access products once they are logged in as a user. This was developed using a combination of react for the front-end section and rails for the backend.
+
+## Authors
+Titus Muteti 
+
+George Ndungu
+
+Andrew Onyancha
+
+ Jackline Kariuki
+
+ Ruth Wekesa
+
+ Mercy Chebet
+
+Abraham Anyang
+
 
 ## Requirements
 
@@ -28,12 +40,19 @@ Authentication/authorization. At a minimum, a user should be able to log into th
 ## Technologies Used
 
 React
+
 JSX
+
 Tailwind
+
 Ruby on Rails
+
 Material Ui
+
 Figma
+
 CSS
+
 Redux
 
 ## Deliverables
