@@ -18,6 +18,7 @@ function Home() {
         <Hero/>
         <About/>
         <Services/>
+        <Testimonials/>
       <Footer />
     </>
   );
