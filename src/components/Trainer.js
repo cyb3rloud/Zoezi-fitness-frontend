@@ -42,7 +42,7 @@ function Trainers() {
   const [trainers, setTrainers] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {
-    fetch('https://8b3e76f0-d564-4e08-a73c-2eca5d1665d2.mock.pstmn.io/trainers')
+    fetch('/trainers')
       .then((res) => {
         if (!res.ok) {
           throw new Error('Error occured while fetching the data!');

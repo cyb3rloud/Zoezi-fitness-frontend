@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
-import { UilUsersAlt, UilUserMd, UilSignOutAlt } from '@iconscout/react-unicons';
+import { UilUsersAlt, UilUserMd } from '@iconscout/react-unicons';
 import { Link } from 'react-router-dom';
-// import { UilSignOutAlt } from "@iconscout/react-unicons";
-// import { SidebarData } from "./Data";
-// import { UilBars } from "@iconscout/react-unicons";
 import { motion } from 'framer-motion';
 
 const Sidebar = () => {
@@ -61,10 +58,6 @@ const Sidebar = () => {
               </div>
             );
           })}
-          {/* signoutIcon */}
-          <div className="menuItem">
-            <UilSignOutAlt />
-          </div>
         </div>
       </motion.div>
     </>
