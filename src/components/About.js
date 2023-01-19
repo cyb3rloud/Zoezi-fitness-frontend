@@ -35,7 +35,7 @@ function About() {
     return (
       <>
       <Navbar/>
-        <div>
+        <div className>
           <div className="about-us">
             <Section
               heading="About Us"

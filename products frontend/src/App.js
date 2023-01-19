@@ -1,7 +1,8 @@
 import './App.css';
 import ReactDOM from 'react-dom';
 import React, { Fragment } from 'react';
-import { Route, Switch, Link, Redirect, BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes, Router } from "react-router-dom";
+import {Navigate} from 'react-router-dom';
 import Account from './Components/Account'
 import LoginForm from './Components/LoginForm';
 import NavBar from './Components/NavBar';
@@ -17,7 +18,7 @@ import { blue, green, red } from '@material-ui/core/colors'
 // import 'fontsource-roboto';
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
-import { ChakraProvider } from "@chakra-ui/react"
+// import { ChakraProvider } from "@chakra-ui/react"
 
 
 const ItemsURL = "http://localhost:3000/items/"
@@ -49,6 +50,7 @@ const theme = createMuiTheme({
 
 
 class App extends React.Component {
+
 
     state = {
         currentUser: null, //user:{}
@@ -230,12 +232,12 @@ class App extends React.Component {
                                 currentUser={this.state.currentUser}
                                 logOut={this.logOut} />
                             <Router />
-                            <Switch>
+                            <Routes>
                                 <Route exact path="/" component={Home} />
                                 <Route exact path="/login" render={() => (
                                     this.state.currentUser == null ?
                                         <LoginForm
-                                            updateCurrentUser={this.updateCurrentUser} /> : <Redirect to="/items" />
+                                            updateCurrentUser={this.updateCurrentUser} /> : <Navigate to="/items" />
                                 )} />
 
                                 <Route exact path="/auth">
@@ -287,7 +289,7 @@ class App extends React.Component {
                                         itemLength={this.state.items.length}
                                         backItems={this.backItems} />)} />
 
-                            </Switch>
+                            </Routes>
                             <Router />
                         </div>
                     </div>

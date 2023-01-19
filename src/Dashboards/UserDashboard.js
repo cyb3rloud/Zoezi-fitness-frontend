@@ -21,7 +21,7 @@ const [trainersList, setTrainersList] = useState([]);
   // }, []);
 
  useEffect(() => {
-    fetch("http://localhost:5000/trainers")
+    fetch("/trainers")
       .then((res) => res.json())
       .then((data) => {
         setTrainersList(data);
