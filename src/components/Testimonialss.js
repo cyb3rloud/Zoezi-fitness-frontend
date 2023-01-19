@@ -1,22 +1,19 @@
-import Footer from "./Footer";
-import Navbar from "./Navbar";
-import StarRating from "../components/StarRating";
-import "../assets/css/testimonials.css";
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-// import axios from "axios";
-// import { toast } from "react-toastify";
+import Footer from './Footer';
+import Navbar from './Navbar';
+import StarRating from '../components/StarRating';
+import '../assets/css/testimonials.css';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Testimonialss() {
   const [testimonies, setTestimonies] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch("/testimonials")
+    fetch('/testimonials')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-
         setTestimonies(data);
         setIsLoaded(true);
       });
@@ -30,53 +27,51 @@ function Testimonialss() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    client_username: "",
-    testimony: "",
-    rating: "off",
-    client_image_url: "",
+    client_username: '',
+    testimony: '',
+    rating: 'off',
+    client_image_url: '',
   });
 
   const { client_username, testimony, rating, client_image_url } = formData;
 
+  const handleRating = (index) => {
+    setFormData((state) => ({ ...state, rating: index }));
+  };
+
   const handleChange = (e) => {
     let { name, value } = e.target;
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-
-    // console.log(formData)
+    setFormData((state) => ({ ...state, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    if (!client_username|| !testimony || !client_image_url) {
-      console.log("please fill all input fields");
+    if (!client_username || !testimony || !client_image_url || !rating) {
+      toast.error('please fill all input fields');
     } else {
       // axios.post("http://localhost:4000/comments", formData);
-      fetch("/testimonials", {
-        method: "POST",
+      fetch('/testimonials', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data)
+          toast.success('Testimony added successfully');
           addTestimony(data);
         });
 
       setFormData({
-        client_username: "",
-        testimony: "",
-        rating: "off",
-        client_image_url: "",
+        client_username: '',
+        testimony: '',
+        rating: 'off',
+        client_image_url: '',
       });
       // navigate back to testimonials page
-      navigate("/Testimonialss");
+      navigate('/Testimonialss');
     }
   };
 
@@ -110,25 +105,14 @@ function Testimonialss() {
             <div className="form-table">
               <div>
                 <label> Your Username </label> <br />
-                <input
-                  type="text"
-                  name="client_username"
-                  value={formData.client_username}
-                  onChange={handleChange}
-                />
+                <input type="text" name="client_username" value={formData.client_username} onChange={handleChange} />
                 <br />
                 <label> Your Story </label> <br />
-                <input
-                  type="text"
-                  name="testimony"
-                  value={formData.testimony}
-                  onChange={handleChange}
-                />{" "}
-                <br />
+                <input type="text" name="testimony" value={formData.testimony} onChange={handleChange} /> <br />
               </div>
               <div>
                 <div>
-                  <label>Your Avatar:</label> <br />
+                  <label>Your image_url:</label> <br />
                   <input
                     type="text"
                     name="client_image_url"
@@ -138,7 +122,7 @@ function Testimonialss() {
                   />
                 </div>
                 <label> Rating </label> <br />
-                <StarRating />
+                <StarRating callback={handleRating} />
               </div>
             </div>
             <button

@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../assets/css/footer.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../assets/css/footer.css';
 // import {
 //   faTwitter,
 //   faFacebook,

@@ -1,16 +1,17 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import "./user-dashboard.css"
-import Sidebar from "./Sidebar";
-import { useUser } from "../Dashboards/auth"
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import './user-dashboard.css';
+import Sidebar from './Sidebar';
+import { useUser } from '../Dashboards/auth';
 
 function UserDashboard() {
   const navigate = useNavigate();
   const { user } = useUser();
-const [trainersList, setTrainersList] = useState([]);
+  const [trainersList, setTrainersList] = useState([]);
 
+<<<<<<< HEAD
   // const fetchTrainers = useCallback(async () => {
   //   const response = await fetch("http://localhost:5000/trainers");
   //   const responseData = await response.json();
@@ -22,12 +23,15 @@ const [trainersList, setTrainersList] = useState([]);
 
  useEffect(() => {
     fetch("/trainers")
+=======
+  useEffect(() => {
+    fetch('/trainers')
+>>>>>>> f6abee5c69fc7c2a1161ed5801995ea0e862b505
       .then((res) => res.json())
       .then((data) => {
         setTrainersList(data);
       });
   }, []);
-
 
   return (
     <>
@@ -41,7 +45,7 @@ const [trainersList, setTrainersList] = useState([]);
                 <h1>Hello {user?.username}!</h1>
               </div>
               <div className="sect">
-                <h2>Today's workout</h2>
+                <h2>Today&apos;s workout</h2>
                 <div>
                   <p>morning run </p>
                   <p>morning run </p>

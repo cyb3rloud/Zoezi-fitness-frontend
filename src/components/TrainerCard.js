@@ -1,24 +1,22 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 const images = {
-  width: "16.8vw",
-  height: "35vh",
-  margin: "0 ",
-  padding: "0",
+  width: '16.8vw',
+  height: '35vh',
+  margin: '0 ',
+  padding: '0',
 };
 
 const details = {
-  backgroundColor: "rgba(94, 151, 255, 0.4)",
-  width: "16.8vw",
-  height: "auto",
+  backgroundColor: 'rgba(94, 151, 255, 0.4)',
+  width: '16.8vw',
+  height: 'auto',
 };
 
 const text = {
-  padding: "0em 1em",
+  padding: '0em 1em',
 };
-
-
 
 function TrainerCard({ trainer }) {
   const history = useHistory();
