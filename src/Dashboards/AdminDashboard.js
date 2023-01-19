@@ -1,23 +1,18 @@
-import "./Dashboard.css";
-import MainDash from "./MainDash";
+import './Dashboard.css';
+import MainDash from './MainDash';
 // import RightSide from "./RightSide";
-import Sidebar from "./Sidebar";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Sidebar from './Sidebar';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
-function AdminDashboard({ users, trainers, products, orders }) {
+function AdminDashboard({ users, trainers }) {
   return (
     <>
       <Navbar />
       <div className="App">
         <div className="AppGlass">
           <Sidebar />
-          <MainDash
-            users={users}
-            trainers={trainers}
-            products={products}
-            orders={orders}
-          />
+          <MainDash users={users} trainers={trainers} />
           {/* <RightSide /> */}
         </div>
       </div>

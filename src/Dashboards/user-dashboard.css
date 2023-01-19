@@ -139,7 +139,8 @@
   background-color: aqua;
 } */
 
-.grid-two button, .form-button {
+.grid-two button,
+.form-button {
   background-color: #4bb49b;
   border: 1px solid #53585d;
   border-radius: 24px;
@@ -151,7 +152,8 @@
   align-items: center;
 }
 
-.grid-two button:hover, .form-button:hover {
+.grid-two button:hover,
+.form-button:hover {
   background-color: #14dede;
   border: 1px solid #53585d;
   border-radius: 24px;

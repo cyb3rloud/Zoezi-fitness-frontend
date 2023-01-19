@@ -1,60 +1,60 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import React, { useCallback, useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import Footer from './Footer';
+import Navbar from './Navbar';
 
-// const columnDetails = {
-//   display: "flex",
-//   justifyContent: "space-between",
-//   padding: "1vw 15vw 0vw 2vw",
-//   margin: "0px 0px 30px 0px",
-// };
+const columnDetails = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  padding: '1vw 15vw 0vw 2vw',
+  margin: '0px 0px 30px 0px',
+};
 
-// const rowDetails = {
-//   display: "flex",
-//   flexDirection: "column",
-//   justifyContent: "space-between",
-//   alignItems: "left",
-//   padding: "1vw 10vw 0vw 2vw",
-//   margin: "0px 0px 0px 0px",
-// };
+const rowDetails = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  alignItems: 'left',
+  padding: '1vw 10vw 0vw 2vw',
+  margin: '0px 0px 0px 0px',
+};
 
-// const categories = {
-//   border: "1px solid white",
-//   borderRadius: "8px",
-//   padding: "5px 10px",
-//   margin: "0px 10px",
-// };
-// const categoriesContainer = {
-//   display: "flex",
-//   justifyContent: "space-between",
-// };
+const categories = {
+  border: '1px solid white',
+  borderRadius: '8px',
+  padding: '5px 10px',
+  margin: '0px 10px',
+};
+const categoriesContainer = {
+  display: 'flex',
+  justifyContent: 'space-between',
+};
 
-// const item = {
-//   border: "1px solid white",
-//   borderRadius: "8px",
-//   padding: "20px 50px",
-// };
+const item = {
+  border: '1px solid white',
+  borderRadius: '8px',
+  padding: '20px 50px',
+};
 
 // const img = {
-//   width: "30vw",
-//   height: "auto",
+//   width: '30vw',
+//   height: 'auto',
 // };
 
-// const button = {
-//   border: "1px solid white",
-//   borderRadius: "8px",
-//   padding: "10px 20px",
-//   margin: "0px 10px",
-//   width: "35%",
-//   cursor: "pointer",
-//   textDecoration: "none",
-// };
+const button = {
+  border: '1px solid white',
+  borderRadius: '8px',
+  padding: '10px 20px',
+  margin: '0px 10px',
+  width: '35%',
+  cursor: 'pointer',
+  textDecoration: 'none',
+};
 
-function TrainerCardDetails({ trainer}) {
+function TrainerCardDetails({ trainer: prop }) {
   const history = useHistory();
   const { trainer_id } = useParams();
-  const [trainer, setTrainer] = useState(null);
+  const [trainer, setTrainer] = useState(prop);
 
   useEffect(() => {
     fetch(`url/${trainer_id}`)
@@ -62,19 +62,19 @@ function TrainerCardDetails({ trainer}) {
       .then((data) => {
         setTrainer(data);
       });
-  }, []);
+  }, [trainer_id]);
 
   const addToUserDashboard = useCallback(() => {
-    fetch("url", {
-      method: "POST",
+    fetch('url', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ ...trainer }),
     }).then(() => {
-      history.push("/userDashboard");
+      history.push('/userDashboard');
     });
-  }, [film]);
+  }, [history, trainer]);
 
   return (
     <div>

@@ -17,17 +17,12 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: var(--black);
-  background: linear-gradient(
-    106.37deg,
-    #ffffff 29.63%,
-    lightgrey 51.55%,
-    grey 90.85%
-  );
+  background: linear-gradient(106.37deg, #ffffff 29.63%, lightgrey 51.55%, grey 90.85%);
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .AppGlass {
@@ -255,9 +250,8 @@
   margin: 5rem 2rem;
 }
 
-.m-button{
+.m-button {
   border: none;
-  
 }
 .t-button {
   display: flex;
@@ -445,18 +439,12 @@ th {
   cursor: pointer;
 }
 
-.menu .menuItem:last-child {
-  position: absolute;
-  bottom: 2.3rem;
-  width: 100%;
-}
-
 .active {
   /* background: var(--activeItem); */
   margin-left: 0;
 }
 .active::before {
-  content: "";
+  content: '';
   width: 8px;
   height: 100%;
   background: var(--grey);

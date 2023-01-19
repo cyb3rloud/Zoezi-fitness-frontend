@@ -1,7 +1,7 @@
-import React from "react";
-import CustomerReview from "./CustomerReview";
-import Updates from "./Updates";
-import "./Dashboards.css";
+import React from 'react';
+import CustomerReview from './CustomerReview';
+import Updates from './Updates';
+import './Dashboards.css';
 
 const RightSide = () => {
   return (

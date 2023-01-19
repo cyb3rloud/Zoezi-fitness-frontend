@@ -1,72 +1,58 @@
-import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import "./Dashboard.css";
-import { useNavigate } from "react-router-dom";
-import { UilArrowCircleRight } from "@iconscout/react-unicons";
-import { ControlCameraOutlined } from "@material-ui/icons";
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import './Dashboard.css';
+import { useNavigate } from 'react-router-dom';
+import { UilArrowCircleRight } from '@iconscout/react-unicons';
 
 function createData(name, trackingId, date, status) {
   return { name, trackingId, date, status };
 }
 
-
 const rows = [
-  createData("Lasania Chiken Fri", 18908424, "2 March 2022", "Approved"),
-  createData("Big Baza Bang ", 18908424, "2 March 2022", "Pending"),
-  createData("Mouth Freshner", 18908424, "2 March 2022", "Approved"),
+  createData('Lasania Chiken Fri', 18908424, '2 March 2022', 'Approved'),
+  createData('Big Baza Bang ', 18908424, '2 March 2022', 'Pending'),
+  createData('Mouth Freshner', 18908424, '2 March 2022', 'Approved'),
 ];
 
-
 const makeStyle = (status) => {
-  if (status === "Approved") {
+  if (status === 'Approved') {
     return {
-      background: "rgb(145 254 159 / 47%)",
-      color: "green",
+      background: 'rgb(145 254 159 / 47%)',
+      color: 'green',
     };
-  } else if (status === "Pending") {
+  } else if (status === 'Pending') {
     return {
-      background: "#ffadad8f",
-      color: "red",
+      background: '#ffadad8f',
+      color: 'red',
     };
   } else {
     return {
-      background: "#59bfff",
-      color: "white",
+      background: '#59bfff',
+      color: 'white',
     };
   }
 };
 
-export default function BasicTable( {users, trainers, products, orders} ) {
+export default function BasicTable({ users, trainers }) {
   const navigate = useNavigate();
-  // const { user } = useUser();
-  console.log(users);
-  console.log(trainers);
-  
-
-
-
 
   return (
     <>
       <div className="Tables">
         <div className="table">
           <h3>Users</h3>
-          <TableContainer
-            component={Paper}
-            style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
-          >
+          <TableContainer component={Paper} style={{ boxShadow: '0px 13px 20px 0px #80808029' }}>
             <div className="t-button">
               <button
                 className="m-button"
                 onClick={() => {
-                  console.log("clicked");
-                  navigate("/AllUsers");
+                  navigate('/AllUsers');
                 }}
               >
                 See more <UilArrowCircleRight />
@@ -83,12 +69,9 @@ export default function BasicTable( {users, trainers, products, orders} ) {
                   <TableCell align="left">client_goal</TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody style={{ color: "white" }}>
-                {users.slice(-3).map((user) => (
-                  <TableRow
-                    key={user.id}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
+              <TableBody style={{ color: 'white' }}>
+                {users.slice(-3).map((user, i) => (
+                  <TableRow key={`${user.id}-${i}`} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                     <TableCell component="th" scope="row">
                       {user.firstname} {user.lastname}
                     </TableCell>
@@ -99,7 +82,7 @@ export default function BasicTable( {users, trainers, products, orders} ) {
                       <span className="status">{user.contact}</span>
                     </TableCell>
                     <TableCell align="left" className="Details">
-                      {user.client_goal}
+                      {user.goal}
                     </TableCell>
                   </TableRow>
                 ))}
@@ -110,8 +93,7 @@ export default function BasicTable( {users, trainers, products, orders} ) {
             <button
               className="table-button"
               onClick={() => {
-                console.log("clicked");
-                navigate("/AddUser");
+                navigate('/AddUser');
               }}
             >
               Add User
@@ -120,16 +102,12 @@ export default function BasicTable( {users, trainers, products, orders} ) {
         </div>
         <div className="table">
           <h3>Trainers</h3>
-          <TableContainer
-            component={Paper}
-            style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
-          >
+          <TableContainer component={Paper} style={{ boxShadow: '0px 13px 20px 0px #80808029' }}>
             <div className="t-button">
               <button
                 className="m-button"
                 onClick={() => {
-                  console.log("clicked");
-                  navigate("/AllTrainers");
+                  navigate('/AllTrainers');
                 }}
               >
                 See more <UilArrowCircleRight />
@@ -139,27 +117,24 @@ export default function BasicTable( {users, trainers, products, orders} ) {
               <TableHead>
                 <TableRow>
                   <TableCell>Name</TableCell>
-                  <TableCell align="left">Expertise</TableCell>
+
                   <TableCell align="left">Clients</TableCell>
-                  <TableCell align="left">Sessions</TableCell>
+
                   <TableCell align="left">Workouts</TableCell>
                   <TableCell align="left">Email</TableCell>
                   <TableCell align="left">Contact</TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody style={{ color: "white" }}>
-                {trainers.slice(-3).map((trainer) => (
-                  <TableRow
-                    key={trainer.id}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
+              <TableBody style={{ color: 'white' }}>
+                {trainers.slice(-3).map((trainer, i) => (
+                  <TableRow key={`${trainer.id}-${i}`} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                     <TableCell component="th" scope="row">
                       {trainer.firstname} {trainer.lastname}
                     </TableCell>
-                    <TableCell align="left">{trainer.expertise}</TableCell>
-                    <TableCell align="left">{trainer.clients}</TableCell>
-                    <TableCell align="left">{trainer.sessions}</TableCell>
-                    <TableCell align="left">{trainer.workouts}</TableCell>
+
+                    <TableCell align="left">{trainer.clients?.length}</TableCell>
+
+                    <TableCell align="left">{trainer.exercises.length}</TableCell>
                     <TableCell align="left">
                       <span className="status">{trainer.email}</span>
                     </TableCell>
@@ -175,8 +150,7 @@ export default function BasicTable( {users, trainers, products, orders} ) {
             <button
               className="table-button"
               onClick={() => {
-                console.log("clicked");
-                navigate("/AddTrainer");
+                navigate('/AddTrainer');
               }}
             >
               Add Trainer
@@ -185,16 +159,12 @@ export default function BasicTable( {users, trainers, products, orders} ) {
         </div>
         <div className="table">
           <h3>Products</h3>
-          <TableContainer
-            component={Paper}
-            style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
-          >
+          <TableContainer component={Paper} style={{ boxShadow: '0px 13px 20px 0px #80808029' }}>
             <div className="t-button">
               <button
                 className="m-button"
                 onClick={() => {
-                  console.log("clicked");
-                  navigate("/AllProducts");
+                  navigate('/AllProducts');
                 }}
               >
                 See more <UilArrowCircleRight />
@@ -210,12 +180,9 @@ export default function BasicTable( {users, trainers, products, orders} ) {
                   <TableCell align="left">Status</TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody style={{ color: "white" }}>
-                {users.slice(-3).map((user) => (
-                  <TableRow
-                    key={user.name}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
+              <TableBody style={{ color: 'white' }}>
+                {users.slice(-3).map((user, i) => (
+                  <TableRow key={`${user.email}-${i}`} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                     <TableCell component="th" scope="row">
                       {user.name}
                     </TableCell>
@@ -236,8 +203,7 @@ export default function BasicTable( {users, trainers, products, orders} ) {
             <button
               className="table-button"
               onClick={() => {
-                console.log("clicked");
-                navigate("/AddProduct");
+                navigate('/AddProduct');
               }}
             >
               Add Product
@@ -246,16 +212,12 @@ export default function BasicTable( {users, trainers, products, orders} ) {
         </div>
         <div className="table">
           <h3>Recent Orders</h3>
-          <TableContainer
-            component={Paper}
-            style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
-          >
+          <TableContainer component={Paper} style={{ boxShadow: '0px 13px 20px 0px #80808029' }}>
             <div className="t-button">
               <button
                 className="m-button"
                 onClick={() => {
-                  console.log("clicked");
-                  navigate("/AllOrders");
+                  navigate('/AllOrders');
                 }}
               >
                 See more <UilArrowCircleRight />
@@ -271,12 +233,9 @@ export default function BasicTable( {users, trainers, products, orders} ) {
                   <TableCell align="left"></TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody style={{ color: "white" }}>
+              <TableBody style={{ color: 'white' }}>
                 {rows.map((row) => (
-                  <TableRow
-                    key={row.name}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
+                  <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                     <TableCell component="th" scope="row">
                       {row.name}
                     </TableCell>
@@ -299,8 +258,7 @@ export default function BasicTable( {users, trainers, products, orders} ) {
             <button
               className="table-button"
               onClick={() => {
-                console.log("clicked");
-                navigate("/AddOrder");
+                navigate('/AddOrder');
               }}
             >
               Add Order

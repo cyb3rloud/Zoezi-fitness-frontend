@@ -1,99 +1,90 @@
-.top-header
-{
-    width: 100%;
-height: 150px;
-background-color: dimgrey;
-border-radius: 13px;
+.top-header {
+  width: 100%;
+  height: 150px;
+  background-color: dimgrey;
+  border-radius: 13px;
 }
-.image{
-   border-radius: 50%;
-height: 150px;
-margin-top: 100px;
-width: 150px;
-margin-left: 15px;
-border: solid 6px #ffff;
+.image {
+  border-radius: 50%;
+  height: 150px;
+  margin-top: 100px;
+  width: 150px;
+  margin-left: 15px;
+  border: solid 6px #ffff;
 }
 .name {
-margin-left: 15px;
-margin-top: 30px;
-font-size: 30px;
-font-weight: 700;
+  margin-left: 15px;
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: 700;
 }
-.sub-name{
-   
-margin-left: 15px;
-margin-top: 10px;
-color: grey;
+.sub-name {
+  margin-left: 15px;
+  margin-top: 10px;
+  color: grey;
 }
-.btnx{
+.btnx {
+  padding: 12px;
+  border-radius: 27px;
+  background-color: #19243a;
+  color: white;
+  margin-left: 15px;
+  margin-top: 20px;
+  border-color: #19243a;
+}
+.cards {
+  display: flex;
+}
+.exercises {
+  width: auto;
+  background-color: #f2f7fe;
+  border: solid #f2f7fe;
+  width: 400px;
+  margin-left: 15px;
+  margin-top: 50px;
+  min-height: 450px;
+  border-radius: 25px;
+}
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+.btns {
+  background-color: #fbece3;
+  padding: 12px;
+  border: none;
+  border-radius: 27px;
+  color: #19243a;
+  margin-left: 15px;
+  margin-top: 20px;
+  border-color: #fbece3;
+}
+.main {
+  display: flex;
+  background-color: #f2f7fe;
+}
+.entry-container {
+  min-width: 300px;
+  background-color: #fbece3;
+  height: 1250px;
+}
+.e-container {
+  padding: 5px;
 
-padding: 12px;
-border-radius: 27px;
-background-color: #19243a;
-color: white;
-margin-left: 15px;
-margin-top: 20px;
-border-color: #19243a;
-
+  margin-top: 100px;
+  background-color: white;
+  margin-left: -200px;
+  border-radius: 20px;
+  min-height: 950px;
+  /* margin-right: 300px; */
+  max-width: 1000px;
 }
-.cards{
-display:flex;
+.card-header {
+  margin-top: 30px;
+  margin-left: 15px;
+  font-size: 25px;
+  font-weight: 400;
 }
-.exercises{
-
-width: auto;
-background-color: #f2f7fe;
-border: solid #f2f7fe;
-width: 400px;
-margin-left: 15px;
-margin-top: 50px;
-min-height: 450px;
-border-radius:25px;
-}
-.btn-container{
-display: flex;
-justify-content: space-between;
-}
-.btns{
-background-color:#fbece3;
-padding: 12px;
-border:none;
-border-radius: 27px;
-color: #19243a;
-margin-left: 15px;
-margin-top: 20px;
-border-color: #fbece3;
-}
-.main{
-
-display: flex;
-background-color: #f2f7fe;
-
-}
-.entry-container
-{
-min-width: 300px;
-background-color: #fbece3;
-height: 1250px;
-}
-.e-container{
-padding:5px;
-
-margin-top: 100px;
-background-color: white;
-margin-left: -200px;
-border-radius: 20px;
-min-height: 950px;
-/* margin-right: 300px; */
-max-width: 1000px;
-}
-.card-header{
-    margin-top: 30px;
-    margin-left: 15px;
-    font-size: 25px;
-    font-weight: 400;
-
-}
-.card-text{
-    margin:15px;
+.card-text {
+  margin: 15px;
 }
