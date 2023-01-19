@@ -12,7 +12,7 @@ function Testimonialss() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:4001/comments")
+    fetch("/testimonials")
       .then((res) => res.json())
       .then((data) => {
         setTestimonies(data);
@@ -53,7 +53,7 @@ function Testimonialss() {
     } else {
       // post comment to our api endpoint
       // axios.post("http://localhost:4000/comments", formData);
-      fetch("http://localhost:4001/comments", {
+      fetch("/testimonials", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -94,10 +94,10 @@ function Testimonialss() {
             {testimonies.length ? (
               testimonies.map((testimony) => (
                 <div className="testimony" key={testimony.id}>
-                  <img src={testimony.avatar} alt="avatar" />
+                  <img src={testimony.user.image_url} alt="avatar" />
                   <StarRating />
-                  <p>{testimony.story}</p>
-                  <h5> ~ {testimony.name} ~ </h5>
+                  <p>{testimony.testimony}</p>
+                  <h5> ~ {testimony.user.username } ~ </h5>
                 </div>
               ))
             ) : (
