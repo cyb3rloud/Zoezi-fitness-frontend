@@ -1,71 +1,62 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## BEFIT APP
 
-## Available Scripts
+BY:TITUS MUTETI, GEORGE NDUNGU, ANDREW ONYANCHA, JACKLINE KARIUKI, RUTH WEKESA, MERCY CHEBET, ABRAHAM ANYANG
 
-In the project directory, you can run:
+## Project Description
 
-### `npm start`
+This is a gym management/application system designed for an client to be able to view and modify the available excirses, trainers and workouts and can also access products once they are logged in as a user. This was developed using a combination of react for the front-end section and rails for the backend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Requirements
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The application was developed to meet the set project requirements:
 
-### `npm test`
+It is Intuitive and has an easy to follow layout.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+It utilises pages and components for code organization and resusability.
 
-### `npm run build`
+The application employs the use of client-side routing for page to page navigation.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The project uses a Rails API backend with a React frontend.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+It has multiple resources on the backend, with full CRUD actions for at least one resource.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+CRUD actions for the client and trainer models.
 
-### `npm run eject`
+Authentication/authorization. At a minimum, a user should be able to log into the site and stay logged in via user ID in the session hash.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies Used
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+React
+JSX
+Tailwind
+Ruby on Rails
+Material Ui
+Figma
+CSS
+Redux
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Deliverables
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The app utilizes a single HTML file, Tailwind CSS for styling and Javascript/JSX for interactivity. The backend utilizes rails for api data configuration as well as session handling and data validations.
+Allow for user authentication
+		-Login
+		-Signup
+Users can access available trainers
+Users can leave their reviews (testimonials)
+Users can access an exercise guide 
+Users can access their training sessions
+Users can access their daily workouts
+Users can access the products and purchase them
 
-## Learn More
+## Setup Instructions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+On a local setting the frontend is linked to a API developed using Rails to feed it information stored using a postgresql database.
+Run npm start to run the client side.
+Run rails server to initialize the bakcend API.
+The foreman gem can be used to run both at the same time.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Zoezi-fitness-frontend
+MIT License Copyright (c) 2023 Poverty Line
