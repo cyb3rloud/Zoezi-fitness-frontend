@@ -1,0 +1,17 @@
+.p-button {
+  padding: 7px 25px;
+  border: 1px solid rgb(57, 173, 212);
+  border-radius: 50px;
+  margin: 20px 0px;
+}
+
+.forms {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 100%;
+}
+
+.AddItem {
+  display: flex;
+  flex: 1;
+}

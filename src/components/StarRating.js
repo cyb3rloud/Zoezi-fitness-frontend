@@ -3,8 +3,8 @@ import React from 'react';
 import { useState } from 'react';
 import '../assets/css/testimonials.css';
 
-function StarRating({ callback }) {
-  const [rating, setRating] = useState(0);
+function StarRating({ callback, ratings }) {
+  const [rating, setRating] = useState(ratings);
   const [hover, setHover] = useState(0);
 
   const handleChange = (index) => {

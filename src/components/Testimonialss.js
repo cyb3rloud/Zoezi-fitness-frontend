@@ -5,10 +5,12 @@ import '../assets/css/testimonials.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useUser } from '../Dashboards/auth';
 
 function Testimonialss() {
   const [testimonies, setTestimonies] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const { user } = useUser();
 
   useEffect(() => {
     fetch('/testimonials')
@@ -27,13 +29,11 @@ function Testimonialss() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    client_username: '',
     testimony: '',
     rating: 'off',
-    client_image_url: '',
   });
 
-  const { client_username, testimony, rating, client_image_url } = formData;
+  const { testimony, rating } = formData;
 
   const handleRating = (index) => {
     setFormData((state) => ({ ...state, rating: index }));
@@ -47,10 +47,13 @@ function Testimonialss() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!client_username || !testimony || !client_image_url || !rating) {
+    if (!user) {
+      toast.error('You must be logged in to add a testimony');
+      return;
+    }
+    if (!testimony || !rating) {
       toast.error('please fill all input fields');
     } else {
-      // axios.post("http://localhost:4000/comments", formData);
       fetch('/testimonials', {
         method: 'POST',
         headers: {
@@ -65,10 +68,8 @@ function Testimonialss() {
         });
 
       setFormData({
-        client_username: '',
         testimony: '',
         rating: 'off',
-        client_image_url: '',
       });
       // navigate back to testimonials page
       navigate('/Testimonialss');
@@ -79,7 +80,7 @@ function Testimonialss() {
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar />
       <div className="testimonials-page">
         <h1>Testimonials</h1>
         <div>
@@ -87,10 +88,9 @@ function Testimonialss() {
             {testimonies.length ? (
               testimonies.map((testimony) => (
                 <div className="testimony" key={testimony.id}>
-                  <img src={testimony.client_image_url} alt="avatar" />
-                  <StarRating />
+                  <StarRating ratings={testimony.rating} />
                   <p>{testimony.testimony}</p>
-                  <h5> ~ {testimony.client_username} ~ </h5>
+                  <h5> ~ {testimony.user.firstname} ~ </h5>
                   <h6></h6>
                 </div>
               ))
@@ -104,38 +104,21 @@ function Testimonialss() {
           <form onSubmit={handleSubmit}>
             <div className="form-table">
               <div>
-                <label> Your Username </label> <br />
-                <input type="text" name="client_username" value={formData.client_username} onChange={handleChange} />
-                <br />
                 <label> Your Story </label> <br />
                 <input type="text" name="testimony" value={formData.testimony} onChange={handleChange} /> <br />
               </div>
               <div>
-                <div>
-                  <label>Your image_url:</label> <br />
-                  <input
-                    type="text"
-                    name="client_image_url"
-                    value={formData.client_image_url}
-                    placeholder="Paste image url/link"
-                    onChange={handleChange}
-                  />
-                </div>
                 <label> Rating </label> <br />
                 <StarRating callback={handleRating} />
               </div>
             </div>
-            <button
-              className="form-button"
-              type="submit"
-              // onClick={handleSubmit}
-            >
+            <button className="form-button" type="submit">
               Submit
             </button>
           </form>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 }

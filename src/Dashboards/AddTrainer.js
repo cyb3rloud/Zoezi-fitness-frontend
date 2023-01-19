@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Sidebar from './Sidebar';
+import './add.css';
 
 // initial data state
 const initialState = {
@@ -14,7 +15,7 @@ const initialState = {
   expertise: '',
   clients: '',
   sessions: '',
-  contact: '',
+  phone: '',
 };
 
 const AddTrainer = ({ AddTrainer }) => {
@@ -22,7 +23,7 @@ const AddTrainer = ({ AddTrainer }) => {
 
   const [formData, setFormData] = useState(initialState);
 
-  const { firstname, email, lastname, expertise, clients, sessions, contact } = formData;
+  const { firstname, email, lastname, expertise, clients, sessions, phone } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -35,7 +36,7 @@ const AddTrainer = ({ AddTrainer }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!firstname || !email || !lastname || !expertise || !clients || !sessions || !contact) {
+    if (!firstname || !email || !lastname || !expertise || !clients || !sessions || !phone) {
       toast.error('please fill all input fields');
     } else {
       fetch('/trainers', {
@@ -58,7 +59,7 @@ const AddTrainer = ({ AddTrainer }) => {
         expertise: '',
         clients: '',
         sessions: '',
-        contact: '',
+        phone: '',
       });
 
       navigate('/AdminDashboard');
@@ -76,30 +77,109 @@ const AddTrainer = ({ AddTrainer }) => {
               <h1>Add Trainer</h1>
               <form onSubmit={handleSubmit}>
                 <div>
-                  <label> First Name </label> <br />
-                  <input type="text" name="firstname" value={formData.firstname} onChange={handleChange} />
-                  <br />
-                  <label> Last Name </label> <br />
-                  <input type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
-                  <br />
-                  <label> Email </label> <br />
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} />
-                  <br />
-                  <label>Expertise:</label> <br />
-                  <input type="text" name="expertise" value={formData.expertise} onChange={handleChange} />
-                  <br />
-                  <label>Number of clients:</label>
-                  <br />
-                  <input type="number" name="clients" value={formData.clients} onChange={handleChange} />
-                  <br />
-                  <label>Sessions:</label>
-                  <br />
-                  <input type="number" name="sessions" value={formData.sessions} onChange={handleChange} />
-                  <br />
-                  <label>Contact:</label>
-                  <br />
-                  <input type="text" name="contact" value={formData.client_goal} onChange={handleChange} />
-                  <br />
+                  <div className="form-group">
+                    <label htmlFor="fname" className="form-label">
+                      {' '}
+                      First Name{' '}
+                    </label>{' '}
+                    <input
+                      id="fname"
+                      type="text"
+                      className="form-control"
+                      name="firstname"
+                      value={formData.firstname}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="lname">
+                      {' '}
+                      Last Name{' '}
+                    </label>
+                    <input
+                      className="form-control"
+                      id="lname"
+                      type="text"
+                      name="lastname"
+                      value={formData.lastname}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="email">
+                      {' '}
+                      Email{' '}
+                    </label>
+                    <input
+                      className="form-control"
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="expertise">
+                      Expertise:
+                    </label>
+                    <input
+                      className="form-control"
+                      id="expertise"
+                      type="text"
+                      name="expertise"
+                      value={formData.expertise}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="clients">
+                      Number of clients:
+                    </label>
+
+                    <input
+                      className="form-control"
+                      id="clients"
+                      type="number"
+                      name="clients"
+                      value={formData.clients}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="sessions">
+                      Sessions:
+                    </label>
+
+                    <input
+                      className="form-control"
+                      id="sessions"
+                      type="number"
+                      name="sessions"
+                      value={formData.sessions}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="phone">
+                      Contact:
+                    </label>
+
+                    <input
+                      className="form-control"
+                      id="phone"
+                      type="text"
+                      name="phone"
+                      value={formData.client_goal}
+                      onChange={handleChange}
+                    />
+                  </div>
                 </div>
                 <div className="product-button">
                   <button className="p-button" type="submit">

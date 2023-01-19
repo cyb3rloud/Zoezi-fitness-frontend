@@ -42,14 +42,13 @@ function Login({ handleLoginClose, showLogin, handleShow }) {
           password: values.password,
         }),
       }).then((r) => {
-        if (r.ok) {
-          r.json().then((user) => login(user));
-        }
+        if (!r.ok) return;
+        r.json().then((user) => login(user));
+        toast.success('login Successful');
+        navigate('/UserDashboard');
       });
 
       handleLoginClose();
-      toast.success('login Successful');
-      navigate('/UserDashboard');
     },
   });
 

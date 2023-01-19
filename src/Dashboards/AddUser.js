@@ -75,56 +75,148 @@ const AddUser = ({ addUser }) => {
       <div className="forms">
         <Sidebar />
         <div className="AddItem">
-          <div className="AddItem">
-            <Container>
-              <div className="AddContainer">
-                <h1>Add User</h1>
-                <form onSubmit={handleSubmit}>
-                  <div>
-                    <label> First Name </label> <br />
-                    <input type="text" name="firstname" value={formData.firstname} onChange={handleChange} />
-                    <br />
-                    <label> Last Name </label> <br />
-                    <input type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
-                    <br />
-                    <label> Email</label> <br />
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} />
-                    <br />
-                    <label> Password</label> <br />
-                    <input type="password" name="password" value={formData.password} onChange={handleChange} />
-                    <br />
-                    <label>Phone number:</label>
-                    <input type="value" name="contact" value={formData.contact} onChange={handleChange} />
-                    <br />
-                    <label>Age:</label> <br />
-                    <input type="value" name="age" value={formData.age} onChange={handleChange} />
-                    <br />
-                    <label>Height:</label> <br />
-                    <input type="value" name="height" value={formData.height} onChange={handleChange} />
-                    <br />
-                    <label>Weight:</label>
-                    <br />
-                    <input type="value" name="current_weight" value={formData.current_weight} onChange={handleChange} />
-                    <br />
-                    <label>User Goal:</label>
-                    <select name="goal" className="drop-down" onChange={handleChange}>
+          <Container>
+            <div className="AddContainer">
+              <h1>Add User</h1>
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="fname">
+                      {' '}
+                      First Name{' '}
+                    </label>
+                    <input
+                      className="form-control"
+                      id="fname"
+                      type="text"
+                      name="firstname"
+                      value={formData.firstname}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="lname">
+                      {' '}
+                      Last Name{' '}
+                    </label>
+                    <input
+                      className="form-control"
+                      id="lname"
+                      type="text"
+                      name="lastname"
+                      value={formData.lastname}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="email">
+                      {' '}
+                      Email
+                    </label>
+                    <input
+                      className="form-control"
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="pass">
+                      {' '}
+                      Password
+                    </label>
+                    <input
+                      className="form-control"
+                      id="pass"
+                      type="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="contact">
+                      Phone number:
+                    </label>
+                    <input
+                      className="form-control"
+                      id="contact"
+                      type="value"
+                      name="contact"
+                      value={formData.contact}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="age">
+                      Age:
+                    </label>
+                    <input
+                      className="form-control"
+                      id="age"
+                      type="value"
+                      name="age"
+                      value={formData.age}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="height">
+                      Height:
+                    </label>
+                    <input
+                      className="form-control"
+                      id="height"
+                      type="value"
+                      name="height"
+                      value={formData.height}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="weight">
+                      Weight:
+                    </label>
+                    <input
+                      className="form-control"
+                      id="weight"
+                      type="value"
+                      name="current_weight"
+                      value={formData.current_weight}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="goal">
+                      User Goal:
+                    </label>
+                    <select className="form-control" id="goal" name="goal" onChange={handleChange}>
                       <option value=""></option>
                       <option value="weight loss">Weight Loss</option>
                       <option value="weight gain">Weight Gain</option>
                       <option value="muscle gain">Muscle Gain</option>
                       <option value="keep fit">Keep Fit</option>
                     </select>
-                    <br />
                   </div>
-                  <div className="product-button">
-                    <button className="p-button" type="submit">
-                      Add
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </Container>
-          </div>
+                </div>
+                <div className="product-button">
+                  <button className="p-button" type="submit">
+                    Add
+                  </button>
+                </div>
+              </form>
+            </div>
+          </Container>
         </div>
       </div>
       <Footer />

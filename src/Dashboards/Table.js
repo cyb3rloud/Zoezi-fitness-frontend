@@ -132,14 +132,14 @@ export default function BasicTable({ users, trainers }) {
                       {trainer.firstname} {trainer.lastname}
                     </TableCell>
 
-                    <TableCell align="left">{trainer.clients?.length}</TableCell>
+                    <TableCell align="left">{trainer.users?.length}</TableCell>
 
                     <TableCell align="left">{trainer.exercises.length}</TableCell>
                     <TableCell align="left">
                       <span className="status">{trainer.email}</span>
                     </TableCell>
                     <TableCell align="left" className="Details">
-                      {trainer.contact}
+                      {trainer.phone}
                     </TableCell>
                   </TableRow>
                 ))}
