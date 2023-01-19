@@ -57,7 +57,10 @@ const AddTrainer = ({ AddTrainer }) => {
         contact: '',
       });
       // navigate back to testimonials page
-      navigate('/Dashboard');
+      navigate('/AdminDashboard');
+
+      // call product render function
+      //   setTimeout(() => loadProduct(), 500);
     }
   };
 

@@ -67,7 +67,11 @@
   color: white;
   padding: 12px;
   background-color: #cac6e1;
-  border-radius: 25px;
   justify-content: center;
+  display: flex;
+  margin: 5px;
+  text-decoration: none;
+}
+.btn-trainer {
   display: flex;
 }

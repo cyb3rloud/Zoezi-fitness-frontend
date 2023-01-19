@@ -1,4 +1,3 @@
-//import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
 import ScrollButton from './components/ScrollButton';
@@ -6,12 +5,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import UserProvider from './Dashboards/auth';
 import Products from './components/Products';
+import Trainerinfo from './components/Trainerinfo';
 import Trainers from './components/Trainer';
 import About from './components/About';
 import Login from './components/Login';
 import Register from './components/Register';
 import Testimonialss from './components/Testimonialss';
-import Dashboard from './Dashboards/Dashboard';
+import AdminDashboard from './Dashboards/AdminDashboard';
 import UserDashboard from './Dashboards/UserDashboard';
 import AddProduct from './Dashboards/AddProduct';
 import AddUser from './Dashboards/AddUser';
@@ -79,8 +79,13 @@ function App() {
             <Route exact path="/Login" element={<Login setUser={setUser} />} />
             <Route exact path="/Register" element={<Register />} />
             <Route exact path="/Trainers" element={<Trainers />} />
+            <Route exact path="/Trainer/:id" element={<Trainerinfo />} />
             <Route exact path="/Testimonialss" element={<Testimonialss />} />
-            <Route exact path="/Dashboard" element={<Dashboard users={users} trainers={trainers} />} />
+            <Route
+              exact
+              path="/AdminDashboard"
+              element={<AdminDashboard users={users} trainers={trainers} products={products} orders={orders} />}
+            />
             <Route exact path="/UserDashboard" element={<UserDashboard />} />
             <Route exact path="/AddProduct" element={<AddProduct />} />
             <Route exact path="/AddUser" element={<AddUser addUser={addUser} />} />

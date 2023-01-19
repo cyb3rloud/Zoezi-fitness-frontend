@@ -1,28 +1,25 @@
 @import url('https://fonts.cdnfonts.com/css/calligraphy-2');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 @import url('https://fonts.cdnfonts.com/css/luminari');
-html,
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+  opacity: 85%;
+  line-height: 35px;
+}
 body {
-  height: 100vh;
-  width: 100vw;
+  background: #fff !important;
+  font-family: 'Roboto', sans-serif;
 }
-.wrapper {
-  font-family: Helvetica, sans-serif;
-  line-height: 1.5;
-  word-spacing: 2px;
-  letter-spacing: 0.5px;
-}
-.fixed {
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 100%;
-  width: 100%;
-  color: #eeeeee;
-  text-align: center;
-  display: table;
-}
+
 .fixed h2 {
   display: table-cell;
   vertical-align: middle;
@@ -44,7 +41,6 @@ body {
 }
 .three {
   display: grid;
-
   background-color: yellow;
   height: 80vh;
   background-image: url('./images/10.jpg');
@@ -55,7 +51,7 @@ body {
 }
 #navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #fff;
 }
 
 /* Navbar links */
@@ -99,6 +95,13 @@ body {
 .befited {
   font-family: 'Calligraphy', sans-serif;
   font-family: 'Calligraphy wet', sans-serif;
+  color: #222;
+  background-size: 100% 100%;
+  background-clip: text;
+  -webkit-text-stroke: 3px transparent;
+  -webkit-text-stroke: 3px transparent;
+  font-weight: 500;
+  font-size: 2rem;
 }
 .navbar-button {
   background: transparent;
@@ -372,203 +375,4 @@ p {
   height: 100px;
   border-radius: 100% / 0 0 30% 30%;
   background: white;
-}
-
-/* add items */
-
-.AddItem {
-  background-color: #ffffff;
-  color: #000000;
-  position: relative;
-  padding: 3em 0;
-  font-size: 20px;
-  font-style: 'Lato';
-  margin-top: -1em;
-}
-
-.AddContainer {
-  width: 80%;
-  margin: 0 auto;
-  padding: 2em 2em;
-  background-color: lightgrey;
-  border-radius: 24px;
-}
-
-.AddItem form {
-  /* background-color: grey; */
-  padding: 60px;
-  font-style: 'Lato';
-}
-
-.AddItem form label {
-  color: #000000;
-  font-size: 1em;
-  font-weight: 600;
-  margin-top: 1em;
-}
-
-.add-button {
-  display: flex;
-  justify-content: right;
-  padding-right: 1em;
-}
-
-.p-button {
-  background-color: #4bb49b;
-  border-radius: 24px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  margin: 1em 0em 0em 0em;
-  padding: 0.5em 0.5em;
-  cursor: pointer;
-}
-
-.p-button:hover {
-  background-color: #59d6b9;
-  border-radius: 24px;
-  margin: 1em 0em 0em 0em;
-  padding: 0.5em 0.5em;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-}
-
-.AddItem form input {
-  height: 30px;
-  border: 0.5px solid darkgray;
-  background-color: #ffffff;
-  margin-bottom: 0.5em;
-  padding: 0.9em;
-  width: 90%;
-  border-radius: 24px;
-}
-
-.AddItem form textarea {
-  height: 100px;
-  border: 0.5px solid darkgray;
-  background-color: #ffffff;
-  margin-bottom: 0.5em;
-  padding: 0.5em;
-  width: 90%;
-}
-
-.Des {
-  display: flex;
-}
-
-textarea {
-  width: 100%;
-  border-radius: 9px;
-  color: grey;
-}
-
-.proc {
-  width: 100%;
-}
-
-.AddSub {
-  display: flex;
-  float: right;
-}
-
-.short {
-  display: grid;
-  width: 100%;
-  /* margin-top: -10px; */
-}
-
-.short input {
-  border-radius: 9px;
-}
-
-label {
-  color: #ffffff;
-  font-size: 16px;
-}
-
-.forms {
-  display: grid;
-  grid-template-columns: 11rem auto 12rem;
-}
-
-.tables {
-  display: grid;
-  grid-template-columns: 11rem auto 12rem;
-  gap: 2em;
-  background: linear-gradient(106.37deg, #ffffff 29.63%, lightgrey 51.55%, grey 90.85%);
-}
-
-.full-table {
-  width: 94%;
-  height: auto;
-  margin: 3em auto;
-}
-
-.drop-down {
-  border-radius: 24px;
-  margin: 1em;
-  padding: 0.2em 0.5em;
-}
-
-.login {
-  width: 50%;
-  margin: 5em auto;
-  padding: 1em;
-}
-
-.login_body {
-  margin-bottom: 3em;
-}
-
-.login_title {
-  text-align: center;
-  font-size: 50px;
-  font-family: 'Lato', sans-serif !important;
-  font-weight: 600;
-}
-
-.login input,
-.login select {
-  width: 90%;
-  border: none;
-  background-color: #e2f5f1;
-  padding: 10px;
-  border-radius: 24px;
-  font-size: 18px;
-  font-family: 'Lato', sans-serif !important;
-}
-
-.submit__btn button {
-  width: 30%;
-  border: none;
-  background-color: #4bb49b;
-  padding: 10px;
-  border-radius: 24px;
-  font-size: 18px;
-  font-weight: 500;
-  font-family: 'Lato', sans-serif !important;
-  color: #ffffff;
-  margin-top: 4em;
-  cursor: pointer;
-}
-
-.submit__btn button:hover {
-  background-color: #59d6b9;
-}
-
-.registerLogin {
-  color: #4bb49b;
-}
-
-.registerLogin:hover {
-  color: #59d6b9;
-}
-
-:root {
-  --toastify-z-index: 1001;
 }

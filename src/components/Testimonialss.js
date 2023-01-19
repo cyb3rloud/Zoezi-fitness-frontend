@@ -27,14 +27,13 @@ function Testimonialss() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
+    client_username: '',
     testimony: '',
     rating: 'off',
-    image_url: '',
+    client_image_url: '',
   });
 
-  const { username, email, testimony, rating, image_url } = formData;
+  const { client_username, testimony, client_image_url } = formData;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -44,7 +43,7 @@ function Testimonialss() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!username || !email || !testimony || !rating || !image_url) {
+    if (!client_username || !testimony || !client_image_url) {
       toast.error('please fill all input fields');
     } else {
       // axios.post("http://localhost:4000/comments", formData);
@@ -62,11 +61,10 @@ function Testimonialss() {
         });
 
       setFormData({
-        client_name: '',
-        email: '',
+        client_username: '',
         testimony: '',
         rating: 'off',
-        image_url: '',
+        client_image_url: '',
       });
       // navigate back to testimonials page
       navigate('/Testimonialss');
@@ -85,10 +83,10 @@ function Testimonialss() {
             {testimonies.length ? (
               testimonies.map((testimony) => (
                 <div className="testimony" key={testimony.id}>
-                  <img src={testimony.client.image_url} alt="image_url" />
+                  <img src={testimony.client_image_url} alt="avatar" />
                   <StarRating />
                   <p>{testimony.testimony}</p>
-                  <h5> ~ {testimony.client.username} ~ </h5>
+                  <h5> ~ {testimony.client_username} ~ </h5>
                   <h6></h6>
                 </div>
               ))
@@ -103,29 +101,31 @@ function Testimonialss() {
             <div className="form-table">
               <div>
                 <label> Your Username </label> <br />
-                <input type="text" name="username" value={formData.username} onChange={handleChange} />
+                <input type="text" name="client_username" value={formData.client_username} onChange={handleChange} />
                 <br />
                 <label> Your Story </label> <br />
                 <input type="text" name="testimony" value={formData.testimony} onChange={handleChange} /> <br />
-                <label> Rating </label> <br />
-                <StarRating />
               </div>
               <div>
-                <label> Your Email </label> <br />
-                <input type="text" name="email" value={formData.email} onChange={handleChange} /> <br />
                 <div>
                   <label>Your image_url:</label> <br />
                   <input
                     type="text"
-                    name="image_url"
-                    value={formData.image_url}
+                    name="client_image_url"
+                    value={formData.client_image_url}
                     placeholder="Paste image url/link"
                     onChange={handleChange}
                   />
                 </div>
+                <label> Rating </label> <br />
+                <StarRating />
               </div>
             </div>
-            <button className="form-button" type="submit" onClick={handleSubmit}>
+            <button
+              className="form-button"
+              type="submit"
+              // onClick={handleSubmit}
+            >
               Submit
             </button>
           </form>

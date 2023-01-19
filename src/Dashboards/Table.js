@@ -42,6 +42,8 @@ const makeStyle = (status) => {
 export default function BasicTable({ users, trainers }) {
   const navigate = useNavigate();
   // const { user } = useUser();
+  console.log(users);
+  console.log(trainers);
 
   return (
     <>

@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-function Dashboard({ users, trainers, products, orders }) {
+function AdminDashboard({ users, trainers, products, orders }) {
   return (
     <>
       <Navbar />
@@ -21,4 +21,4 @@ function Dashboard({ users, trainers, products, orders }) {
   );
 }
 
-export default Dashboard;
+export default AdminDashboard;
