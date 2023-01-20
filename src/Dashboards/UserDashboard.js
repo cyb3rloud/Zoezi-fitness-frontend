@@ -6,11 +6,13 @@ import './user-dashboard.css';
 import Sidebar from './Sidebar';
 import { useUser } from '../Dashboards/auth';
 import { toast } from 'react-toastify';
+import userEvent from '@testing-library/user-event';
 
 function UserDashboard() {
   const navigate = useNavigate();
   const { user } = useUser();
   const [setTrainersList] = useState([]);
+  const [dashboardTrainers, setDashboardTrainers] = useState([]);
 
   useLayoutEffect(() => {
     if (user) return;
@@ -25,6 +27,16 @@ function UserDashboard() {
         setTrainersList(data);
       });
   }, []);
+
+  useEffect(() => {
+    fetch('trainer_dashboards')
+      .then((res) => res.json())
+      .then((data) => {
+        setDashboardTrainers(data);
+      });
+  }, []);
+
+
 
   return (
     <>
@@ -66,8 +78,10 @@ function UserDashboard() {
                 <h1> Profile </h1>
               </div>
               <div className="profile-details">
-                {/* <img src={user.avatar} alt="profile_picture" />
-                <h5>{user.name}</h5> */}
+                <img src={user.image_url} alt="profile_picture" />
+                <h5>
+                  {user.firstname} {user.lastname}
+                </h5>
               </div>
               <div className="profile-details">
                 <h3>Current</h3>
@@ -94,7 +108,15 @@ function UserDashboard() {
                 </div>
               </div>
               <div className="edit-button">
-                <button> Edit </button>
+                <button
+                  onClick={() => {
+                    console.log('clicked');
+                    navigate('/Register');
+                  }}
+                >
+                  {' '}
+                  Edit{' '}
+                </button>
               </div>
             </div>
           </div>

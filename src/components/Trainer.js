@@ -39,35 +39,24 @@ function Profile({ trainer, handleClick }) {
 }
 
 function Trainers() {
-  const [trainers, setTrainers] = useState([]);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    fetch('/trainers')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Error occured while fetching the data!');
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setTrainers(data);
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
-  }, []);
-
-  // const handleClick = (trainer) => {
-  //   console.log("clicked");
-  // };
-
-  //   const history = useHistory();
-
-  //   const handleClick = () => {
-  //     history.push({
-  //       pathname: `/${trainer.id}`,
+  // const [trainers, setTrainers] = useState([]);
+  // const [error, setError] = useState(null);
+  
+  // useEffect(() => {
+  //   fetch('/trainers')
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw new Error('Error occured while fetching the data!');
+  //       }
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       setTrainers(data);
+  //     })
+  //     .catch((error) => {
+  //       setError(error.message);
   //     });
-  //   };
+  // }, []);
 
   function handleClick(id) {
     fetch('/trainers', {

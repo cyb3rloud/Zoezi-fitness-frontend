@@ -57,7 +57,7 @@ function TrainerCardDetails({ trainer: prop }) {
   const [trainer, setTrainer] = useState(prop);
 
   useEffect(() => {
-    fetch(`url/${trainer_id}`)
+    fetch(`/trainers/${trainer_id}`)
       .then((res) => res.json())
       .then((data) => {
         setTrainer(data);
@@ -65,14 +65,14 @@ function TrainerCardDetails({ trainer: prop }) {
   }, [trainer_id]);
 
   const addToUserDashboard = useCallback(() => {
-    fetch('url', {
+    fetch('/trainer_dashboards', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ ...trainer }),
     }).then(() => {
-      history.push('/userDashboard');
+      history.push('/UserDashboard');
     });
   }, [history, trainer]);
 

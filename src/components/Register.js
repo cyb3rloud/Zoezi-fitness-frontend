@@ -11,8 +11,9 @@ const initialValues = {
   lastname: '',
   email: '',
   password: '',
-  // role: '',
+  role: '',
   contact: '',
+  image_url: '',
   age: '',
   height: '',
   current_weight: '',
@@ -38,8 +39,9 @@ function Register({ handleClose, show, handleLoginShow }) {
           lastname: values.lastname,
           email: values.email,
           password: values.password,
-          // role: values.role,
+          role: values.role,
           contact: values.contact,
+          image_url: values.image_url,
           age: values.age,
           height: values.height,
           current_weight: values.current_weight,
@@ -48,9 +50,9 @@ function Register({ handleClose, show, handleLoginShow }) {
       });
       actions.resetForm();
 
-      toast.success('Registration Successfully');
+      toast.success('Registration Successful');
       handleClose();
-      navigate('/UserDashboard');
+      navigate('/Login');
     },
   });
 
@@ -110,16 +112,14 @@ function Register({ handleClose, show, handleLoginShow }) {
                 placeholder="Password"
               />
             </Form.Group>
-            {/* <Form.Group>
+            <Form.Group>
               <Form.Label>Role</Form.Label>
-              <Form.Control
-                type="text"
-                name="role"
-                value={values.role}
-                onChange={handleChange}
-                placeholder="role"
-              />
-            </Form.Group> */}
+              <Form.Control as="select" onChange={handleChange}>
+                <option name="user" value="user">
+                  user
+                </option>
+              </Form.Control>
+            </Form.Group>
             <Form.Group>
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
@@ -131,11 +131,21 @@ function Register({ handleClose, show, handleLoginShow }) {
               />
             </Form.Group>
             <Form.Group>
+              <Form.Label>Avatar Url</Form.Label>
+              <Form.Control
+                type="text"
+                name="image_url"
+                value={values.image_url}
+                onChange={handleChange}
+                placeholder="Avatar Url"
+              />
+            </Form.Group>
+            <Form.Group>
               <Form.Label>Age</Form.Label>
               <Form.Control type="value" name="age" value={values.age} onChange={handleChange} placeholder="Age" />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Height</Form.Label>
+              <Form.Label>Height (cm)</Form.Label>
               <Form.Control
                 type="value"
                 name="height"
@@ -144,8 +154,9 @@ function Register({ handleClose, show, handleLoginShow }) {
                 placeholder="Height"
               />
             </Form.Group>
+
             <Form.Group>
-              <Form.Label>Current Weight</Form.Label>
+              <Form.Label>Current Weight (Kg)</Form.Label>
               <Form.Control
                 type="value"
                 name="current_weight"

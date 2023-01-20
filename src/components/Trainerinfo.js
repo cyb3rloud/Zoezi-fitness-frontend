@@ -1,10 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState, useCallback } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import './Trainerinfo.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
 function User({ trainer, workouts, exercises }) {
+  const navigate = useNavigate();
+
+  const addToUserDashboard = useCallback(() => {
+    fetch('/trainer_dashboards', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ...trainer }),
+    }).then(() => {
+      navigate('/UserDashboard');
+      console.log('added to dashboard');
+    });
+  }, [trainer]);
+
   return (
     <div className="main">
       <div className="entry-container"></div>
@@ -19,7 +34,9 @@ function User({ trainer, workouts, exercises }) {
           <div className="sub-name">Pro Trainer</div>
           <div className="sub-name">{trainer.email}</div>
           <div className="btn-container">
-            <button className="btnx">Add to Dashboard</button>
+            <button className="btnx" onClick={addToUserDashboard}>
+              Add to Dashboard
+            </button>
             <div className="tags">
               {workouts.map((workout, index) => (
                 <button className="btns" key={index}>

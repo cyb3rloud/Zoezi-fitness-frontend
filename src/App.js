@@ -62,7 +62,7 @@ function App() {
             <Route exact path="/About" element={<About />} />
             <Route exact path="/Login" element={<Login setUser={setUser} />} />
             <Route exact path="/Register" element={<Register />} />
-            <Route exact path="/Trainers" element={<Trainers />} />
+            <Route exact path="/Trainers" element={<Trainers trainers={trainers} />} />
             <Route exact path="/Trainer/:id" element={<Trainerinfo />} />
             <Route exact path="/Testimonialss" element={<Testimonialss />} />
             <Route

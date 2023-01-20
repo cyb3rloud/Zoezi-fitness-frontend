@@ -2,8 +2,11 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './hero.css';
 import heroImg from '../../images/hero.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="hero_section">
       <Container className="py-4" style={{ background: '#D9D9D9' }}>
@@ -19,7 +22,13 @@ const Hero = () => {
               </p>
 
               <div className="hero_btns d-flex align-items-center gap-4">
-                <button className="explore_btn d-flex btn btn-success align-items-center gap-2 ">
+                <button
+                  className="explore_btn d-flex btn btn-success align-items-center gap-2 "
+                  onClick={() => {
+                    console.log('clicked');
+                    navigate('/Register');
+                  }}
+                >
                   Get Started Now
                 </button>
               </div>
