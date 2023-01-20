@@ -1,5 +1,5 @@
 {
-  "name": "fitness",
+  "name": "befit",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3000",
@@ -9,6 +9,8 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@iconscout/react-unicons": "^1.1.6",
+    "@iconscout/unicons": "^4.0.1",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.61",
@@ -16,15 +18,20 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "apexcharts": "^3.36.3",
     "axios": "^1.2.2",
     "bootstrap": "^5.2.3",
+    "formik": "^2.2.9",
+    "formik-yup": "^0.0.5",
     "framer-motion": "^8.4.0",
     "install": "^0.13.0",
     "mdb-react-ui-kit": "^5.1.0",
     "npm": "^9.2.0",
     "react": "^18.2.0",
     "react-animations": "^1.0.0",
+    "react-apexcharts": "^1.4.0",
     "react-bootstrap": "^2.7.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-responsive-carousel": "^3.2.23",
@@ -32,20 +39,18 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
     "styled-components": "^5.3.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": " react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "npx json-server --watch db.json --port 4001"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "eslint:check": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
@@ -58,5 +63,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.3"
   }
 }

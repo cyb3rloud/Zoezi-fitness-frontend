@@ -1,0 +1,496 @@
+/* app */
+:root {
+  --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: #788097;
+  --purple: linear-gradient(180deg, #bb67ff 0%, #c484f3 100%);
+  --pink: #ff919d;
+  --glass: rgba(255, 255, 255, 0.54);
+  --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+  --activeItem: lightgrey;
+}
+
+.App {
+  /* padding: 0.5rem 3.5rem; */
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: var(--black);
+  background: linear-gradient(106.37deg, #ffffff 29.63%, lightgrey 51.55%, grey 90.85%);
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.AppGlass {
+  display: grid;
+  height: auto;
+  width: 97%;
+  /* background: var(--glass); */
+  border-radius: 2rem;
+  gap: 80px;
+  grid-template-columns: 11rem auto 13rem;
+  /* overflow-y: scroll; */
+}
+
+@media screen and (max-width: 1200px) {
+  .AppGlass {
+    grid-template-columns: 10% auto;
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .AppGlass {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.CompactCard {
+  display: flex;
+  flex: 1;
+  height: 7rem !important;
+  border-radius: 0.7rem;
+  color: black;
+  padding: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+.CompactCard:hover {
+  box-shadow: none !important;
+}
+
+/* radial bar */
+.radialBar {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+  color: black;
+}
+.CircularProgressbar {
+  width: 4rem !important;
+  overflow: visible;
+}
+/* .CircularProgressbar-path {
+  stroke: white !important;
+  stroke-width: 12px !important;
+  filter: drop-shadow(2px 4px 6px white);
+} */
+.CircularProgressbar-trail {
+  display: none;
+}
+.CircularProgressbar-text {
+  fill: white !important;
+}
+
+.radialBar > span {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* sideDetail*/
+.detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.detail > span:nth-child(2) {
+  font-size: 22px;
+  font-weight: bold;
+}
+.detail > span:nth-child(3) {
+  font-size: 12px;
+}
+
+/* ExpandedCard */
+.ExpandedCard {
+  position: absolute;
+  width: 60%;
+  height: 70vh;
+  z-index: 9;
+  left: 13rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+}
+.ExpandedCard > span:nth-of-type(1) {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 0px 0px 15px white;
+}
+.ExpandedCard > span:nth-of-type(2) {
+  color: rgb(236, 236, 236);
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.chartContainer {
+  width: 70%;
+}
+
+@media screen and (max-width: 1200px) {
+  .ExpandedCard {
+    top: 2rem;
+    height: 40vh;
+    left: 6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ExpandedCard {
+    top: 8rem;
+    height: 50%;
+    left: 25px;
+    width: 80%;
+  }
+}
+
+/* Cards */
+.Cards {
+  display: flex;
+  gap: 10px;
+}
+.parentContainer {
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .Cards {
+    flex-direction: column;
+  }
+  .parentContainer {
+    height: 9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Cards {
+    width: 90%;
+  }
+}
+
+/* main dash*/
+.MainDash {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1200px) {
+  .MainDash {
+    justify-content: flex-start;
+    margin-top: 2rem;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .MainDash {
+    align-items: center;
+  }
+}
+
+/* right side */
+.RightSide {
+  display: flex;
+  flex-direction: column;
+  /* padding-top: 1rem; */
+  width: 95%;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1200px) {
+  .RightSide {
+    justify-content: flex-start;
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .RightSide {
+    width: 100%;
+    margin-top: 0;
+  }
+  .RightSide > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* table */
+.Tables {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.table {
+  width: 100%;
+  height: 300px;
+  /* overflow-y: scroll; */
+  margin: 5rem 2rem;
+}
+
+.m-button {
+  border: none;
+}
+.t-button {
+  display: flex;
+  justify-content: right;
+  padding-right: 1em;
+}
+
+.table-button {
+  background-color: #4bb49b;
+  border-radius: 24px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin: 1em 0em 0em 0em;
+  padding: 0.5em 0.5em;
+}
+
+.table-button:hover {
+  background-color: #59d6b9;
+  border-radius: 24px;
+  margin: 1em 0em 0em 0em;
+  padding: 0.5em 0.5em;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.MuiTableRow-root > * {
+  padding: 10px;
+}
+
+.MuiTableRow-root.MuiTableRow-head > * {
+  font-weight: bold !important;
+}
+
+.Table td,
+th {
+  border: none !important;
+}
+
+.Table:first-child {
+  border-radius: 0.7rem !important;
+}
+.status {
+  padding: 8px;
+  border-radius: 9px;
+}
+
+.Details {
+  color: #00b5ff !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .Table {
+    width: 170%;
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Table {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23rem;
+  }
+}
+
+/* updates */
+
+.Updates {
+  width: 85%;
+  background: white;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.update {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.update > img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.noti > div > span:nth-of-type(1) {
+  font-weight: bold;
+}
+
+/* side bar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 4rem;
+  transition: all 300ms ease;
+}
+/* logo */
+.bars {
+  display: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+}
+
+.menu button {
+  background: transparent;
+  border-bottom: none !important;
+  border-top: none !important;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 25px;
+  color: black;
+  font-size: 16px;
+  transition: transform 0.25s ease-out;
+}
+
+.menu button:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* .logo {
+  display: flex;
+  height: 5rem;
+  font-weight: bold;
+  font-size: 22px;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  height: 4%;
+}
+.logo h1 {
+  font-family: "Calligraphy wet", sans-serif;
+  font-size: 80px;
+  padding: 0;
+  margin-top: -30px;
+  margin-bottom: -10px;
+} */
+/* .logo > span > span {
+  color: var(--pink);
+} */
+
+/* .logo > img {
+  width: 3rem;
+  height: 3rem;
+} */
+
+/* menu */
+.menu {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 2.5rem;
+  margin-left: 2rem;
+  position: relative;
+  transition: all 300ms ease;
+  border-radius: 0.7rem;
+  font-size: 14px;
+}
+
+.menuItem:hover {
+  cursor: pointer;
+}
+
+.active {
+  /* background: var(--activeItem); */
+  margin-left: 0;
+}
+.active::before {
+  content: '';
+  width: 8px;
+  height: 100%;
+  background: var(--grey);
+  margin-right: calc(1rem - 8px);
+}
+
+/* Tablets */
+@media screen and (max-width: 1200px) {
+  .menuItem > span {
+    display: none;
+  }
+  .logo {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    z-index: 9;
+    background: #ffe0e0;
+    width: 55%;
+    padding-right: 1rem;
+    height: 100%;
+  }
+  .menuItem > span {
+    display: block;
+  }
+  .logo {
+    display: flex;
+  }
+  .menu .menuItem:last-child {
+    position: relative;
+    margin-top: 6rem;
+  }
+  .bars {
+    display: flex;
+    position: fixed;
+    top: 2rem;
+    left: 60%;
+    background: #ffe0e0;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 9;
+  }
+  .close {
+    left: -60%;
+  }
+}

@@ -1,77 +1,119 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import { useNavigate, Link } from "react-router-dom";
+import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import { useFormik } from 'formik';
+import { signupSchema } from '../schemas/login';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useUser } from '../Dashboards/auth';
 
-function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
+const initialValues = {
+  email: '',
+  password: '',
+};
 
-    useEffect(() => {
-        // Fetch data from backend
-        async function fetchData() {
-            try {
-                const response = await fetch("http://localhost:4001/login", {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password }),
-                });
-                const data = await response.json();
-                if (response.ok) {
-                    // Save user data to local storage
-                    localStorage.setItem('clients', JSON.stringify(data.clients));
-                    // Redirect to dashboard
-                    navigate("/dashboard");
-                } else {
-                    setError(data.message);
-                }
-            } catch (err) {
-                setError(err.message);
-            }
-        }
+function Login({ handleLoginClose, showLogin, handleShow }) {
+  const navigate = useNavigate();
+  const { login } = useUser();
 
-        if (email && password) {
-            fetchData();
-        }
-    }, [email, password, navigate]);
+  const handleCSubmit = (values) => {
+    if (values.email === 'admin@admin.com' && values.password === 'admin') {
+      toast.success('login Successful');
+      navigate('/AdminDashboard');
+    }
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setEmail(e.target.email.value);
-        setPassword(e.target.password.value);
-    };
+  const { handleSubmit, values, handleBlur, handleChange, errors, touched } = useFormik({
+    initialValues,
+    validationSchema: signupSchema,
+    onSubmit: (values, actions) => {
+      actions.resetForm();
+      handleCSubmit(values);
 
-    return (
-        <div>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" name="email" required />
-                </Form.Group>
+      fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          email: values.email,
+          password: values.password,
+        }),
+      }).then((r) => {
+        if (!r.ok) return;
+        r.json().then((user) => login(user));
+        toast.success('login Successful');
+        navigate('/UserDashboard');
+      });
 
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" name="password" required />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Login
-                </Button>
-            </Form>
-            {error && <div className="alert alert-danger">{error}</div>}
-            <p>Not registered? <Link to="/register">Register here</Link></p>
+      handleLoginClose();
+    },
+  });
 
-        </div>
-    );
+  return (
+    <>
+      <Modal show={showLogin} onHide={handleLoginClose} className="login">
+        <Form onSubmit={handleSubmit} className="m-4">
+          <Modal.Header closeButton>
+            <Modal.Title className="login_title">
+              <h1>Login</h1>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="login_body">
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                value={values.email}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={values.password}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                required
+              />
+              <div className="error_container">
+                {errors.password && touched.password && <p className="form_error">{errors.password}</p>}
+              </div>
+            </Form.Group>
+            {/* {error && <div className="alert alert-danger">{error}</div>}
+            <p>
+              Not registered? <Link to="/Register">Register here</Link>
+            </p> */}
+          </Modal.Body>
+          <Modal.Footer className="submit__btn">
+            <Button onClick={handleSubmit} type="submit">
+              Login
+            </Button>
+            <div className="d-flex align-items-left justify-content-left m-auto mt-3">
+              <span>Not Registered?</span>
+              <span onClick={handleLoginClose}>
+                <Link className="registerLogin" onClick={handleShow}>
+                  Register Here
+                </Link>
+              </span>
+            </div>
+          </Modal.Footer>
+        </Form>
+      </Modal>
+    </>
+  );
 }
 export default Login;
-
-
-
-
-
-
-
 
 /*
 import React, { useState, useEffect } from 'react';
@@ -157,8 +199,6 @@ export default Login;
 
 */
 
-
-
 /*
 import React,{useState} from 'react'
 import { Link,useNavigate } from 'react-router-dom'
@@ -234,8 +274,6 @@ function submitHandler(e){
 export default Login;
 
 */
-
-
 
 /*
 import React, { useState } from 'react';
@@ -368,4 +406,3 @@ function Login() {
   export default Login;
   
   */
-

@@ -1,11 +1,10 @@
-import React from "react";
-import Navbar from "./Navbar";
+import React from 'react';
 
-function Products(){
-    return(
-        <>
-        <div>edit</div>
-        </>
-    )
+function Products() {
+  return (
+    <>
+      <div>edit</div>
+    </>
+  );
 }
 export default Products;

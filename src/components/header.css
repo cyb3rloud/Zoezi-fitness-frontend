@@ -1,60 +1,56 @@
-
-.header{
-    width: 100%;
-    height: 80px;
-    line-height: 70px;
-    position: fixed;
-    top:0;
-    left: 0;
-    z-index: 1111111;
-    background: #D9D9D9;
+.header {
+  width: 100%;
+  height: 80px;
+  line-height: 70px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #d9d9d9;
 }
-.navigation{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.nav_list{
-    display: flex;
-    align-items: center;
-    column-gap: 2.7rem;
+.nav_list {
+  display: flex;
+  align-items: center;
+  column-gap: 2.7rem;
 }
 .nav_item a {
-    text-decoration:none;
-    color:#fff;
-}
-
-.active{
-    color:#e250e5;
-}
-.logo h1{
-      font-family: 'Calligraphy wet', sans-serif;
-        font-size: 80px;
-        padding: 0;
-        margin-top: -30px;
-        margin-bottom: -10px;
-}
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-li{
-list-style: none;
-text-decoration: none;
-color: black;
-}
-
-
-    a:link{
   text-decoration: none;
-      }
+  color: #fff;
+}
 
-.nav_right .btn{
-padding:7px 25px;
-border: 1px solid rgb(57, 173, 212);
-border-radius: 50px;
+.active {
+  color: #e250e5;
+}
+.logo h1 {
+  font-family: 'Calligraphy wet', sans-serif;
+  font-size: 80px;
+  padding: 0;
+  margin-top: -30px;
+  margin-bottom: -10px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
+li {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
 
+a:link {
+  text-decoration: none;
+}
+
+.nav_right .btn {
+  padding: 7px 25px;
+  border: 1px solid rgb(57, 173, 212);
+  border-radius: 50px;
 }

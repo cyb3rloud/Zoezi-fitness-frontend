@@ -1,23 +1,22 @@
-
 ## Project Description
 
 This is a gym management/application system designed for an client to be able to view and modify the available excirses, trainers and workouts and can also access products once they are logged in as a user. This was developed using a combination of react for the front-end section and rails for the backend.
 
 ## Authors
-Titus Muteti 
+
+Titus Muteti
 
 George Ndungu
 
 Andrew Onyancha
 
- Jackline Kariuki
+Jackline Kariuki
 
- Ruth Wekesa
+Ruth Wekesa
 
- Mercy Chebet
+Mercy Chebet
 
 Abraham Anyang
-
 
 ## Requirements
 
@@ -59,11 +58,11 @@ Redux
 
 The app utilizes a single HTML file, Tailwind CSS for styling and Javascript/JSX for interactivity. The backend utilizes rails for api data configuration as well as session handling and data validations.
 Allow for user authentication
-		-Login
-		-Signup
+-Login
+-Signup
 Users can access available trainers
 Users can leave their reviews (testimonials)
-Users can access an exercise guide 
+Users can access an exercise guide
 Users can access their training sessions
 Users can access their daily workouts
 Users can access the products and purchase them
@@ -74,7 +73,6 @@ On a local setting the frontend is linked to a API developed using Rails to feed
 Run npm start to run the client side.
 Run rails server to initialize the bakcend API.
 The foreman gem can be used to run both at the same time.
-
 
 ## License
 

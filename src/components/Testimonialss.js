@@ -1,18 +1,19 @@
-import Footer from "./Footer";
-import Navbar from "./Navbar";
-import StarRating from "../components/StarRating";
-import "../assets/css/testimonials.css";
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-// import axios from "axios";
-// import { toast } from "react-toastify";
+import Footer from './Footer';
+import Navbar from './Navbar';
+import StarRating from '../components/StarRating';
+import '../assets/css/testimonials.css';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useUser } from '../Dashboards/auth';
 
 function Testimonialss() {
   const [testimonies, setTestimonies] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const { user } = useUser();
 
   useEffect(() => {
-    fetch("/testimonials")
+    fetch('/testimonials')
       .then((res) => res.json())
       .then((data) => {
         setTestimonies(data);
@@ -28,57 +29,50 @@ function Testimonialss() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    story: "",
-    rating: "off",
+    testimony: '',
+    rating: 'off',
   });
 
-  const { name, email, story, rating } = formData;
+  const { testimony, rating } = formData;
+
+  const handleRating = (index) => {
+    setFormData((state) => ({ ...state, rating: index }));
+  };
 
   const handleChange = (e) => {
     let { name, value } = e.target;
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData((state) => ({ ...state, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !email || !story || !rating) {
-      console.log("please fill all input fields");
-      // toast.error("please fill all input fields");
+    if (!user) {
+      toast.error('You must be logged in to add a testimony');
+      return;
+    }
+    if (!testimony || !rating) {
+      toast.error('please fill all input fields');
     } else {
-      // post comment to our api endpoint
-      // axios.post("http://localhost:4000/comments", formData);
-      fetch("/testimonials", {
-        method: "POST",
+      fetch('/testimonials', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       })
         .then((res) => res.json())
-        .then((data) => addTestimony(data));
+        .then((data) => {
+          toast.success('Testimony added successfully');
+          addTestimony(data);
+        });
 
-      // // show success message after post to the db
-      // toast.success("Added successfully");
-
-      // restore input fields to default
       setFormData({
-        name: "",
-        email: "",
-        story: "",
-        rating: "off",
+        testimony: '',
+        rating: 'off',
       });
-      console.log("hello");
       // navigate back to testimonials page
-      navigate("/Testimonialss");
-
-      // call testimonial render function
-      // setTimeout(() => loadRecipes(), 500);
+      navigate('/Testimonialss');
     }
   };
 
@@ -86,7 +80,7 @@ function Testimonialss() {
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar />
       <div className="testimonials-page">
         <h1>Testimonials</h1>
         <div>
@@ -94,10 +88,10 @@ function Testimonialss() {
             {testimonies.length ? (
               testimonies.map((testimony) => (
                 <div className="testimony" key={testimony.id}>
-                  <img src={testimony.user.image_url} alt="avatar" />
-                  <StarRating />
+                  <StarRating ratings={testimony.rating} />
                   <p>{testimony.testimony}</p>
-                  <h5> ~ {testimony.user.username } ~ </h5>
+                  <h5> ~ {testimony.user.firstname} ~ </h5>
+                  <h6></h6>
                 </div>
               ))
             ) : (
@@ -110,47 +104,21 @@ function Testimonialss() {
           <form onSubmit={handleSubmit}>
             <div className="form-table">
               <div>
-                <label> Your Name </label> <br />
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                />{" "}
-                <br />
                 <label> Your Story </label> <br />
-                <input
-                  type="text"
-                  name="story"
-                  value={formData.story}
-                  onChange={handleChange}
-                />{" "}
-                <br />
+                <input type="text" name="testimony" value={formData.testimony} onChange={handleChange} /> <br />
               </div>
               <div>
-                <label> Your Email </label> <br />
-                <input
-                  type="text"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />{" "}
-                <br />
                 <label> Rating </label> <br />
-                <StarRating />
+                <StarRating callback={handleRating} />
               </div>
             </div>
-            <button
-              className="form-button"
-              type="submit"
-              onClick={handleSubmit}
-            >
+            <button className="form-button" type="submit">
               Submit
             </button>
           </form>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 }

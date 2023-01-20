@@ -1,79 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700&display=swap');
 
-.all-trainers span{
-      font-family: Inter;
-      font-size: 40px;
-      font-weight: 700;
-      line-height: 58px;
-      letter-spacing: 0em;
-      text-align: left;
+.all-trainers span {
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 58px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .all-trainers-list {
-      width: 1100px;
-      /* height: 00px; */
-      background-color: #d9d9d9;
-      border-radius: 20px;
-      margin: 3rem auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      overflow-y: auto;
-      padding: 10px;
+  width: 1100px;
+  /* height: 00px; */
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  padding: 10px;
 }
 
 .all-trainers-profile-img {
-      width: 200px;
-      height: 210px;
-      margin: 2rem auto;
-      background-color: white;
-      border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 210px;
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 50%;
+  align-items: center;
 }
 
-.all-trainers-profile span{
-      font-size: 24px;
-      font-weight: 100;
+.all-trainers-profile span {
+  font-size: 24px;
+  font-weight: 100;
 }
 
-.all-trainers-profile{
-      background-color: #ffffff;
-      padding:1rem;
-      border-radius: 20px;
-      cursor: pointer;
-      margin: 10px;
+.all-trainers-profile {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 10px;
 }
 
-.all-trainers-profile-img img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
+.all-trainers-profile-img h1 {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  font-size: 5rem;
+  background-color: #cac6e1;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  display: flex;
 }
 .workouts {
-      list-style: none;
-      display: flex;
-      flex-basis: 33.3%; 
-      gap:10px; 
-      padding: 0;
+  list-style: none;
+  display: flex;
+  flex-basis: 33.3%;
+  gap: 10px;
+  padding: 0;
 }
 .workouttype {
-      padding: 2px;
-      background-color: #2084b5;
-      border-radius: 2px;
-      font-size: 8px;
-      color: white;
-  }
-  .dash-btn{
-      color: white;
-      padding: 12px;
-      background-color: #CAC6E1;
-      justify-content: center;
-      display: flex;
-      margin: 5px;
-      text-decoration: none;
-  
-  }
-  .btn-trainer {
-      display: flex;
-     
-  }
+  padding: 2px;
+  background-color: #2084b5;
+  border-radius: 2px;
+  font-size: 8px;
+  color: white;
+}
+.dash-btn {
+  color: white;
+  padding: 12px;
+  background-color: #cac6e1;
+  justify-content: center;
+  display: flex;
+  margin: 5px;
+  text-decoration: none;
+}
+.btn-trainer {
+  display: flex;
+}
