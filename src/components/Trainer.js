@@ -4,18 +4,22 @@ import { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
+import { useUser } from '../Dashboards/auth';
 
 function Profile({ trainer, handleClick }) {
   const [isLoggedIn] = useState(true);
+  const { user } = useUser();
 
   return (
     <div className="all-trainers-profile" onClick={handleClick}>
       <div className="all-trainers-profile-img">
-        <img src={trainer.image_url} alt="trainer" />
+        <h1>
+          {trainer.firstname.slice(0, 1).toUpperCase()} {trainer.lastname.slice(0, 1).toUpperCase()}
+        </h1>
+        <span>
+          {trainer.firstname} {trainer.lastname}
+        </span>
       </div>
-      <span>
-        {trainer.firstname} {trainer.lastname}
-      </span>
       <div>
         {/* <ul className="workouts">
               {trainer.workouts.map((workout, index) => (
@@ -29,7 +33,7 @@ function Profile({ trainer, handleClick }) {
           View Profile
         </Link>
         {isLoggedIn && (
-          <div className="dash-btn" onClick={handleClick} data-id={trainer.id}>
+          <div className="dash-btn" onClick={() => handleClick(user.id)} data-id={trainer.id}>
             Add to Dashboard
           </div>
         )}
@@ -38,10 +42,10 @@ function Profile({ trainer, handleClick }) {
   );
 }
 
-function Trainers({trainers}) {
+function Trainers({ trainers }) {
   // const [trainers, setTrainers] = useState([]);
   // const [error, setError] = useState(null);
-  
+
   // useEffect(() => {
   //   fetch('/trainers')
   //     .then((res) => {
@@ -59,6 +63,7 @@ function Trainers({trainers}) {
   // }, []);
 
   function handleClick(id) {
+    if (!id) return;
     fetch('/trainers', {
       method: 'POST',
       headers: {
@@ -68,22 +73,6 @@ function Trainers({trainers}) {
     })
       .then((res) => res.json())
       .then(() => {});
-  }
-
-  if (error) {
-    return (
-      <div>
-        <p>An error occured: 'Error occured while fetching the data!'</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div>
-        <p>An error occured: 'Error occured while fetching the data!'</p>
-      </div>
-    );
   }
 
   return (

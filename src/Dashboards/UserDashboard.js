@@ -29,14 +29,12 @@ function UserDashboard() {
   }, []);
 
   useEffect(() => {
-    fetch('trainer_dashboards')
+    fetch('dashboard_trainers')
       .then((res) => res.json())
       .then((data) => {
         setDashboardTrainers(data);
       });
   }, []);
-
-
 
   return (
     <>
@@ -61,12 +59,16 @@ function UserDashboard() {
             </div>
             <div className="sect">
               <h2> Trainers</h2>
-              <div className="trainers">
-                <div className="trainer-details">
-                  <img src="" alt="" />
-                  <h5>jesse maccartney</h5>
+              {dashboardTrainers?.map((trainer, i) => (
+                <div key={i} className="trainers">
+                  <div className="trainer-details" onClick={() => navigate(`/trainer/${trainer.id}`)}>
+                    <h1>
+                      {trainer.firstname.slice(0, 1)} {trainer.lastname.slice(0, 1)}
+                    </h1>
+                    <h5>{`${trainer.firstname} ${trainer.lastname}`}</h5>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
           <div className="grid-two">
@@ -78,7 +80,9 @@ function UserDashboard() {
                 <h1> Profile </h1>
               </div>
               <div className="profile-details">
-                <img src={user.image_url} alt="profile_picture" />
+                <h1>
+                  {user?.firstname.slice(0, 1).toUpperCase()} {user?.lastname.slice(0, 1).toUpperCase()}
+                </h1>
                 <h5>
                   {user.firstname} {user.lastname}
                 </h5>
@@ -110,7 +114,6 @@ function UserDashboard() {
               <div className="edit-button">
                 <button
                   onClick={() => {
-                    console.log('clicked');
                     navigate('/Register');
                   }}
                 >

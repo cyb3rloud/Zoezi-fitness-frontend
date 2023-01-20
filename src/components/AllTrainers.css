@@ -24,11 +24,14 @@
 }
 
 .all-trainers-profile-img {
+  display: flex;
+  flex-direction: column;
   width: 200px;
   height: 210px;
   margin: 2rem auto;
   background-color: white;
   border-radius: 50%;
+  align-items: center;
 }
 
 .all-trainers-profile span {
@@ -44,10 +47,16 @@
   margin: 10px;
 }
 
-.all-trainers-profile-img img {
-  width: 100%;
-  height: 100%;
+.all-trainers-profile-img h1 {
+  width: 70%;
+  height: 70%;
   border-radius: 50%;
+  font-size: 5rem;
+  background-color: #cac6e1;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  display: flex;
 }
 .workouts {
   list-style: none;

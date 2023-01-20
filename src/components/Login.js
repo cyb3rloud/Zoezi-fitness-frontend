@@ -57,7 +57,7 @@ function Login({ handleLoginClose, showLogin, handleShow }) {
       <Modal show={showLogin} onHide={handleLoginClose} className="login">
         <Form onSubmit={handleSubmit} className="m-4">
           <Modal.Header closeButton>
-            <Modal.Title classname="login_title">
+            <Modal.Title className="login_title">
               <h1>Login</h1>
             </Modal.Title>
           </Modal.Header>

@@ -8,7 +8,7 @@ function User({ trainer, workouts, exercises }) {
   const navigate = useNavigate();
 
   const addToUserDashboard = useCallback(() => {
-    fetch('/trainer_dashboards', {
+    fetch('/dashboard_trainers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

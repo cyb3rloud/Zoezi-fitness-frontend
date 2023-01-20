@@ -65,7 +65,7 @@ function TrainerCardDetails({ trainer: prop }) {
   }, [trainer_id]);
 
   const addToUserDashboard = useCallback(() => {
-    fetch('/trainer_dashboards', {
+    fetch('/dashboard_trainers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
