@@ -1,6 +1,6 @@
 import React from 'react';
 import './AllTrainers.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
@@ -20,13 +20,6 @@ function Profile({ trainer, handleClick }) {
           {trainer.firstname} {trainer.lastname}
         </span>
       </div>
-      <div>
-        {/* <ul className="workouts">
-              {trainer.workouts.map((workout, index) => (
-                <li className="workouttype" key={index}>{workout}</li>
-              ))}
-            </ul> */}
-      </div>
 
       <div className="btn-trainer">
         <Link className="dash-btn" to={`/trainer/${trainer.id}`}>
@@ -43,25 +36,6 @@ function Profile({ trainer, handleClick }) {
 }
 
 function Trainers({ trainers }) {
-  // const [trainers, setTrainers] = useState([]);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   fetch('/trainers')
-  //     .then((res) => {
-  //       if (!res.ok) {
-  //         throw new Error('Error occured while fetching the data!');
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setTrainers(data);
-  //     })
-  //     .catch((error) => {
-  //       setError(error.message);
-  //     });
-  // }, []);
-
   function handleClick(id) {
     if (!id) return;
     fetch('/trainers', {

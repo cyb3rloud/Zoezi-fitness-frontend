@@ -16,9 +16,8 @@ function User({ trainer, workouts, exercises }) {
       body: JSON.stringify({ ...trainer }),
     }).then(() => {
       navigate('/UserDashboard');
-      console.log('added to dashboard');
     });
-  }, [trainer]);
+  }, [navigate, trainer]);
 
   return (
     <div className="main">
@@ -26,7 +25,7 @@ function User({ trainer, workouts, exercises }) {
       <div className="e-container">
         <div className="top-header">
           <div>
-            <img className="image" src={trainer.image_url} alt="trainer" />
+            <img className="image" src={trainer.image_url} />
           </div>
           <div className="name">
             {trainer.firstname} {trainer.lastname}
