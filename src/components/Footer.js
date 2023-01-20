@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="footer-wrapper">
         <footer className="footer-container">
           <div>
-            <h1>BeFit</h1>
+            <h1>Zoezi Fitness</h1>
             <div className="footer-links">
               <Link className="footer__Link" to="">
                 Terms and Conditions
@@ -68,7 +68,7 @@ const Footer = () => {
                 <i className="fab fa-youtube"></i>
               </Link>
             </div>
-            <h5>© 2022 Copyright. BeFit All Rights Reserved.</h5>
+            <h5>© 2022 Copyright. Zoezi Fitness All Rights Reserved.</h5>
           </div>
         </div>
       </div>

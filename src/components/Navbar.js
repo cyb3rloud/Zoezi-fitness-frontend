@@ -36,7 +36,7 @@ const Navbar = () => {
           <div className="navigation">
             <div className="logo">
               <NavLogo href="#" className="befited d-flex gap-2 align-items-center">
-                Befit
+                Zoezi Fitness
               </NavLogo>
             </div>
             <div className="nav_menu">
