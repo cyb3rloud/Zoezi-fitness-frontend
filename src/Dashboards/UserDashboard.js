@@ -60,11 +60,11 @@ function UserDashboard() {
               <h2> Trainers</h2>
               {dashboardTrainers?.map((trainer, i) => (
                 <div key={i} className="trainers">
-                  <div className="trainer-details" onClick={() => navigate(`/trainer/${trainer.id}`)}>
+                  <div className="trainer-details" onClick={() => navigate(`/trainer/${trainer?.id}`)}>
                     <h1>
-                      {trainer.firstname.slice(0, 1)} {trainer.lastname.slice(0, 1)}
+                      {trainer?.firstname.slice(0, 1)} {trainer?.lastname.slice(0, 1)}
                     </h1>
-                    <h5>{`${trainer.firstname} ${trainer.lastname}`}</h5>
+                    <h5>{`${trainer?.firstname} ${trainer?.lastname}`}</h5>
                   </div>
                 </div>
               ))}
