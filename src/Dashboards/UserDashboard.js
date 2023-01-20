@@ -6,7 +6,6 @@ import './user-dashboard.css';
 import Sidebar from './Sidebar';
 import { useUser } from '../Dashboards/auth';
 import { toast } from 'react-toastify';
-import userEvent from '@testing-library/user-event';
 
 function UserDashboard() {
   const navigate = useNavigate();
@@ -29,7 +28,7 @@ function UserDashboard() {
   }, []);
 
   useEffect(() => {
-    fetch('dashboard_trainers')
+    fetch('http://206.189.63.140:3000/dashboard_trainers')
       .then((res) => res.json())
       .then((data) => {
         setDashboardTrainers(data);
@@ -112,12 +111,7 @@ function UserDashboard() {
                 </div>
               </div>
               <div className="edit-button">
-                <button
-                 
-                >
-                  {' '}
-                  Edit{' '}
-                </button>
+                <button> Edit </button>
               </div>
             </div>
           </div>

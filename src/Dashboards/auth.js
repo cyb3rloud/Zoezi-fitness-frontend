@@ -11,7 +11,7 @@ const useProvideUser = () => {
 
   const reload = useCallback(() => {
     axios
-      .get('/me')
+      .get('http://206.189.63.140:3000/me')
       .then((response) => {
         setUser(response.data);
       })

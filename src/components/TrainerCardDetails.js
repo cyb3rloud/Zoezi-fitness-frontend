@@ -57,7 +57,7 @@ function TrainerCardDetails({ trainer: prop }) {
   const [trainer, setTrainer] = useState(prop);
 
   useEffect(() => {
-    fetch(`/trainers/${trainer_id}`)
+    fetch(`http://206.189.63.140:3000/trainers/${trainer_id}`)
       .then((res) => res.json())
       .then((data) => {
         setTrainer(data);
