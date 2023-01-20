@@ -21,7 +21,7 @@ function UserDashboard() {
   }, [user, navigate]);
 
   useEffect(() => {
-    fetch('/trainers')
+    fetch('http://206.189.63.140:3000/trainers')
       .then((res) => res.json())
       .then((data) => {
         setTrainersList(data);
@@ -113,9 +113,7 @@ function UserDashboard() {
               </div>
               <div className="edit-button">
                 <button
-                  onClick={() => {
-                    navigate('/Register');
-                  }}
+                 
                 >
                   {' '}
                   Edit{' '}

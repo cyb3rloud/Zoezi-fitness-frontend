@@ -13,7 +13,7 @@ function Testimonialss() {
   const { user } = useUser();
 
   useEffect(() => {
-    fetch('/testimonials')
+    fetch('http://206.189.63.140:3000/testimonials')
       .then((res) => res.json())
       .then((data) => {
         setTestimonies(data);
@@ -54,7 +54,7 @@ function Testimonialss() {
     if (!testimony || !rating) {
       toast.error('please fill all input fields');
     } else {
-      fetch('/testimonials', {
+      fetch('http://206.189.63.140:3000/testimonials', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

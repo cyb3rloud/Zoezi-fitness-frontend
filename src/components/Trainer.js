@@ -38,7 +38,7 @@ function Profile({ trainer, handleClick }) {
 function Trainers({ trainers }) {
   function handleClick(id) {
     if (!id) return;
-    fetch('/trainers', {
+    fetch('http://206.189.63.140:3000/trainers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

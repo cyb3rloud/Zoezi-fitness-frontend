@@ -31,7 +31,7 @@ function App() {
   const [, setUser] = useState(null);
 
   useEffect(() => {
-    fetch('/users')
+    fetch('http://206.189.63.140:3000/users')
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -39,7 +39,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch('/trainers')
+    fetch('http://206.189.63.140:3000/trainers')
       .then((res) => res.json())
       .then((data) => {
         setTrainers(data);

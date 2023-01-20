@@ -8,7 +8,7 @@ function User({ trainer, workouts, exercises }) {
   const navigate = useNavigate();
 
   const addToUserDashboard = useCallback(() => {
-    fetch('/dashboard_trainers', {
+    fetch('http://206.189.63.140:3000/dashboard_trainers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

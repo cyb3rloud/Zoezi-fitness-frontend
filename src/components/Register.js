@@ -28,7 +28,7 @@ function Register({ handleClose, show, handleLoginShow }) {
 
     validationSchema: signupSchema,
     onSubmit: (values, actions) => {
-      fetch('/users', {
+      fetch('http://206.189.63.140:3000/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

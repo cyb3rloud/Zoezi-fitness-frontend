@@ -29,7 +29,7 @@ const useProvideUser = () => {
   };
 
   const handleRegLogout = () => {
-    fetch('/logout', { method: 'DELETE' }).then((r) => {
+    fetch('http://206.189.63.140:3000/logout', { method: 'DELETE' }).then((r) => {
       if (r.ok) {
         toast.success('Logout Successful');
       }

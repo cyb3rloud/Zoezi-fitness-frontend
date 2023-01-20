@@ -31,7 +31,7 @@ function Login({ handleLoginClose, showLogin, handleShow }) {
       actions.resetForm();
       handleCSubmit(values);
 
-      fetch('/login', {
+      fetch('http://206.189.63.140:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
