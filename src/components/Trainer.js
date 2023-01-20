@@ -38,7 +38,7 @@ function Profile({ trainer, handleClick }) {
   );
 }
 
-function Trainers() {
+function Trainers({trainers}) {
   // const [trainers, setTrainers] = useState([]);
   // const [error, setError] = useState(null);
   
@@ -73,7 +73,7 @@ function Trainers() {
   if (error) {
     return (
       <div>
-        <p>An error occured: {error}</p>
+        <p>An error occured: 'Error occured while fetching the data!'</p>
       </div>
     );
   }
@@ -81,7 +81,7 @@ function Trainers() {
   if (error) {
     return (
       <div>
-        <p>An error occured: {error}</p>
+        <p>An error occured: 'Error occured while fetching the data!'</p>
       </div>
     );
   }
