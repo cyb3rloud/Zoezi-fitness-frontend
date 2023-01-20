@@ -84,7 +84,7 @@ function UserDashboard() {
                   {user?.firstname.slice(0, 1).toUpperCase()} {user?.lastname.slice(0, 1).toUpperCase()}
                 </h1>
                 <h5>
-                  {user.firstname} {user.lastname}
+                  {user?.firstname} {user?.lastname}
                 </h5>
               </div>
               <div className="profile-details">
