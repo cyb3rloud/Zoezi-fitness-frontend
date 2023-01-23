@@ -20,7 +20,7 @@ function UserDashboard() {
   }, [user, navigate]);
 
   useEffect(() => {
-    fetch('http://206.189.63.140:3000/trainers', { credentials: 'include' })
+    fetch('http://206.189.63.140:3000/trainers')
       .then((res) => res.json())
       .then((data) => {
         setTrainersList(data);
@@ -28,7 +28,7 @@ function UserDashboard() {
   }, []);
 
   useEffect(() => {
-    fetch('http://206.189.63.140:3000/dashboard_trainers', { credentials: 'include' })
+    fetch('http://206.189.63.140:3000/dashboard_trainers')
       .then((res) => res.json())
       .then((data) => {
         setDashboardTrainers(data);

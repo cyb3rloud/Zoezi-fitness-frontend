@@ -41,7 +41,6 @@ const AddTrainer = ({ AddTrainer }) => {
     } else {
       fetch('http://206.189.63.140:3000/trainers', {
         method: 'POST',
-        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },

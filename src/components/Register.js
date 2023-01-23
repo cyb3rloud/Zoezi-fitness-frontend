@@ -34,7 +34,6 @@ function Register({ handleClose, show, handleLoginShow }) {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify({
           firstname: values.firstname,
           lastname: values.lastname,
