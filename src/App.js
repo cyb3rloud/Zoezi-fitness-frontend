@@ -23,7 +23,7 @@ import AllProducts from './Dashboards/AllProducts';
 import AllOrders from './Dashboards/AllOrders';
 import { ToastContainer } from 'react-toastify';
 
-function Routes() {
+function AppRoutes() {
   const [users, setUsers] = useState([]);
   const [trainers, setTrainers] = useState([]);
   const [products] = useState([]);
@@ -87,7 +87,7 @@ function Routes() {
 
 const App = () => {
   return (<UserProvider>
-    <Routes/>
+    <AppRoutes/>
   </UserProvider>)
 }
 
