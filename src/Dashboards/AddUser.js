@@ -43,6 +43,7 @@ const AddUser = ({ addUser }) => {
     } else {
       fetch('http://206.189.63.140:3000/users', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },

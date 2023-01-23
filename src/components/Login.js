@@ -41,6 +41,7 @@ function Login({ handleLoginClose, showLogin, handleShow }) {
           email: values.email,
           password: values.password,
         }),
+        credentials: 'include',
       }).then((r) => {
         if (!r.ok) return;
         r.json().then((user) => login(user));

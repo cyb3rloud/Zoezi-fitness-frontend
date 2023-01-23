@@ -13,6 +13,7 @@ function User({ trainer, workouts, exercises }) {
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify({ ...trainer }),
     }).then(() => {
       navigate('/UserDashboard');

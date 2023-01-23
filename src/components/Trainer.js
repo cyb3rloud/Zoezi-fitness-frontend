@@ -40,6 +40,7 @@ function Trainers({ trainers }) {
     if (!id) return;
     fetch('http://206.189.63.140:3000/trainers', {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

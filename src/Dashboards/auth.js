@@ -10,8 +10,7 @@ const useProvideUser = () => {
   const [user, setUser] = React.useState(null);
 
   const reload = useCallback(() => {
-    axios
-      .get('http://206.189.63.140:3000/me')
+    fetch('http://206.189.63.140:3000/me', { credentials: 'include' })
       .then((response) => {
         setUser(response.data);
       })
@@ -29,7 +28,7 @@ const useProvideUser = () => {
   };
 
   const handleRegLogout = () => {
-    fetch('http://206.189.63.140:3000/logout', { method: 'DELETE' }).then((r) => {
+    fetch('http://206.189.63.140:3000/logout', { method: 'DELETE', credentials: 'include' }).then((r) => {
       if (r.ok) {
         toast.success('Logout Successful');
       }

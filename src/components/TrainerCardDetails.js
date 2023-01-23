@@ -70,6 +70,7 @@ function TrainerCardDetails({ trainer: prop }) {
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify({ ...trainer }),
     }).then(() => {
       history.push('/UserDashboard');

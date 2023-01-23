@@ -13,7 +13,7 @@ function Testimonialss() {
   const { user } = useUser();
 
   useEffect(() => {
-    fetch('http://206.189.63.140:3000/testimonials')
+    fetch('http://206.189.63.140:3000/testimonials', { credentials: 'include' })
       .then((res) => res.json())
       .then((data) => {
         setTestimonies(data);
@@ -56,6 +56,7 @@ function Testimonialss() {
     } else {
       fetch('http://206.189.63.140:3000/testimonials', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
