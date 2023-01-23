@@ -12,7 +12,8 @@ const UserProvider = ({ children }) => {
   const reload = useCallback(() => {
     fetch('/api/me')
       .then((response) => {
-        setUser(response.data);
+        if (!response.ok) return
+        response.json().then(data => setUser(data))
       })
       .catch((error) => {
         console.log(error);
