@@ -28,7 +28,7 @@ function Register({ handleClose, show, handleLoginShow }) {
 
     validationSchema: signupSchema,
     onSubmit: (values, actions) => {
-      fetch('http://206.189.63.140:3000/users', {
+      fetch('/api/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,6 @@ function Register({ handleClose, show, handleLoginShow }) {
 
       toast.success('Registration Successful');
       handleClose();
-      navigate('/Login');
     },
   });
 

@@ -13,7 +13,7 @@ function Testimonialss() {
   const { user } = useUser();
 
   useEffect(() => {
-    fetch('http://206.189.63.140:3000/testimonials', {})
+    fetch('/api/testimonials', {})
       .then((res) => res.json())
       .then((data) => {
         setTestimonies(data);
@@ -54,7 +54,7 @@ function Testimonialss() {
     if (!testimony || !rating) {
       toast.error('please fill all input fields');
     } else {
-      fetch('http://206.189.63.140:3000/testimonials', {
+      fetch('/api/testimonials', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -87,10 +87,10 @@ function Testimonialss() {
           <div className="testimonials">
             {testimonies.length ? (
               testimonies.map((testimony) => (
-                <div className="testimony" key={testimony.id}>
-                  <StarRating ratings={testimony.rating} />
-                  <p>{testimony.testimony}</p>
-                  <h5> ~ {testimony.user.firstname} ~ </h5>
+                <div className="testimony" key={testimony?.id}>
+                  <StarRating ratings={testimony?.rating} />
+                  <p>{testimony?.testimony}</p>
+                  <h5> ~ {testimony?.user?.firstname} ~ </h5>
                   <h6></h6>
                 </div>
               ))

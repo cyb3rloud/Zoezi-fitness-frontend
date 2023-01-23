@@ -10,7 +10,7 @@ const useProvideUser = () => {
   const [user, setUser] = React.useState(null);
 
   const reload = useCallback(() => {
-    fetch('http://206.189.63.140:3000/me')
+    fetch('/api/me')
       .then((response) => {
         setUser(response.data);
       })
@@ -28,7 +28,7 @@ const useProvideUser = () => {
   };
 
   const handleRegLogout = () => {
-    fetch('http://206.189.63.140:3000/logout', { method: 'DELETE' }).then((r) => {
+    fetch('/api/logout', { method: 'DELETE' }).then((r) => {
       if (r.ok) {
         toast.success('Logout Successful');
       }
