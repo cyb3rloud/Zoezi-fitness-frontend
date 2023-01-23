@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import { signupSchema } from '../schemas/register';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useUser } from '../Dashboards/auth';
 const initialValues = {
   firstname: '',
   lastname: '',
@@ -22,6 +23,7 @@ const initialValues = {
 
 function Register({ handleClose, show, handleLoginShow }) {
   const navigate = useNavigate();
+  const { login } = useUser();
 
   const { values, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues,
@@ -47,10 +49,15 @@ function Register({ handleClose, show, handleLoginShow }) {
           current_weight: values.current_weight,
           goal: values.goal,
         }),
-      });
+      })
+        .then((res) => {
+          if (!res.ok) return;
+          res.json().then((user) => login(user));
+          toast.success('Registration Successful');
+          navigate('/UserDashboard');
+        })
+        .catch(() => toast.error('Sorry, please try again later'));
       actions.resetForm();
-
-      toast.success('Registration Successful');
       handleClose();
     },
   });

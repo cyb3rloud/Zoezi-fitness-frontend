@@ -6,7 +6,7 @@ const UserContext = React.createContext({});
 
 export const useUser = () => React.useContext(UserContext);
 
-const useProvideUser = () => {
+const UserProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
 
   const reload = useCallback(() => {
@@ -40,16 +40,7 @@ const useProvideUser = () => {
     setUser(null);
   };
 
-  return {
-    user,
-    login,
-    logout,
-  };
-};
-
-const UserProvider = ({ children }) => {
-  const user = useProvideUser();
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={(user, login, logout)}>{children}</UserContext.Provider>;
 };
 
 export default UserProvider;
