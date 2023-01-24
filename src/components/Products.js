@@ -1,10 +1,11 @@
-import React from 'react';
+import App from "./Product/App";
+import React from "react";
 
-function Products() {
+
+export default function Products() {
   return (
-    <>
-      <div>edit</div>
-    </>
+    <div>
+      <App></App>
+    </div>
   );
 }
-export default Products;

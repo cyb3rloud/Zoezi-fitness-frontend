@@ -5,14 +5,14 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import Services from './Services';
 import Hero from './Hero/Hero';
-import About from './About/About';
+// import About from './About/About';
 
 function Home() {
   return (
     <>
       <Navbar />
       <Hero />
-      <About />
+      {/* <About /> */}
       <Services />
       <Footer />
     </>

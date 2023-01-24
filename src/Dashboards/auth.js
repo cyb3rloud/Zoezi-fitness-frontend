@@ -10,10 +10,9 @@ const UserProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
 
   const reload = useCallback(() => {
-    fetch('/api/me')
+    axios.get('/api/me')
       .then((response) => {
-        if (!response.ok) return
-        response.json().then(data => setUser(data))
+        setUser(response.data);
       })
       .catch((error) => {
         console.log(error);

@@ -1,0 +1,31 @@
+@import url('https://fonts.cdnfonts.com/css/offenbacher-reform-cat');
+
+.shop {
+  display: flex;
+}
+
+.products-container {
+  width: 75%;
+  margin: 50px 0;
+  display: grid;
+  gap: 50px 0;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.cart-container {
+  width: 25%;
+  padding: 20px;
+  border-left: 1px solid black;
+}
+
+.prod-title {
+  text-align: center;
+  font-family: 'Offenbacher Reform CAT', sans-serif;
+  font-size: 60px;
+  text-decoration: underline;
+  color: #a07508;
+}
+
+.full {
+  border-top: 2px solid #a07508;
+}

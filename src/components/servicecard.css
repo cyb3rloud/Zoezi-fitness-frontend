@@ -1,0 +1,26 @@
+@import url('https://fonts.cdnfonts.com/css/elegant-2');
+
+.main-offer {
+  background-image: url('../images/about.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+
+}
+
+.card-a {
+  background-color: transparent;
+}
+
+.card-a:hover {
+  transform: scale(1.2);
+  background-color: #DFBD69;
+}
+
+.text-center {
+  font-family: 'ELEGANT', sans-serif;
+  border-top: 1px solid #DFBD69;
+  border-bottom: 1px solid #DFBD69;
+  background-color: rgb(26, 26, 26);
+}
