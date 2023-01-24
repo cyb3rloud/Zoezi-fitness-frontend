@@ -52,7 +52,8 @@ function Register({ handleClose, show, handleLoginShow }) {
 
       toast.success('Registration Successful');
       handleClose();
-      navigate('/Login');
+      handleLoginShow();
+      // navigate('/');
     },
   });
 

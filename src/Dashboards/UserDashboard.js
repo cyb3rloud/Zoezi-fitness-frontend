@@ -49,10 +49,16 @@ function UserDashboard() {
               <div className="sect">
                 <h2>Today&apos;s workout</h2>
                 <div>
-                  <p>morning run </p>
-                  <p>morning run </p>
-                  <p>morning run </p>
-                  <p>morning run </p>
+                  {dashboardTrainers?.workouts?.map((workout, i) => (
+                    <div key={i}>
+                      <p>{workout?.workout_name}</p>
+                    </div>
+                  ))}
+                  {dashboardTrainers?.exercises?.map((exercise, i) => (
+                    <div key={i}>
+                      <p>{exercise?.exercise_name}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -83,7 +89,7 @@ function UserDashboard() {
                   {user?.firstname.slice(0, 1).toUpperCase()} {user?.lastname.slice(0, 1).toUpperCase()}
                 </h1>
                 <h5>
-                  {user.firstname} {user.lastname}
+                  {user?.firstname} {user?.lastname}
                 </h5>
               </div>
               <div className="profile-details">

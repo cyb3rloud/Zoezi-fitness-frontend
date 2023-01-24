@@ -18,16 +18,8 @@ const Cards = ({ users, trainers }) => {
       {cardItems.map((cardItem, index) => {
         return (
           <div className="parentContainer" key={index}>
-            <Card
-              // title={cardItems.at(index)}
-              // color={cardItem.color}
-              // barValue={card.barValue}
-              // value={cardItem.value}
-              // png={cardItem.png}
-              // series={cardItem.series}
-              count={cardItem.length}
-              style={color}
-            />
+            {console.log(cardItem)}
+            <Card title={index === 1 ? 'Trainers' : 'Users'} count={cardItem.length} style={color} />
           </div>
         );
       })}

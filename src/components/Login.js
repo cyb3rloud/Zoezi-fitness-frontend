@@ -104,7 +104,7 @@ function Login({ handleLoginClose, showLogin, handleShow }) {
               <span onClick={handleLoginClose}>
                 <Link className="registerLogin" onClick={handleShow}>
                   Register Here
-                </Link>
+                </Link>{' '}
               </span>
             </div>
           </Modal.Footer>

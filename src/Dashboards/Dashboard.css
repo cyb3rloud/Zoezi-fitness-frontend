@@ -17,7 +17,7 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: var(--black);
-  background: linear-gradient(106.37deg, #ffffff 29.63%, lightgrey 51.55%, grey 90.85%);
+  /* background: linear-gradient(106.37deg, #ffffff 29.63%, lightgrey 51.55%, grey 90.85%); */
   height: auto;
   display: flex;
   align-items: center;
@@ -241,6 +241,19 @@
   width: 100%;
   height: 100%;
   padding: 1rem;
+}
+
+.tables {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 100%;
+  padding: 2em;
+
+} 
+
+.full-table {
+  width: 100%;
+  margin: 4rem 4rem;
 }
 
 .table {
