@@ -1,0 +1,26 @@
+[
+  {
+    "id": "t-shirt",
+    "name": "mini-dumbell",
+    "price": 35.0,
+    "imageUrl": "https://images.pexels.com/photos/260352/pexels-photo-260352.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "description": "A white t-shirt",
+    "url": "/api/products/halfmoon"
+  },
+  {
+    "id": "wallet",
+    "name": "dumbell b",
+    "price": 20.0,
+    "imageUrl": "https://images.pexels.com/photos/416717/pexels-photo-416717.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "description": "A fancy wallet",
+    "url": "/api/products/wallet"
+  },
+  {
+    "id": "cup",
+    "name": "Shoe",
+    "price": 5.0,
+    "imageUrl": "https://images.pexels.com/photos/2529147/pexels-photo-2529147.jpeg?auto=compress&cs=tinysrgb&w=400",
+    "description": "A tea cup",
+    "url": "/api/products/veiltail"
+  }
+]

@@ -3,6 +3,7 @@ export const Nav = styled.nav`
   background: #5c5c5c;
   height: 120px;
   display: flex;
+  color: white;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
@@ -27,13 +28,14 @@ export const NavContainer = styled.div`
 `;
 
 export const NavLogo = styled.a`
-  color: white;
   justify-self: flex-start;
   cursor: pointer;
-  font-size: 10.5rem;
+  font-size: 8.5rem;
   display: flex;
   align-items: center;
-  margin-left: -120px;
+  margin-left: -60px;
+  margin-top: 10px;
+
   font-weight: normal;
   text-decoration: none;
 `;
@@ -64,7 +66,7 @@ export const NavMenu = styled.div`
 `;
 
 export const NavItem = styled.li`
-  height: 80px;
+  height: 10px;
 `;
 
 export const NavLinks = styled.a`
@@ -76,6 +78,6 @@ export const NavLinks = styled.a`
   height: 100%;
   cursor: pointer;
   &.active {
-    color: #000000;
+    color: red;
   }
 `;

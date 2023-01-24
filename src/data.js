@@ -12,7 +12,7 @@ const data = {
 
     {
       title: 'Nutrition (Meal Plans)',
-      desc: 'We offer recommendations on the best meals to take including the perfect balance of nutrients to ensure that you are energized.',
+      desc: 'We offer recommendations on the best meals including the perfect balance of nutrients to ensure  you are energized.',
     },
     {
       title: 'Gym Location',
@@ -20,7 +20,7 @@ const data = {
     },
     {
       title: 'Training Gear',
-      desc: 'We offer training gear to facilitate at home fitness for our members as well as those going to the gym.Come and shop with us!',
+      desc: 'We give gear to facilitate at home fitness for our members as well as those going to the gym.Come and shop with us!',
     },
 
     {
@@ -30,11 +30,11 @@ const data = {
 
     {
       title: 'Nutrition (Meal Plans)',
-      desc: 'We offer recommendations on the best meals to take including the perfect balance of nutrients to ensure that you are energized.',
+      desc: 'We offer recommendations on the best meals including the perfect balance of nutrients to ensure  you are energized.',
     },
     {
       title: 'Nutrition (Meal Plans)',
-      desc: 'We offer recommendations on the best meals to take including the perfect balance of nutrients to ensure that you are energized.',
+      desc: 'We offer recommendations on the best meals including the perfect balance of nutrients to ensure  you are energized.',
     },
   ],
 };

@@ -1,6 +1,6 @@
 /* app */
 :root {
-  --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
+  --yellow: linear-gradient(180deg, #0e0d0c -146.42%, #fad79d -46.42%);
   --orange: #fca61f;
   --black: #242d49;
   --gray: #788097;
@@ -17,7 +17,10 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: var(--black);
-  background: linear-gradient(106.37deg, #ffffff 29.63%, lightgrey 51.55%, grey 90.85%);
+  background-image: url('../images/dash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   height: auto;
   display: flex;
   align-items: center;
@@ -31,7 +34,8 @@
   width: 97%;
   /* background: var(--glass); */
   border-radius: 2rem;
-  gap: 80px;
+
+  gap: 10px;
   grid-template-columns: 11rem auto 13rem;
   /* overflow-y: scroll; */
 }
@@ -60,6 +64,7 @@
   position: relative;
   cursor: pointer;
 }
+
 .CompactCard:hover {
   box-shadow: none !important;
 }
@@ -73,10 +78,12 @@
   gap: 1rem;
   color: black;
 }
+
 .CircularProgressbar {
   width: 4rem !important;
   overflow: visible;
 }
+
 /* .CircularProgressbar-path {
   stroke: white !important;
   stroke-width: 12px !important;
@@ -85,11 +92,12 @@
 .CircularProgressbar-trail {
   display: none;
 }
+
 .CircularProgressbar-text {
   fill: white !important;
 }
 
-.radialBar > span {
+.radialBar>span {
   font-size: 17px;
   font-weight: bold;
 }
@@ -103,11 +111,12 @@
   justify-content: space-between;
 }
 
-.detail > span:nth-child(2) {
+.detail>span:nth-child(2) {
   font-size: 22px;
   font-weight: bold;
 }
-.detail > span:nth-child(3) {
+
+.detail>span:nth-child(3) {
   font-size: 12px;
 }
 
@@ -125,13 +134,15 @@
   justify-content: space-around;
   padding: 1rem;
 }
-.ExpandedCard > span:nth-of-type(1) {
+
+.ExpandedCard>span:nth-of-type(1) {
   color: white;
   font-size: 40px;
   font-weight: bold;
   text-shadow: 0px 0px 15px white;
 }
-.ExpandedCard > span:nth-of-type(2) {
+
+.ExpandedCard>span:nth-of-type(2) {
   color: rgb(236, 236, 236);
   font-size: 26px;
   font-weight: bold;
@@ -163,6 +174,7 @@
   display: flex;
   gap: 10px;
 }
+
 .parentContainer {
   width: 100%;
   padding-bottom: 3rem;
@@ -172,6 +184,7 @@
   .Cards {
     flex-direction: column;
   }
+
   .parentContainer {
     height: 9rem;
   }
@@ -226,7 +239,8 @@
     width: 100%;
     margin-top: 0;
   }
-  .RightSide > div {
+
+  .RightSide>div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -253,6 +267,7 @@
 .m-button {
   border: none;
 }
+
 .t-button {
   display: flex;
   justify-content: right;
@@ -260,10 +275,11 @@
 }
 
 .table-button {
-  background-color: #4bb49b;
-  border-radius: 24px;
+  background-color: rgba(25, 25, 25);
+  border-radius: 14px;
   width: 150px;
   display: flex;
+  color: white;
   justify-content: center;
   align-items: center;
   border: none;
@@ -272,7 +288,7 @@
 }
 
 .table-button:hover {
-  background-color: #59d6b9;
+  background-color: #DFBD69;
   border-radius: 24px;
   margin: 1em 0em 0em 0em;
   padding: 0.5em 0.5em;
@@ -283,11 +299,11 @@
   border: none;
 }
 
-.MuiTableRow-root > * {
+.MuiTableRow-root>* {
   padding: 10px;
 }
 
-.MuiTableRow-root.MuiTableRow-head > * {
+.MuiTableRow-root.MuiTableRow-head>* {
   font-weight: bold !important;
 }
 
@@ -299,6 +315,7 @@ th {
 .Table:first-child {
   border-radius: 0.7rem !important;
 }
+
 .status {
   padding: 8px;
   border-radius: 9px;
@@ -343,12 +360,12 @@ th {
   gap: 0.5rem;
 }
 
-.update > img {
+.update>img {
   width: 3.2rem;
   height: 3.2rem;
 }
 
-.noti > div > span:nth-of-type(1) {
+.noti>div>span:nth-of-type(1) {
   font-weight: bold;
 }
 
@@ -360,6 +377,7 @@ th {
   padding-top: 4rem;
   transition: all 300ms ease;
 }
+
 /* logo */
 .bars {
   display: none;
@@ -423,6 +441,7 @@ th {
   flex-direction: column;
   gap: 2rem;
 }
+
 .menuItem {
   display: flex;
   align-items: center;
@@ -443,6 +462,7 @@ th {
   /* background: var(--activeItem); */
   margin-left: 0;
 }
+
 .active::before {
   content: '';
   width: 8px;
@@ -453,9 +473,10 @@ th {
 
 /* Tablets */
 @media screen and (max-width: 1200px) {
-  .menuItem > span {
+  .menuItem>span {
     display: none;
   }
+
   .logo {
     display: none;
   }
@@ -470,16 +491,20 @@ th {
     padding-right: 1rem;
     height: 100%;
   }
-  .menuItem > span {
+
+  .menuItem>span {
     display: block;
   }
+
   .logo {
     display: flex;
   }
+
   .menu .menuItem:last-child {
     position: relative;
     margin-top: 6rem;
   }
+
   .bars {
     display: flex;
     position: fixed;
@@ -490,6 +515,7 @@ th {
     border-radius: 10px;
     z-index: 9;
   }
+
   .close {
     left: -60%;
   }

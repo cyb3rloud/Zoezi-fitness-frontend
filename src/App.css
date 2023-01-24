@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 @import url('https://fonts.cdnfonts.com/css/luminari');
+
 * {
   padding: 0;
   margin: 0;
@@ -15,8 +16,8 @@ p {
   opacity: 85%;
   line-height: 35px;
 }
+
 body {
-  background: #fff !important;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -24,31 +25,37 @@ body {
   display: table-cell;
   vertical-align: middle;
 }
+
 .scroll {
   background-color: black;
   padding: 10px 70px;
   color: whitesmoke;
 }
+
 .one {
   height: 88vh;
   background-image: url('./images/7.jpg');
 }
+
 .two {
   height: 84vh;
   background-color: rgb(211, 211, 211);
 
   /* background-image: url("./ims/3.jpg") */
 }
+
 .three {
   display: grid;
   background-color: yellow;
   height: 80vh;
   background-image: url('./images/10.jpg');
 }
+
 .four {
   height: 60vh;
   background-color: rgb(211, 211, 211);
 }
+
 #navbar {
   overflow: hidden;
   background-color: #fff;
@@ -77,9 +84,10 @@ body {
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
+.sticky+.content {
   padding-top: 60px;
 }
+
 .navbar {
   background-color: transparent;
   transition: background 2.5s ease-in-out;
@@ -88,21 +96,24 @@ body {
 .navbar.colorChange {
   background-color: rgba(0, 0, 0, 0.9);
 }
+
 .topnav {
   border-bottom: 1px solid gray;
   height: 40px;
 }
+
 .befited {
   font-family: 'Calligraphy', sans-serif;
   font-family: 'Calligraphy wet', sans-serif;
-  color: #222;
-  background-size: 100% 100%;
+  color: red;
+  background-size: 100%;
   background-clip: text;
   -webkit-text-stroke: 3px transparent;
   -webkit-text-stroke: 3px transparent;
-  font-weight: 500;
+  font-weight: normal;
   font-size: 2rem;
 }
+
 .navbar-button {
   background: transparent;
   border-bottom: none !important;
@@ -116,6 +127,7 @@ body {
   font-size: 16px;
   transition: transform 0.25s ease-out;
 }
+
 .navbar-button:hover {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
@@ -124,8 +136,10 @@ body {
 }
 
 .navbar-button-register {
-  --b: 3px; /* border thickness */
-  --s: 0.45em; /* size of the corner */
+  --b: 3px;
+  /* border thickness */
+  --s: 0.45em;
+  /* size of the corner */
   --color: whitesmoke;
   margin-top: 10px;
   border-radius: 25px;
@@ -133,8 +147,7 @@ body {
   padding: calc(0.5em + var(--s)) calc(0.9em + var(--s));
   color: var(--color);
   --_p: var(--s);
-  background: conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p) /
-    calc(100% - var(--b) - 2 * var(--_p)) calc(100% - var(--b) - 2 * var(--_p));
+  background: conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p) / calc(100% - var(--b) - 2 * var(--_p)) calc(100% - var(--b) - 2 * var(--_p));
   transition: 0.3s linear, color 0s, background-color 0s;
   outline: var(--b) solid #0000;
   outline-offset: 0.6em;
@@ -158,6 +171,7 @@ body {
   background: var(--color);
   color: #fff;
 }
+
 .get-started {
   display: flex;
   background-color: white;
@@ -170,6 +184,7 @@ p {
   font-weight: bold;
   font-family: 'lumi';
 }
+
 .get-started-img {
   object-fit: cover;
 }
@@ -181,24 +196,28 @@ p {
   /* height: 30px; */
   padding: 10px;
 }
+
 .p1 {
   font-size: xx-large;
   margin-left: 30px;
   margin-right: 80px;
   font-family: 'Luminari', sans-serif;
 }
+
 .learn-more {
   display: flex;
   background-color: white;
   margin: 20px 50px 20px 50px;
   padding: 0px;
 }
+
 .box {
   display: flex;
   flex-wrap: wrap;
   margin: 30px;
 }
-.box > * {
+
+.box>* {
   flex: 1 1 300px;
   margin: 20px;
   height: 250px;
@@ -221,10 +240,12 @@ p {
   text-align: center;
   vertical-align: bottom;
 }
+
 .box-membership {
   display: flex;
   justify-content: center;
 }
+
 .membership1 {
   background-color: white;
   height: 200px;
@@ -242,6 +263,7 @@ p {
 .membership-title {
   color: black;
 }
+
 .carousel-root {
   width: 44% !important;
   margin: auto !important;
@@ -351,6 +373,7 @@ p {
   .carousel.carousel-slider .control-arrow {
     display: none !important;
   }
+
   .myCarousel {
     background: #fafafa;
     margin-top: -9%;
