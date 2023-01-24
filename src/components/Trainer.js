@@ -26,7 +26,7 @@ function Profile({ trainer, handleClick }) {
           View Profile
         </Link>
         {isLoggedIn && (
-          <div className="dash-btn" onClick={() => handleClick(user?.id)} data-id={trainer?.id}>
+          <div className="dash-btn-add" onClick={() => handleClick(user.id)} data-id={trainer.id}>
             Add to Dashboard
           </div>
         )}
@@ -46,14 +46,14 @@ function Trainers({ trainers }) {
       body: JSON.stringify({ id: id /*,userid: user_id */ }),
     })
       .then((res) => res.json())
-      .then(() => {});
+      .then(() => { });
   }
 
   return (
     <>
       <Navbar />
       <div className="all-trainers">
-        <span>Trainers:</span>
+        <span className='train'>Trainers</span>
         <div className="all-trainers-list">
           {/* {trainers.length ? (
                 trainers.map((trainer) => <TrainerCard key={trainer.id}  trainer={trainer}/>)

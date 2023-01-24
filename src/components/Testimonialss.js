@@ -82,7 +82,7 @@ function Testimonialss() {
     <>
       <Navbar />
       <div className="testimonials-page">
-        <h1>Testimonials</h1>
+        <h1 >Testimonials</h1>
         <div>
           <div className="testimonials">
             {testimonies.length ? (
@@ -101,18 +101,18 @@ function Testimonialss() {
         </div>
         <div className="testimony-form">
           <h1>Tell us your story</h1>
-          <form onSubmit={handleSubmit}>
+          <form className='form-test' onSubmit={handleSubmit}>
             <div className="form-table">
               <div>
-                <label> Your Story </label> <br />
-                <input type="text" name="testimony" value={formData.testimony} onChange={handleChange} /> <br />
+                <label style={{ color: 'white' }}> Your Story </label> <br />
+                <input type="textArea" name="testimony" value={formData.testimony} onChange={handleChange} /> <br />
               </div>
               <div>
-                <label> Rating </label> <br />
+                <label style={{ color: 'white' }}> Rating </label> <br />
                 <StarRating callback={handleRating} />
               </div>
             </div>
-            <button className="form-button" type="submit">
+            <button className="my-button" type="submit">
               Submit
             </button>
           </form>
