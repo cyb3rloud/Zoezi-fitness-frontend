@@ -6,14 +6,14 @@ const UserContext = React.createContext({});
 
 export const useUser = () => React.useContext(UserContext);
 
-const useProvideUser = () => {
+const UserProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
 
   const reload = useCallback(() => {
-    axios
-      .get('http://206.189.63.140:3000/me')
+    fetch('/api/me')
       .then((response) => {
-        setUser(response.data);
+        if (!response.ok) return
+        response.json().then(data => setUser(data))
       })
       .catch((error) => {
         console.log(error);
@@ -29,7 +29,7 @@ const useProvideUser = () => {
   };
 
   const handleRegLogout = () => {
-    fetch('http://206.189.63.140:3000/logout', { method: 'DELETE' }).then((r) => {
+    fetch('/api/logout', { method: 'DELETE' }).then((r) => {
       if (r.ok) {
         toast.success('Logout Successful');
       }
@@ -41,16 +41,7 @@ const useProvideUser = () => {
     setUser(null);
   };
 
-  return {
-    user,
-    login,
-    logout,
-  };
-};
-
-const UserProvider = ({ children }) => {
-  const user = useProvideUser();
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={(user, login, logout)}>{children}</UserContext.Provider>;
 };
 
 export default UserProvider;

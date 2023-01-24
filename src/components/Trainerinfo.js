@@ -8,7 +8,7 @@ function User({ trainer, workouts, exercises }) {
   const navigate = useNavigate();
 
   const addToUserDashboard = useCallback(() => {
-    fetch('http://206.189.63.140:3000/dashboard_trainers', {
+    fetch('/api/dashboard_trainers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ function User({ trainer, workouts, exercises }) {
             <img className="image" src={trainer.image_url} />
           </div>
           <div className="name">
-            {trainer.firstname} {trainer.lastname}
+            {trainer?.firstname} {trainer?.lastname}
           </div>
           <div className="sub-name">Pro Trainer</div>
           <div className="sub-name">{trainer.email}</div>

@@ -70,19 +70,19 @@ export default function BasicTable({ users, trainers }) {
                 </TableRow>
               </TableHead>
               <TableBody style={{ color: 'white' }}>
-                {users.slice(-3).map((user, i) => (
+                {users?.slice(-3).map((user, i) => (
                   <TableRow key={`${user.id}-${i}`} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                     <TableCell component="th" scope="row">
-                      {user.firstname} {user.lastname}
+                      {user?.firstname} {user?.lastname}
                     </TableCell>
-                    <TableCell align="left">{user.age}</TableCell>
-                    <TableCell align="left">{user.current_weight}</TableCell>
-                    <TableCell align="left">{user.email}</TableCell>
+                    <TableCell align="left">{user?.age}</TableCell>
+                    <TableCell align="left">{user?.current_weight}</TableCell>
+                    <TableCell align="left">{user?.email}</TableCell>
                     <TableCell align="left">
-                      <span className="status">{user.contact}</span>
+                      <span className="status">{user?.contact}</span>
                     </TableCell>
                     <TableCell align="left" className="Details">
-                      {user.goal}
+                      {user?.goal}
                     </TableCell>
                   </TableRow>
                 ))}
@@ -126,20 +126,20 @@ export default function BasicTable({ users, trainers }) {
                 </TableRow>
               </TableHead>
               <TableBody style={{ color: 'white' }}>
-                {trainers.slice(-3).map((trainer, i) => (
+                {trainers?.slice(-3).map((trainer, i) => (
                   <TableRow key={`${trainer.id}-${i}`} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                     <TableCell component="th" scope="row">
-                      {trainer.firstname} {trainer.lastname}
+                      {trainer?.firstname} {trainer?.lastname}
                     </TableCell>
 
-                    <TableCell align="left">{trainer.users?.length}</TableCell>
+                    <TableCell align="left">{trainer?.users?.length}</TableCell>
 
-                    <TableCell align="left">{trainer.exercises.length}</TableCell>
+                    <TableCell align="left">{trainer?.exercises?.length}</TableCell>
                     <TableCell align="left">
-                      <span className="status">{trainer.email}</span>
+                      <span className="status">{trainer?.email}</span>
                     </TableCell>
                     <TableCell align="left" className="Details">
-                      {trainer.phone}
+                      {trainer?.contact}
                     </TableCell>
                   </TableRow>
                 ))}

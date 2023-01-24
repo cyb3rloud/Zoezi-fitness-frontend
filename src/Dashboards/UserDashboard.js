@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 function UserDashboard() {
   const navigate = useNavigate();
   const { user } = useUser();
-  const [setTrainersList] = useState([]);
+  const [,setTrainersList] = useState([]);
   const [dashboardTrainers, setDashboardTrainers] = useState([]);
 
   useLayoutEffect(() => {
@@ -20,7 +20,7 @@ function UserDashboard() {
   }, [user, navigate]);
 
   useEffect(() => {
-    fetch('http://206.189.63.140:3000/trainers')
+    fetch('/api/trainers')
       .then((res) => res.json())
       .then((data) => {
         setTrainersList(data);
@@ -28,7 +28,7 @@ function UserDashboard() {
   }, []);
 
   useEffect(() => {
-    fetch('http://206.189.63.140:3000/dashboard_trainers')
+    fetch('/api/dashboard_trainers')
       .then((res) => res.json())
       .then((data) => {
         setDashboardTrainers(data);
@@ -68,7 +68,7 @@ function UserDashboard() {
                 <div key={i} className="trainers">
                   <div className="trainer-details" onClick={() => navigate(`/trainer/${trainer?.id}`)}>
                     <h1>
-                      {trainer?.firstname.slice(0, 1)} {trainer?.lastname.slice(0, 1)}
+                      {trainer?.firstname?.slice(0, 1)} {trainer?.lastname?.slice(0, 1)}
                     </h1>
                     <h5>{`${trainer?.firstname} ${trainer?.lastname}`}</h5>
                   </div>

@@ -39,7 +39,7 @@ const AddTrainer = ({ AddTrainer }) => {
     if (!firstname || !email || !lastname || !expertise || !clients || !sessions || !phone) {
       toast.error('please fill all input fields');
     } else {
-      fetch('http://206.189.63.140:3000/trainers', {
+      fetch('/api/trainers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
