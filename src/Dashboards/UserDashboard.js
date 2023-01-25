@@ -6,12 +6,11 @@ import './user-dashboard.css';
 import Sidebar from './Sidebar';
 import { useUser } from '../Dashboards/auth';
 import { toast } from 'react-toastify';
-import userEvent from '@testing-library/user-event';
 
 function UserDashboard() {
   const navigate = useNavigate();
   const { user } = useUser();
-  const [setTrainersList] = useState([]);
+  const [,setTrainersList] = useState([]);
   const [dashboardTrainers, setDashboardTrainers] = useState([]);
 
   useLayoutEffect(() => {
@@ -21,7 +20,7 @@ function UserDashboard() {
   }, [user, navigate]);
 
   useEffect(() => {
-    fetch('/trainers')
+    fetch('/api/trainers')
       .then((res) => res.json())
       .then((data) => {
         setTrainersList(data);
@@ -29,7 +28,7 @@ function UserDashboard() {
   }, []);
 
   useEffect(() => {
-    fetch('dashboard_trainers')
+    fetch('/api/dashboard_trainers')
       .then((res) => res.json())
       .then((data) => {
         setDashboardTrainers(data);
@@ -61,11 +60,11 @@ function UserDashboard() {
               <h2> Trainers</h2>
               {dashboardTrainers?.map((trainer, i) => (
                 <div key={i} className="trainers">
-                  <div className="trainer-details" onClick={() => navigate(`/trainer/${trainer.id}`)}>
+                  <div className="trainer-details" onClick={() => navigate(`/trainer/${trainer?.id}`)}>
                     <h1>
-                      {trainer.firstname.slice(0, 1)} {trainer.lastname.slice(0, 1)}
+                      {trainer?.firstname?.slice(0, 1)} {trainer?.lastname?.slice(0, 1)}
                     </h1>
-                    <h5>{`${trainer.firstname} ${trainer.lastname}`}</h5>
+                    <h5>{`${trainer?.firstname} ${trainer?.lastname}`}</h5>
                   </div>
                 </div>
               ))}
@@ -112,14 +111,7 @@ function UserDashboard() {
                 </div>
               </div>
               <div className="edit-button">
-                <button
-                  onClick={() => {
-                    navigate('/Register');
-                  }}
-                >
-                  {' '}
-                  Edit{' '}
-                </button>
+                <button> Edit </button>
               </div>
             </div>
           </div>

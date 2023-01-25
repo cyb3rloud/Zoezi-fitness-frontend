@@ -46,19 +46,19 @@ export default function BasicTable({ users }) {
                 </TableRow>
               </TableHead>
               <TableBody style={{ color: 'white' }}>
-                {users.map((user) => (
-                  <TableRow key={user.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                {users?.map((user) => (
+                  <TableRow key={user?.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                     <TableCell component="th" scope="row">
-                      {user.firstname} {user.lastname}
+                      {user?.firstname} {user?.lastname}
                     </TableCell>
-                    <TableCell align="left">{user.age}</TableCell>
-                    <TableCell align="left">{user.current_weight}</TableCell>
-                    <TableCell align="left">{user.email}</TableCell>
+                    <TableCell align="left">{user?.age}</TableCell>
+                    <TableCell align="left">{user?.current_weight}</TableCell>
+                    <TableCell align="left">{user?.email}</TableCell>
                     <TableCell align="left">
-                      <span className="status">{user.contact}</span>
+                      <span className="status">{user?.contact}</span>
                     </TableCell>
                     <TableCell align="left" className="Details">
-                      {user.client_goal}
+                      {user?.client_goal}
                     </TableCell>
                   </TableRow>
                 ))}

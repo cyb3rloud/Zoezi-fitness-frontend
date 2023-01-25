@@ -1,0 +1,203 @@
+.cart {
+  position: sticky;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.cart-item img {
+  height: 50px;
+  margin-right: 25px;
+}
+
+.offer-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 2rem;
+  font-family: "Amiri", serif;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.loading {
+  -webkit-animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -o-animation: fadein 2s;
+  animation: fadein 2s;
+}
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.spinner-wrapper {
+  min-width: 100%;
+  min-height: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.93);
+  position: absolute;
+  z-index: 300;
+}
+
+.checkout {
+  background-color: rgb(29, 54, 29);
+  color: white;
+  font-size: 20px;
+  padding: 2px;
+  border-radius: 6px;
+}
+
+.checkout:hover {
+  transform: scale(1.2);
+}
+
+.spinner-text {
+  position: absolute;
+  top: 41.5%;
+  left: 47%;
+  margin: 16px 0 0 35px;
+  font-size: 9px;
+  font-family: Arial;
+  color: #BBB;
+  letter-spacing: 1px;
+  font-weight: 700
+}
+
+.spinner {
+  margin: 0;
+  display: block;
+  position: absolute;
+  left: 45%;
+  top: 40%;
+  border: 25px solid rgba(100, 100, 100, 0.2);
+  width: 1px;
+  height: 1px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  -webkit-animation: spin 1.5s infinite;
+  -moz-animation: spin 1.5s infinite;
+  animation: spin 1.5s infinite;
+}
+
+@-webkit-keyframes spin {
+
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg) scale(1)
+  }
+
+  50% {
+    -webkit-transform: rotate(720deg) scale(0.6)
+  }
+}
+
+@-moz-keyframes spin {
+
+  0%,
+  100% {
+    -moz-transform: rotate(0deg) scale(1)
+  }
+
+  50% {
+    -moz-transform: rotate(720deg) scale(0.6)
+  }
+}
+
+@-o-keyframes spin {
+
+  0%,
+  100% {
+    -o-transform: rotate(0deg) scale(1)
+  }
+
+  50% {
+    -o-transform: rotate(720deg) scale(0.6)
+  }
+}
+
+@keyframes spin {
+
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1)
+  }
+
+  50% {
+    transform: rotate(720deg) scale(0.6)
+  }
+}
+
+.offer-button-disabled {
+  background-color: rgb(228, 228, 228);
+  color: white;
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 2rem;
+  font-family: "Amiri", serif;
+  margin-bottom: 25px;
+}
+
+.remove-button {
+  border: none;
+  background-color: black;
+  padding: 10px;
+  cursor: pointer;
+}

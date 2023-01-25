@@ -31,8 +31,9 @@ function Login({ handleLoginClose, showLogin, handleShow }) {
       actions.resetForm();
       handleCSubmit(values);
 
-      fetch('/login', {
+      fetch('/api/login', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',

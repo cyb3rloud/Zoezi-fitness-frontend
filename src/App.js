@@ -23,15 +23,14 @@ import AllProducts from './Dashboards/AllProducts';
 import AllOrders from './Dashboards/AllOrders';
 import { ToastContainer } from 'react-toastify';
 
-function App() {
+function AppRoutes() {
   const [users, setUsers] = useState([]);
   const [trainers, setTrainers] = useState([]);
   const [products] = useState([]);
   const [orders] = useState([]);
-  const [, setUser] = useState(null);
 
   useEffect(() => {
-    fetch('/users')
+    fetch('/api/users')
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -39,7 +38,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch('/trainers')
+    fetch('/api/trainers')
       .then((res) => res.json())
       .then((data) => {
         setTrainers(data);
@@ -52,40 +51,44 @@ function App() {
   }
 
   return (
-    <>
-      <UserProvider>
-        <BrowserRouter>
-          <ScrollButton></ScrollButton>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/Products" element={<Products />} />
-            <Route exact path="/About" element={<About />} />
-            <Route exact path="/Login" element={<Login setUser={setUser} />} />
-            <Route exact path="/Register" element={<Register />} />
-            <Route exact path="/Trainers" element={<Trainers trainers={trainers} />} />
-            <Route exact path="/Trainer/:id" element={<Trainerinfo />} />
-            <Route exact path="/Testimonialss" element={<Testimonialss />} />
-            <Route
-              exact
-              path="/AdminDashboard"
-              element={<AdminDashboard users={users} trainers={trainers} products={products} orders={orders} />}
-            />
-            <Route exact path="/UserDashboard" element={<UserDashboard />} />
-            <Route exact path="/AddProduct" element={<AddProduct />} />
-            <Route exact path="/AddUser" element={<AddUser addUser={addUser} />} />
-            <Route exact path="/AddTrainer" element={<AddTrainer />} />
-            <Route exact path="/AddOrder" element={<AddOrder />} />
-            <Route exact path="/AllUsers" element={<AllUsers users={users} />} />
-            <Route exact path="/AllTrainers" element={<AllTrainers trainers={trainers} />} />
-            <Route exact path="/AllProducts" element={<AllProducts products={products} />} />
-            <Route exact path="/AllOrders" element={<AllOrders orders={orders} />} />
-          </Routes>
-          <ToastContainer />
-          {/* <div style={{overflowY:"scroll", height:"800px"}}></div>  */}
-        </BrowserRouter>
-      </UserProvider>
-    </>
+    <UserProvider>
+      <BrowserRouter>
+        <ScrollButton></ScrollButton>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/Products" element={<Products />} />
+          <Route exact path="/About" element={<About />} />
+          <Route exact path="/Login" element={<Login />} />
+          <Route exact path="/Register" element={<Register />} />
+          <Route exact path="/Trainers" element={<Trainers trainers={trainers} />} />
+          <Route exact path="/Trainer/:id" element={<Trainerinfo />} />
+          <Route exact path="/Testimonialss" element={<Testimonialss />} />
+          <Route
+            exact
+            path="/AdminDashboard"
+            element={<AdminDashboard users={users} trainers={trainers} products={products} orders={orders} />}
+          />
+          <Route exact path="/UserDashboard" element={<UserDashboard />} />
+          <Route exact path="/AddProduct" element={<AddProduct />} />
+          <Route exact path="/AddUser" element={<AddUser addUser={addUser} />} />
+          <Route exact path="/AddTrainer" element={<AddTrainer />} />
+          <Route exact path="/AddOrder" element={<AddOrder />} />
+          <Route exact path="/AllUsers" element={<AllUsers users={users} />} />
+          <Route exact path="/AllTrainers" element={<AllTrainers trainers={trainers} />} />
+          <Route exact path="/AllProducts" element={<AllProducts products={products} />} />
+          <Route exact path="/AllOrders" element={<AllOrders orders={orders} />} />
+        </Routes>
+        <ToastContainer />
+        {/* <div style={{overflowY:"scroll", height:"800px"}}></div>  */}
+      </BrowserRouter>
+    </UserProvider>
   );
+}
+
+const App = () => {
+  return (<UserProvider>
+    <AppRoutes/>
+  </UserProvider>)
 }
 
 export default App;

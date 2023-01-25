@@ -41,7 +41,7 @@ const AddUser = ({ addUser }) => {
     if (!firstname || !lastname || !email || !password || !contact || !age || !height || !current_weight || !goal) {
       toast.error('please fill all input fields');
     } else {
-      fetch('/users', {
+      fetch('/api/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

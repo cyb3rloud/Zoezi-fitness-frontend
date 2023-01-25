@@ -1,8 +1,25 @@
+@import url('https://fonts.cdnfonts.com/css/elegant-2');
+@import url('https://fonts.cdnfonts.com/css/offenbacher-reform-cat');
+
+
 .testimonials-page {
-  background-color: #f9f9fb;
+  background-image: url('../../images/test1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   padding: 2em 0.5em;
-  width: 80%;
+  width: 100%;
   margin: auto;
+  border-top: 1px solid #a07508;
+}
+
+.testimonials-page h1 {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  text-decoration: underline;
+  font-family: 'Offenbacher Reform CAT', sans-serif;
+
 }
 
 .testimonials {
@@ -20,6 +37,7 @@
   margin-bottom: 2em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .testimony img {
   width: 100px;
   height: 100px;
@@ -35,15 +53,14 @@
 
 .form-table {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-gap: 2em;
   padding: 0.5em;
 }
 
 .form-table input {
-  border-radius: 24px;
+  align-items: center;
+  border-radius: 14px;
   padding: 0.5em 0.5em;
-  margin-bottom: 3.5em;
   background-color: #ffffff;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -63,12 +80,58 @@
   cursor: pointer;
   width: 25px;
 }
+
 .on {
-  color: #ffd700;
+  color: #a07508;
 }
+
 .off {
   color: #ccc;
 }
+
 .star {
   font-size: 28px;
+}
+
+.form-test {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.my-button {
+
+  --b: 3px;
+  /* border thickness */
+  --s: .45em;
+  /* size of the corner */
+  --color: #cb9b51;
+
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  border-radius: 50%;
+  box-shadow: 10px solid green;
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .8em;
+  font-size: 15px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.my-button:hover,
+.my-button:focus-visible {
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.my-button:active {
+  background: var(--color);
+  color: #fff;
 }

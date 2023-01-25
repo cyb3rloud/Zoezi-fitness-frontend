@@ -35,8 +35,9 @@ const Navbar = () => {
         <Container>
           <div className="navigation">
             <div className="logo">
-              <NavLogo href="#" className="befited d-flex gap-2 align-items-center">
-                Zoezi Fitness
+              <NavLogo href="#" className="befited">
+                <h1 className="logoh1"></h1>
+                Zoezi<br></br>Fitness
               </NavLogo>
             </div>
             <div className="nav_menu">
@@ -66,7 +67,7 @@ const Navbar = () => {
               </ul>
             </div>
 
-            <div className="nav_right d-flex align-items-center gap-5">
+            <div className="navc">
               {/* <Link to="/Login"> <button className='btn d-flex gap-2 align-items-center'>
   
   Register
@@ -77,7 +78,7 @@ const Navbar = () => {
 
               {!user?.id ? (
                 <>
-                  <button className="btn d-flex gap-2 align-items-center" onClick={handleShow}>
+                  <button className="register-btn d-flex gap-2 align-items-center" onClick={handleShow}>
                     Register
                   </button>
                 </>

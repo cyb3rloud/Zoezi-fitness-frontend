@@ -13,7 +13,7 @@ function Testimonialss() {
   const { user } = useUser();
 
   useEffect(() => {
-    fetch('/testimonials')
+    fetch('/api/testimonials', {})
       .then((res) => res.json())
       .then((data) => {
         setTestimonies(data);
@@ -54,7 +54,7 @@ function Testimonialss() {
     if (!testimony || !rating) {
       toast.error('please fill all input fields');
     } else {
-      fetch('/testimonials', {
+      fetch('/api/testimonials', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -82,15 +82,15 @@ function Testimonialss() {
     <>
       <Navbar />
       <div className="testimonials-page">
-        <h1>Testimonials</h1>
+        <h1 >Testimonials</h1>
         <div>
           <div className="testimonials">
             {testimonies.length ? (
               testimonies.map((testimony) => (
-                <div className="testimony" key={testimony.id}>
-                  <StarRating ratings={testimony.rating} />
-                  <p>{testimony.testimony}</p>
-                  <h5> ~ {testimony.user.firstname} ~ </h5>
+                <div className="testimony" key={testimony?.id}>
+                  <StarRating ratings={testimony?.rating} />
+                  <p>{testimony?.testimony}</p>
+                  <h5> ~ {testimony?.user?.firstname} ~ </h5>
                   <h6></h6>
                 </div>
               ))
@@ -101,18 +101,18 @@ function Testimonialss() {
         </div>
         <div className="testimony-form">
           <h1>Tell us your story</h1>
-          <form onSubmit={handleSubmit}>
+          <form className='form-test' onSubmit={handleSubmit}>
             <div className="form-table">
               <div>
-                <label> Your Story </label> <br />
-                <input type="text" name="testimony" value={formData.testimony} onChange={handleChange} /> <br />
+                <label style={{ color: 'white' }}> Your Story </label> <br />
+                <input type="textArea" name="testimony" value={formData.testimony} onChange={handleChange} /> <br />
               </div>
               <div>
-                <label> Rating </label> <br />
+                <label style={{ color: 'white' }}> Rating </label> <br />
                 <StarRating callback={handleRating} />
               </div>
             </div>
-            <button className="form-button" type="submit">
+            <button className="my-button" type="submit">
               Submit
             </button>
           </form>

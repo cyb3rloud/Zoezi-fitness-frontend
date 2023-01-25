@@ -1,6 +1,20 @@
+@import url('https://fonts.cdnfonts.com/css/elegant-2');
+
+.fixed {
+  background-image: url('../../images/7.jpg');
+  height: 85vh;
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  border-bottom: 10px solid #704505;
+  border-top: 1px solid #a07508;
+}
+
 .hero_content h2 {
   line-height: 55px;
   font-size: 2.5rem;
+
 }
 
 .hero_content h2 span {
@@ -36,13 +50,304 @@
   color: #fff;
 }
 
-.hero_img {
-  width: 500px;
-  margin-left: auto;
+
+.hero-section {
+  background-color: rgb(26, 26, 26);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 1;
+  color: white;
+  height: 90vh;
 }
 
-.hero_img img {
-  border-radius: 7px;
-  width: 510px;
-  height: 300px;
+.hero-container {
+  border-left: 2px solid #d4b485;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 0px;
+  margin-left: 30px;
+
+
+}
+
+.hero-main {
+  padding-left: 10px;
+}
+
+.lower-div {
+  background-color: rgb(26, 26, 26);
+
+}
+
+.my-button {
+
+  --b: 3px;
+  /* border thickness */
+  --s: .45em;
+  /* size of the corner */
+  --color: #cb9b51;
+
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  border-radius: 50%;
+  box-shadow: 10px solid green;
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .8em;
+  font-size: 15px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.my-button:hover,
+.my-button:focus-visible {
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.my-button:active {
+  background: var(--color);
+  color: #fff;
+}
+
+.who-we {
+  text-align: center;
+  font-family: 'ELEGANT', sans-serif;
+  font-size: 50px;
+  width: fit-content;
+  margin-left: 40%;
+
+}
+
+.star1 {
+  margin-top: 170px;
+  margin-left: 40px;
+  animation: swing ease-in-out 1s infinite alternate;
+  transform-origin: center -20px;
+  float: left;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.swing img {
+  border: 5px solid #f8f8f8;
+  display: block;
+}
+
+.swing:after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+  top: -10px;
+  left: 50%;
+  z-index: 0;
+  border-bottom: none;
+  border-right: none;
+  transform: rotate(45deg);
+}
+
+/* nail */
+.swing:before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: -14px;
+  left: 54%;
+  z-index: 5;
+  border-radius: 50% 50%;
+  background: #000;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(3deg);
+  }
+
+  100% {
+    transform: rotate(-3deg);
+  }
+}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+.floatL {
+  float: left;
+}
+
+.floatR {
+  float: right;
+}
+
+.clear {
+  clear: both;
+  line-height: 0;
+  font-size: 0;
+  display: block;
+}
+
+.flip-p {
+  line-height: 10px;
+  color: #333;
+  margin: 5px 0;
+}
+
+#content {
+  background: rgba(0, 0, 0, 0.4);
+  width: 408px;
+  margin-top: 100px;
+  margin-left: 200px;
+  border: 4px solid #a07508
+}
+
+.flip-container {
+  perspective: 1000;
+  width: 200px;
+}
+
+.flipper {
+  transition: 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+  height: 100px;
+}
+
+.front,
+.back {
+  width: 200px;
+  height: 319px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  backface-visibility: hidden;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background: transparent;
+
+}
+
+.front {
+  z-index: 2;
+  background: transparent;
+  border-radius: 2px solid red;
+}
+
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+  transform: rotateY(-180deg);
+}
+
+.flip-container p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.bookflip-container .flipper {
+  transform-origin: 0;
+}
+
+.fixed-hold {
+  display: flex;
+}
+
+.typewriter {
+  margin-top: 140px;
+  margin-left: 100px;
+}
+
+.typewriter p {
+  border-left: 2px solid #a07508;
+  color: white;
+  padding-left: 4px;
+}
+
+.typewriter h1 {
+  font-family: monospace;
+  /* Web-safe typewriter-like font */
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  /* The typewriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  color: white;
+  font-size: large;
+  /* Gives that scrolling effect as the typing happens */
+  /* Adjust as needed */
+  animation: typing 3.5s steps(30, end), blinking-cursor .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blinking-cursor {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: pink;
+  }
+}
+
+.hover-me {
+  color: white;
+  font-family: 'ELEGANT', sans-serif;
+  font-size: 40px;
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }

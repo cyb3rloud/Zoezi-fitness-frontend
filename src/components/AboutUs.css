@@ -4,47 +4,76 @@
 *in public/index.html to improve performance
 */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/elegant-2');
+@import url('https://fonts.cdnfonts.com/css/offenbacher-reform-cat');
+
+.main-h {
+  font-family: 'Offenbacher Reform CAT', sans-serif;
+  text-align: center;
+  font-size: 50px;
+  color: #a07508;
+
+}
 
 .about-us {
-  background-color: #f5f5f5;
+  background-image: url('../images/about5.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+  font-family: 'ELEGANT', sans-serif;
+  border-top: 1px solid #a07508;
+  align-items: center;
+
+
 }
 
-.about-us-section {
-  width: 727px;
-  margin: 3.5rem auto;
-  text-align: center;
+.about-info1 {
+  width: 400px;
+  border-left: 2px solid #a07508;
+  border-right: 2px solid #a07508;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  align-items: left;
+  color: white;
+  margin: 2px 117px 2px 112px;
+
 }
 
-.about-us-section span {
-  font-family: Inter;
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 58px;
-  letter-spacing: 0em;
-  text-align: center;
+.cont {
+  display: flex;
 }
 
-.about-us-section p {
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 30px;
-  letter-spacing: 0em;
-  text-align: center;
-}
+
 
 .about-us-stats {
   width: 900px;
-  margin: 3rem auto;
+  margin-left: 10rem;
   display: flex;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+
   justify-content: space-between;
-  background: #d9d9d9;
-  padding: 20px;
+  background: #353232;
+  padding: 2px;
 }
+
 .stat {
-  margin-top: -15px;
+  margin-top: 0px;
 }
+
 .about-us-stats div:nth-child(2),
 .about-us-stats div:nth-child(4) {
-  transform: translateY(40px);
+  transform: translateY(0px);
+}
+
+.about-us p {
+  color: white;
+
+}
+
+.about-us h1 {
+  text-decoration: underline;
+
 }
